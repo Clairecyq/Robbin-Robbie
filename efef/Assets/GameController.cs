@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
     public static GameController instance;
+    public GameObject finishLevelText;
     public GameObject gameOverText;
     public bool gameOver = false;
+    public bool levelFinish = false;
 
 	void Awake () {
         if (instance == null) {
@@ -18,7 +20,11 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (gameOver) {
+        if (Input.GetKeyDown("r")) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (levelFinish) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 	}
@@ -26,5 +32,11 @@ public class GameController : MonoBehaviour {
     public void RobbieDied() {
         gameOverText.SetActive(true);
         gameOver = true;
+    }
+
+    public void PickedDonut() {
+        finishLevelText.SetActive(true);
+        //levelFinish = true;
+
     }
 }

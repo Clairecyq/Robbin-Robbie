@@ -205,6 +205,7 @@
     <Compile Include="Assets\2DGamekit\Utilities\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
     <Compile Include="Assets\CharacterController2D.cs" />
     <Compile Include="Assets\CollectDonut.cs" />
+    <Compile Include="Assets\DonutBehavior.cs" />
     <Compile Include="Assets\EnemyBehavior.cs" />
     <Compile Include="Assets\GameController.cs" />
     <Compile Include="Assets\RobbieMovement.cs" />
