@@ -38,7 +38,7 @@ public class CharacterController2D : MonoBehaviour
 
 
 	private void start() {
-		HidingSprite = Resources.Load<Sprite>("robbie_hiding");
+		// HidingSprite = Resources.Load<Sprite>("robbie_hiding");
 	}
 	private void Awake()
 	{
@@ -74,7 +74,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		if (gameObject.GetComponent<RobbieMovement>().hide) {
-			gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
+			// gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
 		}
 		else {
