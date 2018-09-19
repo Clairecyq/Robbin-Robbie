@@ -445,6 +445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8453cf31e0f724c01a5b9f64874626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed: 2
+  wallLeft: -3
+  wallRight: 5
 --- !u!1 &676529703
 GameObject:
   m_ObjectHideFlags: 0
