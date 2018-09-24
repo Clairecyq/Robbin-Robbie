@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour {
+    public GameObject robbie;
     public float walkSpeed = 2.0f;
     public float wallLeft = -4.0f;
     public float wallRight = 5.0f;
@@ -19,8 +20,8 @@ public class EnemyBehavior : MonoBehaviour {
     }
 
 
-    private void OnCollisionEnter2D()
-    {
-        GameController.instance.RobbieDied(); 
+    private void OnCollisionEnter2D(Collision2D c)
+    {   
+        if (c.otherCollider == robbie) GameController.instance.RobbieDied(); 
     }
 }
