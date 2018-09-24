@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scripts/LevelSelector.unity
-  isLoaded: 1
-  isActive: 1
