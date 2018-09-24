@@ -22,9 +22,11 @@ public class GameController : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown("r")) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            levelFinish = false;
         }
 
-        if (levelFinish) {
+        //TODO: this needs to be modified
+        if (levelFinish && false) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 	}
@@ -36,7 +38,7 @@ public class GameController : MonoBehaviour {
 
     public void PickedDonut() {
         finishLevelText.SetActive(true);
-        //levelFinish = true;
+        levelFinish = true;
 
     }
 }

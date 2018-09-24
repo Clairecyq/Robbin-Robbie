@@ -13,6 +13,9 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 
+	[SerializeField] private LayerMask m_WhatIsFinishLevel;
+	[SerializeField] private Transform m_DonutCheck;
+
 	[SerializeField] private LayerMask m_WhatIsEnemy;
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
@@ -51,14 +54,26 @@ public class CharacterController2D : MonoBehaviour
 			OnCrouchEvent = new BoolEvent();
 	}
 
+	public void resetCollisionInfo() {
+		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Interactable"), false);
+		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+	}
+
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
+		if (GameController.instance.levelFinish) {
+			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Interactable"), true);
+		}
+		else {
+			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Interactable"), false);
+		}
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
-		Collider2D[] colliders       = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		Collider2D[] colliders              = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		Collider2D[] collides_with_donut = Physics2D.OverlapCircleAll(m_DonutCheck.position, k_GroundedRadius, m_WhatIsFinishLevel);
         // Debug.Log("groundcheck position");
         // Debug.Log(m_GroundCheck.position);
 
@@ -69,6 +84,13 @@ public class CharacterController2D : MonoBehaviour
 				m_Grounded = true;
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
+			}
+		}
+
+		for (int i = 0; i < collides_with_donut.Length; i++) {
+			Collider2D d_col = collides_with_donut[i];
+			if (d_col.gameObject == gameObject && d_col.gameObject.name == "Robbie") {
+				GameController.instance.PickedDonut();
 			}
 		}
 
