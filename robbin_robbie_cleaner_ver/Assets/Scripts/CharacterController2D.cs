@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-	[SerializeField] private float m_JumpForce = 100f;							// Amount of force added when the player jumps.
+	[SerializeField] private float m_JumpForce = 200f;							// Amount of force added when the player jumps.
 
 	Sprite HidingSprite;
 
