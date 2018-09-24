@@ -6,6 +6,8 @@ public class RobbieMovement : MonoBehaviour {
 
     public CharacterController2D controller;
     public float speed;
+
+    public float hiding_speed_adjust = 0.35f;
     public float horizontalMove;
     public bool jump = false;
 
@@ -28,8 +30,6 @@ public class RobbieMovement : MonoBehaviour {
             hide   = true;
             hiding = true;
             gameObject.GetComponent<SpriteRenderer>().color = Color.black;
-            //gameObject.layer = LayerMask.NameToLayer("EnemyWeapon");
-            //robbie.layer = LayerMask.NameToLayer("EnemyWeapon");
         }
         
         if (Input.GetButtonUp("Hide")) {
@@ -39,10 +39,9 @@ public class RobbieMovement : MonoBehaviour {
 	}
 
     void FixedUpdate() {
+        if (hide) horizontalMove *= hiding_speed_adjust; 
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
         jump = false;
-        // if (!hiding)
-        //     hide = false;
     }
 
 }

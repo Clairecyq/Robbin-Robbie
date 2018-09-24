@@ -449,6 +449,7 @@ MonoBehaviour:
   walkSpeed: 2
   wallLeft: -3
   wallRight: 5
+  m_facingRight: 1
 --- !u!95 &646573424
 Animator:
   serializedVersion: 3
@@ -950,6 +951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 985632932}
   speed: 20
+  hiding_speed_adjust: 0.35
   horizontalMove: 0
   jump: 1
   hide: 0
@@ -965,7 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2a3f044f39a4fc1b34b10dba06548c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 400
+  m_JumpForce: 200
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
