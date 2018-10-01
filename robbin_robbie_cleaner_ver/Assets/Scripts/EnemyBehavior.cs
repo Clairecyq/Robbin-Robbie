@@ -43,9 +43,7 @@ public class EnemyBehavior : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D c)
     {   
-        //Debug.Log(c.otherCollider.ToString());
-        if (c.otherCollider.gameObject.name == "Demon") {
-            Debug.Log("DIED");
+        if (c.gameObject.name == "Robbie") {
             GameController.instance.RobbieDied();
         } 
     }

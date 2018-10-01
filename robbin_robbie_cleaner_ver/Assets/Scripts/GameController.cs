@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
     public static GameController instance;
+
+    public GameObject robbie;
     public GameObject finishLevelText;
     public GameObject gameOverText;
+
+    public GameObject energyBarOne;
     public bool gameOver = false;
     public bool levelFinish = false;
 
@@ -23,7 +27,20 @@ public class GameController : MonoBehaviour {
         if (Input.GetKeyDown("r")) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             levelFinish = false;
+            Vector3 energyScale = energyBarOne.transform.localScale;
+            energyScale.x = 1.0f;
+            energyBarOne.transform.localScale = energyScale;
+
         }
+
+        // this code requires items from character controller to make changes to something in game controller
+        // needs to be moved
+        Vector3 energyscale = energyBarOne.transform.localScale;
+        //Debug.Log(CharacterController2D.instance.currentHidingPower);
+        CharacterController2D char_component = robbie.GetComponent<CharacterController2D>();
+        energyscale.x = Mathf.Min(1.0f, (float) char_component.currentHidingPower / char_component.getMaxHidingEnergy());
+        energyBarOne.transform.localScale = energyscale;
+        // end problematic code
 
         //TODO: this needs to be modified
         if (levelFinish && false) {
@@ -39,6 +56,5 @@ public class GameController : MonoBehaviour {
     public void PickedDonut() {
         finishLevelText.SetActive(true);
         levelFinish = true;
-
     }
 }

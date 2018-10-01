@@ -14,6 +14,9 @@ public class RobbieMovement : MonoBehaviour {
     GameObject robbie;
 
     public bool hide   = false;
+
+    public bool qHide = false;
+    public bool eHide = false;
     public bool hiding = false;
 
     void start () {
@@ -26,14 +29,26 @@ public class RobbieMovement : MonoBehaviour {
         if (Input.GetButtonDown("Jump")) {
             jump = true;
         }
-        if (Input.GetButtonDown("Hide")) {
+        if ((Input.GetButtonDown("Hide") || Input.GetButtonDown("Hide2")) && gameObject.GetComponent<CharacterController2D>().currentHidingPower > 0) {
             hide   = true;
             hiding = true;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+            if (Input.GetButtonDown("Hide")) {
+                gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+                qHide = true;
+                eHide = false;
+            }
+            else {
+                gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+                qHide = false;
+                eHide = true;
+
+            }
         }
         
-        if (Input.GetButtonUp("Hide")) {
-            hide = false;
+        if (Input.GetButtonUp("Hide") || Input.GetButtonUp("Hide2") || gameObject.GetComponent<CharacterController2D>().currentHidingPower == 0) {
+            hide  = false;
+            qHide = false;
+            eHide = false;
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
 	}
