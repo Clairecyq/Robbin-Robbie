@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
 
     public GameObject robbie;
     public GameObject finishLevelText;
+    public GameObject finishLevelText2;
     public GameObject gameOverText;
 
     public GameObject energyBarOne;
@@ -43,18 +44,27 @@ public class GameController : MonoBehaviour {
         // end problematic code
 
         //TODO: this needs to be modified
-        if (levelFinish && false) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (levelFinish) {
+            if (Input.GetKeyDown("c"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
 	}
 
     public void RobbieDied() {
-        gameOverText.SetActive(true);
-        gameOver = true;
+        if (!levelFinish)
+        {
+            gameOverText.SetActive(true);
+            gameOver = true;
+        }
     }
 
     public void PickedDonut() {
-        finishLevelText.SetActive(true);
-        levelFinish = true;
+        if (!gameOver) {
+            finishLevelText.SetActive(true);
+            finishLevelText2.SetActive(true);
+            levelFinish = true;
+        }
     }
 }
