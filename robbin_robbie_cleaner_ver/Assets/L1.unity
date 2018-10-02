@@ -958,6 +958,8 @@ MonoBehaviour:
   horizontalMove: 0
   jump: 0
   hide: 0
+  qHide: 0
+  eHide: 0
   hiding: 0
 --- !u!114 &985632932
 MonoBehaviour:
@@ -1114,6 +1116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde1175cc73ba8f43be13b4b085cdaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  robbie: {fileID: 985632926}
   finishLevelText: {fileID: 1969393501}
   gameOverText: {fileID: 1316520261}
   energyBarOne: {fileID: 1460796371}
@@ -1279,8 +1282,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: 250}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: -500, y: 270}
+  m_SizeDelta: {x: 150, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1460796373
 MonoBehaviour:
