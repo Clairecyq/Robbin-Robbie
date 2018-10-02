@@ -33,7 +33,7 @@ public class RobbieMovement : MonoBehaviour {
             hide   = true;
             hiding = true;
             if (Input.GetButtonDown("Hide")) {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 qHide = true;
                 eHide = false;
             }
