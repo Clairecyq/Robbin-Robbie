@@ -18,7 +18,7 @@ TagManager:
   - Enemy
   - Usable
   - Interactable
-  - IgnorePlayer
+  - Enemy2
   - Player
   - Cameras
   - LitSprites

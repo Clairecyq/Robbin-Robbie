@@ -3,7 +3,12 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
+	public static CharacterController2D instance;
 	[SerializeField] private float m_JumpForce = 200f;							// Amount of force added when the player jumps.
+
+	[SerializeField] private int startingHidingPower = 300;
+
+
 
 	Sprite HidingSprite;
 
@@ -39,12 +44,16 @@ public class CharacterController2D : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
+	public int currentHidingPower;
+
 
 	private void start() {
-		// HidingSprite = Resources.Load<Sprite>("robbie_hiding");
+		//currentHidingPower = startingHidingPower;
 	}
+
 	private void Awake()
 	{
+
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (OnLandEvent == null)
@@ -52,11 +61,14 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+
+		currentHidingPower = startingHidingPower;
 	}
 
 	public void resetCollisionInfo() {
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Interactable"), false);
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy2"), false);
 	}
 
 	private void FixedUpdate()
@@ -94,12 +106,22 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 
-		if (gameObject.GetComponent<RobbieMovement>().hide) {
+		if (gameObject.GetComponent<RobbieMovement>().qHide) {
+			hidingUpdate();
 			// gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
 		}
 		else {
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+		}
+
+		if (gameObject.GetComponent<RobbieMovement>().eHide) {
+			hidingUpdate();
+			// gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
+			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy2"), true);
+		}
+		else {
+			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy2"), false);
 		}
 	}
 
@@ -187,4 +209,12 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	private void hidingUpdate() {
+		currentHidingPower = Mathf.Max(0, currentHidingPower - 1);
+		//Debug.Log(currentHidingPower);
+	}
+	public int getMaxHidingEnergy() {
+        return this.startingHidingPower;
+    }
 }
