@@ -1731,21 +1731,6 @@ Prefab:
       propertyPath: m_DonutCheck
       value: 
       objectReference: {fileID: 1531976277}
-    - target: {fileID: 61221802527496872, guid: 61e471da20231e448bd26029e37768f3,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: -0.08975267
-      objectReference: {fileID: 0}
-    - target: {fileID: 61221802527496872, guid: 61e471da20231e448bd26029e37768f3,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.1537068
-      objectReference: {fileID: 0}
-    - target: {fileID: 114869267369810192, guid: 61e471da20231e448bd26029e37768f3,
-        type: 2}
-      propertyPath: m_JumpForce
-      value: 360
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61e471da20231e448bd26029e37768f3, type: 2}
   m_IsPrefabAsset: 0
