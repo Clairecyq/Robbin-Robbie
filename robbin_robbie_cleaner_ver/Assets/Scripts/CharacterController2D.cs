@@ -110,7 +110,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		if (gameObject.GetComponent<RobbieMovement>().qHide) {
-			hidingUpdate();
+			hidingUpdate(1);
 			// gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
 		}
@@ -119,7 +119,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		if (gameObject.GetComponent<RobbieMovement>().eHide) {
-			hidingUpdate();
+			hidingUpdate(1);
 			// gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy2"), true);
 		}
@@ -198,6 +198,7 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
+			hidingUpdate(10);
 			// Add a vertical force to the player.
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
@@ -216,8 +217,8 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-	private void hidingUpdate() {
-		currentHidingPower = Mathf.Max(0, currentHidingPower - 1);
+	private void hidingUpdate(int fr) {
+		currentHidingPower = Mathf.Max(0, currentHidingPower - fr);
 		//Debug.Log(currentHidingPower);
 	}
 	public int getMaxHidingEnergy() {

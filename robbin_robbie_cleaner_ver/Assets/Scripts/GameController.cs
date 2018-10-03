@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
     public GameObject finishLevelText;
     public GameObject finishLevelText2;
     public GameObject gameOverText;
+    public RectTransform.Axis anchor;
 
     public GameObject energyBarOne;
     public bool gameOver = false;
@@ -21,6 +22,7 @@ public class GameController : MonoBehaviour {
         } else if (instance != this) {
             Destroy(gameObject);
         }
+        anchor = UnityEngine.RectTransform.Axis.Horizontal;
 	}
 	
 	// Update is called once per frame
@@ -36,11 +38,13 @@ public class GameController : MonoBehaviour {
 
         // this code requires items from character controller to make changes to something in game controller
         // needs to be moved
-        Vector3 energyscale = energyBarOne.transform.localScale;
-        //Debug.Log(CharacterController2D.instance.currentHidingPower);
         CharacterController2D char_component = robbie.GetComponent<CharacterController2D>();
-        energyscale.x = Mathf.Min(1.0f, (float) char_component.currentHidingPower / char_component.getMaxHidingEnergy());
-        energyBarOne.transform.localScale = energyscale;
+        // energyscale.x = Mathf.Min(1.0f, (float) char_component.currentHidingPower / char_component.getMaxHidingEnergy());
+        // energyBarOne.transform.localScale = energyscale;
+        GameObject theBar = GameObject.Find ("Canvas/energy");
+        theBar.GetComponent< RectTransform >( ).SetSizeWithCurrentAnchors(anchor , char_component.currentHidingPower);
+        // var theBarRectTransform = theBar.transform as RectTransform;
+        // theBarRectTransform.sizeDelta = new Vector2 (char_component.currentHidingPower, theBarRectTransform.sizeDelta.y);
         // end problematic code
 
         //TODO: this needs to be modified

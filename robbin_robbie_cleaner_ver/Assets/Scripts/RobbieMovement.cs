@@ -27,8 +27,8 @@ public class RobbieMovement : MonoBehaviour {
 	void Update () {
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         gameObject.GetComponent<Animator>().SetInteger("movement_speed", (int)Mathf.Abs(horizontalMove));
-        if (Input.GetButtonDown("Jump")) {
-            jump = true;
+        if (Input.GetButtonDown("Jump") && gameObject.GetComponent<CharacterController2D>().currentHidingPower > 9) {
+            jump = true;  
         }
         if ((Input.GetButtonDown("Hide") || Input.GetButtonDown("Hide2")) && gameObject.GetComponent<CharacterController2D>().currentHidingPower > 0) {
             hide   = true;
