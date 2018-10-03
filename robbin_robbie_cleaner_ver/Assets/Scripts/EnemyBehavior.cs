@@ -47,7 +47,6 @@ public class EnemyBehavior : MonoBehaviour {
             GameController.instance.RobbieDied();
         } else {
             enemy_flip();
-            Debug.Log("flipped");
         }
     }
 }

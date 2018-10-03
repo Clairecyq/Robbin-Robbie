@@ -85,7 +85,7 @@ public class CharacterController2D : MonoBehaviour
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
 		Collider2D[] colliders              = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-		Collider2D[] collides_with_donut = Physics2D.OverlapCircleAll(m_DonutCheck.position, k_GroundedRadius, m_WhatIsFinishLevel);
+		Collider2D[] collides_with_donut    = Physics2D.OverlapCircleAll(m_DonutCheck.position, k_GroundedRadius, m_WhatIsFinishLevel);
         // Debug.Log("groundcheck position");
         // Debug.Log(m_GroundCheck.position);
 
@@ -101,7 +101,10 @@ public class CharacterController2D : MonoBehaviour
 
 		for (int i = 0; i < collides_with_donut.Length; i++) {
 			Collider2D d_col = collides_with_donut[i];
-			if (d_col.gameObject == gameObject && d_col.gameObject.name == "Robbie") {
+			//Debug.Log(d_col.gameObject.layer.ToString());
+			if (d_col.gameObject.name == "Robbie") {
+				Debug.Log(gameObject.ToString());
+				Debug.Log(d_col.gameObject.ToString());
 				GameController.instance.PickedDonut();
 			}
 		}
