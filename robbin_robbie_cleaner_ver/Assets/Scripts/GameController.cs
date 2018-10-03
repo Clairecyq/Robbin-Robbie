@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
@@ -35,17 +36,8 @@ public class GameController : MonoBehaviour {
             energyBarOne.transform.localScale = energyScale;
 
         }
-
-        // this code requires items from character controller to make changes to something in game controller
-        // needs to be moved
         CharacterController2D char_component = robbie.GetComponent<CharacterController2D>();
-        // energyscale.x = Mathf.Min(1.0f, (float) char_component.currentHidingPower / char_component.getMaxHidingEnergy());
-        // energyBarOne.transform.localScale = energyscale;
-        GameObject theBar = GameObject.Find ("Canvas/energy");
-        theBar.GetComponent< RectTransform >( ).SetSizeWithCurrentAnchors(anchor , char_component.currentHidingPower);
-        // var theBarRectTransform = theBar.transform as RectTransform;
-        // theBarRectTransform.sizeDelta = new Vector2 (char_component.currentHidingPower, theBarRectTransform.sizeDelta.y);
-        // end problematic code
+        energyBarOne.GetComponent<Image>().fillAmount = Mathf.Min(1.0f, (float) char_component.currentHidingPower / char_component.getMaxHidingEnergy());
 
         //TODO: this needs to be modified
         if (levelFinish) {

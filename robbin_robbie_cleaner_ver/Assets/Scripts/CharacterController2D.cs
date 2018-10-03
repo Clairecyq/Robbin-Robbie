@@ -7,6 +7,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private float m_JumpForce = 200f;							// Amount of force added when the player jumps.
 
 	[SerializeField] private int startingHidingPower = 300;
+	[SerializeField] private int regen_counter = 0;
 
 
 
@@ -109,6 +110,8 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 
+		// regenerate
+		regen();
 		if (gameObject.GetComponent<RobbieMovement>().qHide) {
 			hidingUpdate(1);
 			// gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
@@ -220,6 +223,13 @@ public class CharacterController2D : MonoBehaviour
 	private void hidingUpdate(int fr) {
 		currentHidingPower = Mathf.Max(0, currentHidingPower - fr);
 		//Debug.Log(currentHidingPower);
+	}
+	private void regen() {
+		regen_counter += 1;
+		if (regen_counter % 24 == 0) {
+			currentHidingPower = Mathf.Min(startingHidingPower, currentHidingPower + 1);
+		}
+		regen_counter %= 24;
 	}
 	public int getMaxHidingEnergy() {
         return this.startingHidingPower;
