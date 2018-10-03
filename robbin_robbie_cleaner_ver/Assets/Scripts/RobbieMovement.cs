@@ -26,6 +26,7 @@ public class RobbieMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+        gameObject.GetComponent<Animator>().SetInteger("movement_speed", (int)Mathf.Abs(horizontalMove));
         if (Input.GetButtonDown("Jump")) {
             jump = true;
         }

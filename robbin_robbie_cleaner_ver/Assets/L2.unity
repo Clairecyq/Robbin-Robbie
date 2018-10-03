@@ -113,6 +113,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!1001 &230671973
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4003973821081030, guid: 1738fa11744a6472daea5337ad37cb85, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003973821081030, guid: 1738fa11744a6472daea5337ad37cb85, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003973821081030, guid: 1738fa11744a6472daea5337ad37cb85, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.25322878
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003973821081030, guid: 1738fa11744a6472daea5337ad37cb85, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003973821081030, guid: 1738fa11744a6472daea5337ad37cb85, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003973821081030, guid: 1738fa11744a6472daea5337ad37cb85, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003973821081030, guid: 1738fa11744a6472daea5337ad37cb85, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003973821081030, guid: 1738fa11744a6472daea5337ad37cb85, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869267369810192, guid: 1738fa11744a6472daea5337ad37cb85,
+        type: 2}
+      propertyPath: m_DonutCheck
+      value: 
+      objectReference: {fileID: 1531976277}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1738fa11744a6472daea5337ad37cb85, type: 2}
+  m_IsPrefabAsset: 0
+>>>>>>> 2a58da78fbd0d4321e5ca826541c735bef14d4a2
 --- !u!1 &356909225
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +470,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8453cf31e0f724c01a5b9f64874626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   robbie: {fileID: 924148457}
+=======
+  robbie: {fileID: 0}
+>>>>>>> 2a58da78fbd0d4321e5ca826541c735bef14d4a2
   walkSpeed: 2
   wallLeft: -3.79
   wallRight: 2.48
@@ -793,7 +847,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8453cf31e0f724c01a5b9f64874626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   robbie: {fileID: 924148457}
+=======
+  robbie: {fileID: 0}
+>>>>>>> 2a58da78fbd0d4321e5ca826541c735bef14d4a2
   walkSpeed: 2
   wallLeft: -3.79
   wallRight: 2.48
@@ -979,11 +1037,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &924148457 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1638408468638470, guid: c0dc7039f761c437b9bbd321b05a599a,
     type: 2}
   m_PrefabInternal: {fileID: 1458465176}
+=======
+>>>>>>> 2a58da78fbd0d4321e5ca826541c735bef14d4a2
 --- !u!1 &1102661980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,7 +1094,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8453cf31e0f724c01a5b9f64874626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   robbie: {fileID: 924148457}
+=======
+  robbie: {fileID: 0}
+>>>>>>> 2a58da78fbd0d4321e5ca826541c735bef14d4a2
   walkSpeed: 2
   wallLeft: -3.03
   wallRight: 2.19
@@ -1212,7 +1277,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde1175cc73ba8f43be13b4b085cdaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   robbie: {fileID: 924148457}
+=======
+  robbie: {fileID: 0}
+>>>>>>> 2a58da78fbd0d4321e5ca826541c735bef14d4a2
   finishLevelText: {fileID: 1969393501}
   finishLevelText2: {fileID: 2004054093}
   gameOverText: {fileID: 1316520261}
@@ -2031,7 +2100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8453cf31e0f724c01a5b9f64874626b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   robbie: {fileID: 924148457}
+=======
+  robbie: {fileID: 0}
+>>>>>>> 2a58da78fbd0d4321e5ca826541c735bef14d4a2
   walkSpeed: 2
   wallLeft: -3.03
   wallRight: 2.19
