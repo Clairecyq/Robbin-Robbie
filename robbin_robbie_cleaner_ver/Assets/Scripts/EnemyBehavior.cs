@@ -45,6 +45,8 @@ public class EnemyBehavior : MonoBehaviour {
     {   
         if (c.gameObject.name == "Robbie") {
             GameController.instance.RobbieDied();
-        } 
+        } else {
+            enemy_flip();
+        }
     }
 }

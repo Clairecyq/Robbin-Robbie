@@ -7,6 +7,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private float m_JumpForce = 200f;							// Amount of force added when the player jumps.
 
 	[SerializeField] private int startingHidingPower = 300;
+	[SerializeField] private int regen_counter = 0;
 
 
 
@@ -85,7 +86,7 @@ public class CharacterController2D : MonoBehaviour
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
 		Collider2D[] colliders              = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-		Collider2D[] collides_with_donut = Physics2D.OverlapCircleAll(m_DonutCheck.position, k_GroundedRadius, m_WhatIsFinishLevel);
+		Collider2D[] collides_with_donut    = Physics2D.OverlapCircleAll(m_DonutCheck.position, k_GroundedRadius, m_WhatIsFinishLevel);
         // Debug.Log("groundcheck position");
         // Debug.Log(m_GroundCheck.position);
 
@@ -101,13 +102,18 @@ public class CharacterController2D : MonoBehaviour
 
 		for (int i = 0; i < collides_with_donut.Length; i++) {
 			Collider2D d_col = collides_with_donut[i];
-			if (d_col.gameObject == gameObject && d_col.gameObject.name == "Robbie") {
+			//Debug.Log(d_col.gameObject.layer.ToString());
+			if (d_col.gameObject.name == "Robbie") {
+				Debug.Log(gameObject.ToString());
+				Debug.Log(d_col.gameObject.ToString());
 				GameController.instance.PickedDonut();
 			}
 		}
 
+		// regenerate
+		regen();
 		if (gameObject.GetComponent<RobbieMovement>().qHide) {
-			hidingUpdate();
+			hidingUpdate(1);
 			// gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
 		}
@@ -116,7 +122,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		if (gameObject.GetComponent<RobbieMovement>().eHide) {
-			hidingUpdate();
+			hidingUpdate(1);
 			// gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy2"), true);
 		}
@@ -195,6 +201,7 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
+			hidingUpdate(10);
 			// Add a vertical force to the player.
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
@@ -213,9 +220,16 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-	private void hidingUpdate() {
-		currentHidingPower = Mathf.Max(0, currentHidingPower - 1);
+	private void hidingUpdate(int fr) {
+		currentHidingPower = Mathf.Max(0, currentHidingPower - fr);
 		//Debug.Log(currentHidingPower);
+	}
+	private void regen() {
+		regen_counter += 1;
+		if (regen_counter % 24 == 0) {
+			currentHidingPower = Mathf.Min(startingHidingPower, currentHidingPower + 1);
+		}
+		regen_counter %= 24;
 	}
 	public int getMaxHidingEnergy() {
         return this.startingHidingPower;

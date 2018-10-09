@@ -14,8 +14,11 @@ public class DonutBehavior : MonoBehaviour {
 		
 	}
 
-    private void OnCollisionEnter2D()
+    private void OnCollisionEnter2D(Collision2D c)
     {
-        GameController.instance.PickedDonut();
+		if (c.gameObject.name == "Robbie") {GameController.instance.PickedDonut();
+		} else if (c.gameObject.name.Contains("Demon")) {
+			GameController.instance.RobbieDied();
+		}
     }
 }
