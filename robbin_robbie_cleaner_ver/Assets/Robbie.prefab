@@ -40,6 +40,8 @@ GameObject:
   - component: {fileID: 114869267369810192}
   - component: {fileID: 114835005842390134}
   - component: {fileID: 95697926811232056}
+  - component: {fileID: 58996634050410298}
+  - component: {fileID: 58503747455070080}
   m_Layer: 13
   m_Name: Robbie
   m_TagString: Untagged
@@ -70,7 +72,7 @@ Transform:
   m_GameObject: {fileID: 1638408468638470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.47, y: -2, z: 0.25322878}
-  m_LocalScale: {x: 3.8124518, y: 5.0946674, z: 6.213009}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 0}
   m_Children:
   - {fileID: 4435932442082718}
   - {fileID: 4264426064049798}
@@ -123,6 +125,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58503747455070080
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1638408468638470}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.1, y: -0.05}
+  serializedVersion: 2
+  m_Radius: 0.09
+--- !u!58 &58996634050410298
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1638408468638470}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07, y: -0.114}
+  serializedVersion: 2
+  m_Radius: 0.07
 --- !u!61 &61221802527496872
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -135,18 +167,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010817185, y: -0.08975267}
+  m_Offset: {x: 0.06248355, y: 0.09499361}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.36865234, y: 0.39746094}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28844056, y: 0.1537068}
+  m_Size: {x: 0.2477337, y: 0.1975451}
   m_EdgeRadius: 0
 --- !u!95 &95697926811232056
 Animator:
@@ -182,6 +214,7 @@ MonoBehaviour:
   hiding_speed_adjust: 0.35
   horizontalMove: 0
   jump: 0
+  can_jump: 0
   hide: 0
   qHide: 0
   eHide: 0
@@ -199,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_JumpForce: 360
   startingHidingPower: 300
+  regen_counter: 0
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -208,7 +242,8 @@ MonoBehaviour:
   m_WhatIsFinishLevel:
     serializedVersion: 2
     m_Bits: 2048
-  m_DonutCheck: {fileID: 0}
+  m_DonutCheck: {fileID: 4111969948758468, guid: 6dd4dda940871457cbf874cdd4d7a435,
+    type: 2}
   m_WhatIsEnemy:
     serializedVersion: 2
     m_Bits: 512
@@ -261,7 +296,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: dcd681c3a3b2c49b89f96df08d1103b0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0d600dbadeff4929979e5e047fd8336, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
