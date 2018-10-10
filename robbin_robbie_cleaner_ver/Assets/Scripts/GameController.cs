@@ -14,6 +14,11 @@ public class GameController : MonoBehaviour {
     public GameObject gameOverText;
     public RectTransform.Axis anchor;
 
+    public AudioClip robbieVictorySound1;
+    public AudioClip robbieVictorySound2;
+    public AudioClip robbieVictorySound3;
+    public AudioClip robbieGameOverSound1;
+
     public GameObject energyBarOne;
     public bool gameOver = false;
     public bool levelFinish = false;
@@ -41,7 +46,7 @@ public class GameController : MonoBehaviour {
         energyBarOne.GetComponent<Image>().fillAmount = Mathf.Min(1.0f, (float) char_component.currentHidingPower / char_component.getMaxHidingEnergy());
 
         //TODO: this needs to be modified
-        if (levelFinish) {
+        if (levelFinish && !gameOver) {
             if (Input.GetKeyDown("c"))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -70,6 +75,7 @@ public class GameController : MonoBehaviour {
     public void Restart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         levelFinish = false;
+        gameOver = false;
         Vector3 energyScale = energyBarOne.transform.localScale;
         energyScale.x = 1.0f;
         energyBarOne.transform.localScale = energyScale;
@@ -80,6 +86,8 @@ public class GameController : MonoBehaviour {
         {
             gameOverText.SetActive(true);
             gameOver = true;
+            SoundManager.instance.PlaySingle(robbieGameOverSound1);
+            levelFinish = true;
         }
     }
 
@@ -87,6 +95,7 @@ public class GameController : MonoBehaviour {
         if (!gameOver) {
             finishLevelText.SetActive(true);
             finishLevelText2.SetActive(true);
+            SoundManager.instance.RandomizeSfx(robbieVictorySound1, robbieVictorySound2, robbieVictorySound3);
             levelFinish = true;
         }
     }

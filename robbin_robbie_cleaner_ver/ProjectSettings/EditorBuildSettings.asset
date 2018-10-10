@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/L3.unity
     guid: 40107397acccf4d08aa0d13f7f05a828
-  - enabled: 1
+  - enabled: 0
     path: Assets/L4.unity
     guid: 85560234757284a7a9c870479fd5836b
   - enabled: 1
