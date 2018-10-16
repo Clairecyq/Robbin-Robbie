@@ -92,15 +92,23 @@ public class CharacterController2D : MonoBehaviour
 
 		for (int i = 0; i < colliders.Length; i++)
 		{
+            colliders[i].sharedMaterial = new PhysicsMaterial2D();
 			if (colliders[i].gameObject != gameObject)
 			{
 				m_Grounded = true;
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 			}
-		}
+            if (m_Grounded)
+            {
+                colliders[i].sharedMaterial.friction = 0f;
+                colliders[i].sharedMaterial = colliders[i].sharedMaterial;
+            }
 
-		for (int i = 0; i < collides_with_donut.Length; i++) {
+        }
+            
+
+        for (int i = 0; i < collides_with_donut.Length; i++) {
 			Collider2D d_col = collides_with_donut[i];
 			//Debug.Log(d_col.gameObject.layer.ToString());
 			if (d_col.gameObject.name == "Robbie") {
