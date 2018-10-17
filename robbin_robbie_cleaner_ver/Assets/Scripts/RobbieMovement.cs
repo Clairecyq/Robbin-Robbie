@@ -9,10 +9,9 @@ public class RobbieMovement : MonoBehaviour {
 
     public float hiding_speed_adjust = 0.35f;
     public float horizontalMove;
+    public float bottomDeathPlane = -6f;
     public bool jump = false;
     public bool can_jump;
-
-    GameObject robbie;
 
     public bool hide   = false;
 
@@ -54,6 +53,11 @@ public class RobbieMovement : MonoBehaviour {
             eHide = false;
             gameObject.GetComponent<Animator>().SetBool("hiding", false);
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+        if (GetComponent<Transform>().position.y < bottomDeathPlane) //robbie dies if he falls off the screen
+        {
+            GameController.instance.RobbieDied();
         }
 	}
 
