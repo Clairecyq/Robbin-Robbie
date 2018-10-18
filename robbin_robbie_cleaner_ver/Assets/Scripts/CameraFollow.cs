@@ -19,10 +19,15 @@ public class CameraFollow : MonoBehaviour {
     private Transform target;
     public SpriteRenderer spriteBounds;
     public Transform spriteTransform;
+    public bool manualOffset = false;
 
 	// Use this for initialization
 	void Start () {
-        offset = transform.position - robbie.transform.position;
+        if (manualOffset)
+        {
+            offset = transform.position - robbie.transform.position;
+        }
+        else { offset = new Vector3(0f, 0f, 0f); }
 
         float xmult = spriteTransform.lossyScale.x;
         float ymult = spriteTransform.lossyScale.y;
