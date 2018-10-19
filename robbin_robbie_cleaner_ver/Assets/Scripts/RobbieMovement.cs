@@ -40,7 +40,6 @@ public class RobbieMovement : MonoBehaviour {
         //Debug.Log(Input.GetButtonDown("Jump"));
 
         if (Input.GetButtonDown("Jump") && canMove) {
-            Debug.Log("I am in the jump");
             jump = true;  
         }
        
@@ -59,6 +58,7 @@ public class RobbieMovement : MonoBehaviour {
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             gameObject.GetComponent<Animator>().SetBool("transformed", false);
             currentTransformation = Transformations.Normal;
+            canMove = true;
             return;
         }
 
@@ -76,6 +76,7 @@ public class RobbieMovement : MonoBehaviour {
             }
             else if (Input.GetButtonDown("Transformation1"))
             {
+                gameObject.GetComponent<SpriteRenderer>().color = Color.red;            
                 currentTransformation = Transformations.Bush;
                 canMove = false;
                 transformedToTrashCan = true;
@@ -86,7 +87,7 @@ public class RobbieMovement : MonoBehaviour {
 
                 gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                 currentTransformation = Transformations.Rabbit;
-                gameObject.GetComponent<Animator>().SetBool("transformed", true);
+                //gameObject.GetComponent<Animator>().SetBool("transformed", true);
                 canMove = true;                 //To reset possible movements 
             }
             //gameObject.GetComponent<Animator>().SetBool("transformed", true);
