@@ -28,7 +28,11 @@ public class RobbieMovement : MonoBehaviour {
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         gameObject.GetComponent<Animator>().SetInteger("movement_speed", (int)Mathf.Abs(horizontalMove));
         if (Input.GetButtonDown("Jump") && gameObject.GetComponent<CharacterController2D>().currentHidingPower > 9 && can_jump) {
+            LoggingManager.instance.RecordEvent(6, "Successful Jump");
             jump = true;  
+        }
+        else if (gameObject.GetComponent<CharacterController2D>().currentHidingPower <= 9){
+            LoggingManager.instance.RecordEvent(5, "Not enough stamina - Jump");
         }
         if ((Input.GetButtonDown("Hide") || Input.GetButtonDown("Hide2")) && gameObject.GetComponent<CharacterController2D>().currentHidingPower > 0) {
             hide   = true;
@@ -43,11 +47,21 @@ public class RobbieMovement : MonoBehaviour {
                 gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
                 qHide = false;
                 eHide = true;
-
             }
         }
         
         if (Input.GetButtonUp("Hide") || Input.GetButtonUp("Hide2") || gameObject.GetComponent<CharacterController2D>().currentHidingPower == 0) {
+            if (Input.GetButtonUp("Hide") && eHide) {
+                LoggingManager.instance.RecordEvent(2, "Left Hide");
+            }
+            if (Input.GetButtonUp("Hide2") && qHide) {
+                LoggingManager.instance.RecordEvent(3, "Right Hide");
+            }
+
+            if (gameObject.GetComponent<CharacterController2D>().currentHidingPower == 0) {
+                LoggingManager.instance.RecordEvent(5, "Not enough stamina - Hide");
+            }
+
             hide  = false;
             qHide = false;
             eHide = false;
