@@ -28,8 +28,6 @@ public class GameController : MonoBehaviour {
     private int snapshot = 0;
 
 	void Awake () {
-        LoggingManager.instance.Initialize(626, 0, true);
-        LoggingManager.instance.RecordPageLoad("Game Instance Manager Started");
         LoggingManager.instance.RecordLevelStart(LoggingManager.instance.LevelID, LoggingManager.instance.LevelDescription);
         if (instance == null) {
             instance = this;
@@ -122,8 +120,8 @@ public class GameController : MonoBehaviour {
             LoggingManager.instance.RecordEvent(0, "Robbie Victory");
             finishLevelText.SetActive(true);
             finishLevelText2.SetActive(true);
-            tutorialText1.SetActive(false);
-            tutorialText2.SetActive(false);
+            if (tutorialText1!=null) tutorialText1.SetActive(false);
+            if (tutorialText2!=null) tutorialText2.SetActive(false);
             SoundManager.instance.RandomizeSfx(robbieVictorySound1, robbieVictorySound2, robbieVictorySound3);
             levelFinish = true;
         }
