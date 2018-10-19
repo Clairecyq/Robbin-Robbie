@@ -125,7 +125,7 @@ public class CharacterController2D : MonoBehaviour
             transformationUpdate(1);
         }
 
-        if (gameObject.GetComponent<RobbieMovement>().currentTransformation != RobbieMovement.Transformations.Bush)
+        if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Bush)
         {
             // gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
