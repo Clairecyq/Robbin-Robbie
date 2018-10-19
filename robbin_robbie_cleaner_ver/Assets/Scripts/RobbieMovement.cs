@@ -9,7 +9,7 @@ public class RobbieMovement : MonoBehaviour {
 
     public float hiding_speed_adjust = 0.35f;
     public float horizontalMove;
-    public float bottomDeathPlane = -6f;
+    public float bottomDeathPlane = -15f;
     public bool jump = false;
 
     public bool canMove;
