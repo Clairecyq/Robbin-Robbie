@@ -61,6 +61,7 @@ public class RobbieMovement : MonoBehaviour {
             gameObject.GetComponent<Animator>().SetBool("transformed", false);
             LoggingManager.instance.RecordEvent(5, "Not Enough Stamina");
             currentTransformation = Transformations.Normal;
+            canMove = true;
             return;
         }
 
@@ -79,6 +80,7 @@ public class RobbieMovement : MonoBehaviour {
             }
             else if (Input.GetButtonDown("Transformation1"))
             {
+                gameObject.GetComponent<SpriteRenderer>().color = Color.red;            
                 currentTransformation = Transformations.Bush;
                 canMove = false;
                 transformedToTrashCan = true;
@@ -89,7 +91,7 @@ public class RobbieMovement : MonoBehaviour {
 
                 gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                 currentTransformation = Transformations.Rabbit;
-                gameObject.GetComponent<Animator>().SetBool("transformed", true);
+                //gameObject.GetComponent<Animator>().SetBool("transformed", true);
                 canMove = true;                 //To reset possible movements 
             }
             //gameObject.GetComponent<Animator>().SetBool("transformed", true);
