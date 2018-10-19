@@ -2719,10 +2719,7 @@ GameObject:
   - component: {fileID: 1923624990}
   - component: {fileID: 1923624989}
   - component: {fileID: 1923624988}
-<<<<<<< HEAD
   - component: {fileID: 1923624992}
-=======
->>>>>>> 83900f1e8199e3b381930d7e8a37ab1a16ac6acb
   m_Layer: 9
   m_Name: Eagle
   m_TagString: Enemy
@@ -2914,6 +2911,11 @@ Prefab:
       propertyPath: energyBarOne
       value: 
       objectReference: {fileID: 1681340329}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: trashcan
+      value: 
+      objectReference: {fileID: 1315995930}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8134833588504e8171f947dc09415, type: 2}
   m_IsPrefabAsset: 0

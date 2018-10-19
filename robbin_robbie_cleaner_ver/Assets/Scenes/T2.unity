@@ -2754,6 +2754,11 @@ Prefab:
       propertyPath: energyBarOne
       value: 
       objectReference: {fileID: 1681340329}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: trashcan
+      value: 
+      objectReference: {fileID: 2041203467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8134833588504e8171f947dc09415, type: 2}
   m_IsPrefabAsset: 0

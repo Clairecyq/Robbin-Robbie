@@ -627,7 +627,6 @@ Prefab:
       propertyPath: m_UsedByComposite
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
         type: 2}
       propertyPath: wallLeft
@@ -638,8 +637,6 @@ Prefab:
       propertyPath: wallRight
       value: 8
       objectReference: {fileID: 0}
-=======
->>>>>>> 83900f1e8199e3b381930d7e8a37ab1a16ac6acb
     - target: {fileID: 1952026315438230, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
       propertyPath: m_Layer
       value: 9
@@ -953,7 +950,6 @@ Prefab:
       propertyPath: m_Size.y
       value: 0.1729655
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
         type: 2}
       propertyPath: wallLeft
@@ -964,8 +960,6 @@ Prefab:
       propertyPath: wallRight
       value: 8
       objectReference: {fileID: 0}
-=======
->>>>>>> 83900f1e8199e3b381930d7e8a37ab1a16ac6acb
     - target: {fileID: 1952026315438230, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
       propertyPath: m_Layer
       value: 9
@@ -2907,6 +2901,11 @@ Prefab:
       propertyPath: energyBarOne
       value: 
       objectReference: {fileID: 1681340329}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: trashcan
+      value: 
+      objectReference: {fileID: 516030524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8134833588504e8171f947dc09415, type: 2}
   m_IsPrefabAsset: 0
