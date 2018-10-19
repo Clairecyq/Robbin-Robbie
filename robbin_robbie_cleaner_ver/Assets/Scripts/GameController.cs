@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour {
     private int snapshot = 0;
 
 	void Awake () {
+        LoggingManager.instance.Initialize(626, 0, true);
+        LoggingManager.instance.RecordPageLoad("Game Instance Manager Started");
         LoggingManager.instance.RecordLevelStart(LoggingManager.instance.LevelID, LoggingManager.instance.LevelDescription);
         if (instance == null) {
             instance = this;
