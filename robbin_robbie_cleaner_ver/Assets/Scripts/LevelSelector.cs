@@ -8,7 +8,7 @@ public class LevelSelector : MonoBehaviour {
 
     void Start()
     {
-        LoggingManager.instance.Initialize(626, 0, true);
+        LoggingManager.instance.Initialize(626, 0, false);
         LoggingManager.instance.RecordPageLoad("Game Instance Manager Started");
 
         // creating our initialization here - change to FALSE in release
