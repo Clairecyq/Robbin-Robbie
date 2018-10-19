@@ -4,7 +4,9 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
 	public static CharacterController2D instance;
-	[SerializeField] private float m_JumpForce = 200f;							// Amount of force added when the player jumps.
+    [SerializeField] public float normal_JumpForce = 150f;                          // Amount of force added when the player jumps.
+
+    [SerializeField] public float transformed_JumpForce = 300f;							// Amount of force added when the player jumps.
 
 	[SerializeField] private int startingHidingPower = 300;
 	[SerializeField] private int regen_counter = 0;
@@ -107,7 +109,6 @@ public class CharacterController2D : MonoBehaviour
 
         }
             
-
         for (int i = 0; i < collides_with_donut.Length; i++) {
 			Collider2D d_col = collides_with_donut[i];
 			//Debug.Log(d_col.gameObject.layer.ToString());
@@ -119,24 +120,20 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		// regenerate
-		regen();
-		if (gameObject.GetComponent<RobbieMovement>().qHide) {
-			hidingUpdate(1);
-			// gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
-			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
+		//regen();
+        if (gameObject.GetComponent<RobbieMovement>().currentTransformation != RobbieMovement.Transformations.Normal) {
+            transformationUpdate(1);
+        }
+
+        if (gameObject.GetComponent<RobbieMovement>().currentTransformation != RobbieMovement.Transformations.Bush)
+        {
+            // gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
 		}
 		else {
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
 		}
 
-		if (gameObject.GetComponent<RobbieMovement>().eHide) {
-			hidingUpdate(1);
-			// gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
-			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy2"), true);
-		}
-		else {
-			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy2"), false);
-		}
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy2"), LayerMask.NameToLayer("Enemy2"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy2"));
@@ -209,10 +206,19 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
-			hidingUpdate(10);
 			// Add a vertical force to the player.
 			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Rabbit)
+            {
+                transformationUpdate(10);
+                m_Rigidbody2D.AddForce(new Vector2(0f, transformed_JumpForce));
+            }
+
+            else
+            {
+                m_Rigidbody2D.AddForce(new Vector2(0f, normal_JumpForce));
+            }
+            Debug.Log(transformed_JumpForce);
 		}
 	}
 
@@ -228,7 +234,7 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-	private void hidingUpdate(int fr) {
+	private void transformationUpdate(int fr) {
 		currentHidingPower = Mathf.Max(0, currentHidingPower - fr);
 		//Debug.Log(currentHidingPower);
 	}
