@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour {
     public GameObject finishLevelText;
     public GameObject finishLevelText2;
     public GameObject gameOverText;
+    public GameObject tutorialText1;
+    public GameObject tutorialText2;
     public RectTransform.Axis anchor;
 
     public AudioClip robbieVictorySound1;
@@ -118,6 +120,8 @@ public class GameController : MonoBehaviour {
             LoggingManager.instance.RecordEvent(0, "Robbie Victory");
             finishLevelText.SetActive(true);
             finishLevelText2.SetActive(true);
+            tutorialText1.SetActive(false);
+            tutorialText2.SetActive(false);
             SoundManager.instance.RandomizeSfx(robbieVictorySound1, robbieVictorySound2, robbieVictorySound3);
             levelFinish = true;
         }
