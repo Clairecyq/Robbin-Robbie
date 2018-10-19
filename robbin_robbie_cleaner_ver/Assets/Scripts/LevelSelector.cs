@@ -8,6 +8,11 @@ public class LevelSelector : MonoBehaviour {
 
     void Start()
     {
+        LoggingManager.instance.Initialize(626, 0, true);
+        LoggingManager.instance.RecordPageLoad("Game Instance Manager Started");
+
+        // creating our initialization here - change to FALSE in release
+
         int levelReached = PlayerPrefs.GetInt("levelReached", 1);
 
         for (int i = 0; i < levelButtons.Length; i++)
