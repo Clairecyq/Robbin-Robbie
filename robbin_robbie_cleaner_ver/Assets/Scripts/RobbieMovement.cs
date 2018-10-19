@@ -40,6 +40,8 @@ public class RobbieMovement : MonoBehaviour {
         //Debug.Log(Input.GetButtonDown("Jump"));
 
         if (Input.GetButtonDown("Jump") && canMove) {
+            Debug.Log("I am in the jump");
+            LoggingManager.instance.RecordEvent(6, "Successful Jump!");
             jump = true;  
         }
        
@@ -57,6 +59,7 @@ public class RobbieMovement : MonoBehaviour {
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             gameObject.GetComponent<Animator>().SetBool("transformed", false);
+            LoggingManager.instance.RecordEvent(5, "Not Enough Stamina");
             currentTransformation = Transformations.Normal;
             canMove = true;
             return;
@@ -64,8 +67,17 @@ public class RobbieMovement : MonoBehaviour {
 
         else if (gameObject.GetComponent<CharacterController2D>().currentHidingPower > 0 && (
             Input.GetButtonDown("Transformation1") || Input.GetButtonDown("Transformation2")))
-        {
-            if (Input.GetButtonDown("Transformation1"))
+        {            
+            if (Input.GetButtonDown("Transformation0"))
+            {
+                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                currentTransformation = Transformations.Normal;
+                canMove = true;                 //To reset possible movements 
+                transformedToTrashCan = false;
+                gameObject.GetComponent<Animator>().SetBool("transformed", false);
+                LoggingManager.instance.RecordEvent(2, "End Hiding - Left or Hide");
+            }
+            else if (Input.GetButtonDown("Transformation1"))
             {
                 gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 currentTransformation = Transformations.Bush;
