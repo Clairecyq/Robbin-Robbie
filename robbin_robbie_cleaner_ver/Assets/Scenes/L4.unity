@@ -713,6 +713,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< HEAD
+=======
 --- !u!1001 &339391678
 Prefab:
   m_ObjectHideFlags: 0
@@ -776,6 +778,7 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
+>>>>>>> 83900f1e8199e3b381930d7e8a37ab1a16ac6acb
 --- !u!1 &471898670
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,11 +973,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4233726894084032, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.4
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4233726894084032, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.2
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4233726894084032, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1017,6 +1020,14 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: wallLeft
+      value: -1.4
+      objectReference: {fileID: 0}
+=======
+>>>>>>> 83900f1e8199e3b381930d7e8a37ab1a16ac6acb
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
@@ -1269,11 +1280,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4111969948758468, guid: 6dd4dda940871457cbf874cdd4d7a435, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.2
+      value: -9.2
       objectReference: {fileID: 0}
     - target: {fileID: 4111969948758468, guid: 6dd4dda940871457cbf874cdd4d7a435, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.2
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 4111969948758468, guid: 6dd4dda940871457cbf874cdd4d7a435, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1641,7 +1652,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4233726894084032, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4233726894084032, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
       propertyPath: m_LocalScale.y
@@ -1664,6 +1675,19 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: wallRight
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: wallLeft
+      value: -10
+      objectReference: {fileID: 0}
+=======
+>>>>>>> 83900f1e8199e3b381930d7e8a37ab1a16ac6acb
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
@@ -2048,6 +2072,15 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: 2, y: -1, z: 0}
+    second:
+      m_TileIndex: 1
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: -7, y: 0, z: 0}
     second:
       m_TileIndex: 1
@@ -2115,7 +2148,7 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 19
+  - m_RefCount: 20
     m_Data: {fileID: 11400000, guid: 5e9ac5730beb5474a99c07357980b52c, type: 2}
   - m_RefCount: 13
     m_Data: {fileID: 11400000, guid: 88dcf3ae300cf4314a4e956c6862a290, type: 2}
@@ -2126,10 +2159,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 19
+  - m_RefCount: 20
     m_Data: {fileID: 21300000, guid: 280df8dd3ea29874a998f0e35a81059e, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 32
+  - m_RefCount: 33
     m_Data:
       e00: 1
       e01: 0
@@ -2148,7 +2181,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 32
+  - m_RefCount: 33
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 0.9058967, g: 0.42217264, b: 0.5432697, a: 1}
@@ -2295,6 +2328,21 @@ Prefab:
         type: 2}
       propertyPath: speed
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775860496798300, guid: af821e23048a6a94db846ba76cfd6df9,
+        type: 2}
+      propertyPath: normal_JumpForce
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775860496798300, guid: af821e23048a6a94db846ba76cfd6df9,
+        type: 2}
+      propertyPath: transformed_JumpForce
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775860496798300, guid: af821e23048a6a94db846ba76cfd6df9,
+        type: 2}
+      propertyPath: startingHidingPower
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af821e23048a6a94db846ba76cfd6df9, type: 2}
@@ -3039,7 +3087,7 @@ GameObject:
   - component: {fileID: 2041203470}
   - component: {fileID: 2041203469}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Trashcan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3082,7 +3130,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ceb111280ed954bbab6f8983f455427b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7135c2589b6ed4f6a83691a4f2579653, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

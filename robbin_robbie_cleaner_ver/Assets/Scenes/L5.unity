@@ -1147,11 +1147,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4111969948758468, guid: 6dd4dda940871457cbf874cdd4d7a435, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 28
+      value: 20.32
       objectReference: {fileID: 0}
     - target: {fileID: 4111969948758468, guid: 6dd4dda940871457cbf874cdd4d7a435, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.28
+      value: 5.16
       objectReference: {fileID: 0}
     - target: {fileID: 4111969948758468, guid: 6dd4dda940871457cbf874cdd4d7a435, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1482,6 +1482,75 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!1 &1315995930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1315995931}
+  - component: {fileID: 1315995933}
+  - component: {fileID: 1315995932}
+  m_Layer: 5
+  m_Name: Trashcan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1315995931
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1315995930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2025390573}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -143, y: 135}
+  m_SizeDelta: {x: 90, y: 90}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1315995932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1315995930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 7135c2589b6ed4f6a83691a4f2579653, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1315995933
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1315995930}
+  m_CullTransparentMesh: 0
 --- !u!1 &1336307859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,32 +2150,32 @@ Prefab:
     - target: {fileID: 58239052012585138, guid: af821e23048a6a94db846ba76cfd6df9,
         type: 2}
       propertyPath: m_Radius
-      value: 0.74
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 58137675249498648, guid: af821e23048a6a94db846ba76cfd6df9,
         type: 2}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 58137675249498648, guid: af821e23048a6a94db846ba76cfd6df9,
         type: 2}
       propertyPath: m_Offset.x
-      value: -0.71
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 58137675249498648, guid: af821e23048a6a94db846ba76cfd6df9,
         type: 2}
       propertyPath: m_Offset.y
-      value: -0.41
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 58239052012585138, guid: af821e23048a6a94db846ba76cfd6df9,
         type: 2}
       propertyPath: m_Offset.x
-      value: 0.37
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 58239052012585138, guid: af821e23048a6a94db846ba76cfd6df9,
         type: 2}
       propertyPath: m_Offset.y
-      value: -0.43
+      value: -0.114
       objectReference: {fileID: 0}
     - target: {fileID: 61236828833448748, guid: af821e23048a6a94db846ba76cfd6df9,
         type: 2}
@@ -2147,6 +2216,11 @@ Prefab:
         type: 2}
       propertyPath: transformed_JumpForce
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775860496798300, guid: af821e23048a6a94db846ba76cfd6df9,
+        type: 2}
+      propertyPath: startingHidingPower
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af821e23048a6a94db846ba76cfd6df9, type: 2}
@@ -2645,6 +2719,10 @@ GameObject:
   - component: {fileID: 1923624990}
   - component: {fileID: 1923624989}
   - component: {fileID: 1923624988}
+<<<<<<< HEAD
+  - component: {fileID: 1923624992}
+=======
+>>>>>>> 83900f1e8199e3b381930d7e8a37ab1a16ac6acb
   m_Layer: 9
   m_Name: Eagle
   m_TagString: Enemy
@@ -2665,7 +2743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robbie: {fileID: 1626597450}
   radius: 3
-  offset: {x: 11.81005, y: 8.671942, z: 1.731658}
+  offset: {x: 11.9, y: 6.9, z: 0}
   FlySpeed: 2
   wallLeft: -5
   wallRight: 5
@@ -2741,12 +2819,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1923624987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.810046, y: 8.671942, z: 1.731658}
+  m_LocalPosition: {x: 11.9, y: 6.9, z: 1.731658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1923624992
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923624987}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04548359, y: -0.075806856}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.25, y: 7.09}
+    newSize: {x: 4.25, y: 7.09}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.9758129, y: 2.086784}
+  m_EdgeRadius: 0
 --- !u!1001 &1995588495
 Prefab:
   m_ObjectHideFlags: 0
@@ -2978,6 +3081,7 @@ RectTransform:
   - {fileID: 1374274836}
   - {fileID: 1156824289}
   - {fileID: 582309187}
+  - {fileID: 1315995931}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
