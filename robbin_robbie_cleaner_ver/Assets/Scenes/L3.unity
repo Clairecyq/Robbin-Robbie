@@ -617,6 +617,11 @@ Prefab:
       propertyPath: m_Name
       value: BlueEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 61089936878612848, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.1729655
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
@@ -1257,6 +1262,11 @@ Prefab:
     - target: {fileID: 4857391982980060, guid: fe10ce4defec2441c9284c3587113718, type: 2}
       propertyPath: m_LocalScale.x
       value: 6.4603767
+      objectReference: {fileID: 0}
+    - target: {fileID: 61660896870960474, guid: fe10ce4defec2441c9284c3587113718,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.1729655
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe10ce4defec2441c9284c3587113718, type: 2}
