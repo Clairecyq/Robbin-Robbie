@@ -2719,7 +2719,10 @@ GameObject:
   - component: {fileID: 1923624990}
   - component: {fileID: 1923624989}
   - component: {fileID: 1923624988}
+<<<<<<< HEAD
   - component: {fileID: 1923624992}
+=======
+>>>>>>> 83900f1e8199e3b381930d7e8a37ab1a16ac6acb
   m_Layer: 9
   m_Name: Eagle
   m_TagString: Enemy

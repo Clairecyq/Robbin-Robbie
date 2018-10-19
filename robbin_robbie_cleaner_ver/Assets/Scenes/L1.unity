@@ -857,8 +857,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
         type: 2}
+<<<<<<< HEAD
       propertyPath: wallLeft
       value: -23
+=======
+      propertyPath: wallRight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: wallLeft
+      value: -20
+>>>>>>> 83900f1e8199e3b381930d7e8a37ab1a16ac6acb
       objectReference: {fileID: 0}
     - target: {fileID: 1952026315438230, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
       propertyPath: m_Layer
