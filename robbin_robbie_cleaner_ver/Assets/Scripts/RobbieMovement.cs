@@ -11,7 +11,7 @@ public class RobbieMovement : MonoBehaviour {
     public float horizontalMove;
     public float bottomDeathPlane = -6f;
     public bool jump = false;
-    //public bool canJump;
+
     public bool canMove;
     public bool transformed = false;
 
@@ -37,7 +37,11 @@ public class RobbieMovement : MonoBehaviour {
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         gameObject.GetComponent<Animator>().SetInteger("movement_speed", (int)Mathf.Abs(horizontalMove));
 
+        //Debug.Log(Input.GetButtonDown("Jump"));
+        //Debug.Log("RBIGOJFEOJOFIJN");
+
         if (Input.GetButtonDown("Jump") && canMove) {
+            Debug.Log("I am in the jump");
             jump = true;  
         }
        
@@ -59,8 +63,7 @@ public class RobbieMovement : MonoBehaviour {
         }
 
         else if (gameObject.GetComponent<CharacterController2D>().currentHidingPower > 0 && (Input.GetButtonDown("Transformation0")) || 
-            (Input.GetButtonDown("Transformation1")) || Input.GetButtonDown("Transformation2") ||
-            (Input.GetButtonDown("Transformation3")))
+            (Input.GetButtonDown("Transformation1")) || Input.GetButtonDown("Transformation2"))
         {
             
             //gameObject.GetComponent<Animator>().SetBool("transformed", true);
