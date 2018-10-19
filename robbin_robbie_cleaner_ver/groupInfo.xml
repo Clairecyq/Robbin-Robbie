@@ -11,7 +11,7 @@
         <member>Matthew Haro</member>
     </team>
     <source>
-        <format>flash</format>
+        <format>html5</format>
         <background>#ffffff</background>
         <width>800</width>
         <height>600</height>
