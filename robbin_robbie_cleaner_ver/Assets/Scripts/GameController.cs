@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour {
     public GameObject gameOverText;
     public GameObject tutorialText1;
     public GameObject tutorialText2;
+    public GameObject trashcan;
+    public GameObject boot;
     public RectTransform.Axis anchor;
 
     public AudioClip robbieVictorySound1;
@@ -110,6 +112,8 @@ public class GameController : MonoBehaviour {
             LoggingManager.instance.RecordEvent(1, "Robbie Died");
             gameOverText.SetActive(true);
             gameOver = true;
+            if (trashcan != null) trashcan.SetActive(false);
+            if (boot != null) boot.SetActive(false);
             SoundManager.instance.PlaySingle(robbieGameOverSound1);
             levelFinish = true;
         }

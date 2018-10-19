@@ -857,10 +857,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
         type: 2}
-<<<<<<< HEAD
-      propertyPath: wallLeft
-      value: -23
-=======
       propertyPath: wallRight
       value: 20
       objectReference: {fileID: 0}
@@ -868,7 +864,6 @@ Prefab:
         type: 2}
       propertyPath: wallLeft
       value: -20
->>>>>>> 83900f1e8199e3b381930d7e8a37ab1a16ac6acb
       objectReference: {fileID: 0}
     - target: {fileID: 1952026315438230, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
       propertyPath: m_Layer
@@ -2847,6 +2842,11 @@ Prefab:
       propertyPath: energyBarOne
       value: 
       objectReference: {fileID: 1681340329}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: trashcan
+      value: 
+      objectReference: {fileID: 2086710650}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8134833588504e8171f947dc09415, type: 2}
   m_IsPrefabAsset: 0
