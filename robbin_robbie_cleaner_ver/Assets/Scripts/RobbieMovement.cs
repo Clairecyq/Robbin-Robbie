@@ -13,12 +13,12 @@ public class RobbieMovement : MonoBehaviour {
     public bool jump = false;
 
     public bool canMove;
-    public bool transformed = false;
+    public bool transformedToTrashCan = false;
 
     public Transformations currentTransformation = Transformations.Normal;
 
     GameObject robbie;
-
+    
     public enum Transformations
     {
         Bush,
@@ -38,7 +38,6 @@ public class RobbieMovement : MonoBehaviour {
         gameObject.GetComponent<Animator>().SetInteger("movement_speed", (int)Mathf.Abs(horizontalMove));
 
         //Debug.Log(Input.GetButtonDown("Jump"));
-        //Debug.Log("RBIGOJFEOJOFIJN");
 
         if (Input.GetButtonDown("Jump") && canMove) {
             Debug.Log("I am in the jump");
@@ -62,30 +61,31 @@ public class RobbieMovement : MonoBehaviour {
             return;
         }
 
-        else if (gameObject.GetComponent<CharacterController2D>().currentHidingPower > 0 && (Input.GetButtonDown("Transformation0")) || 
-            (Input.GetButtonDown("Transformation1")) || Input.GetButtonDown("Transformation2"))
+        else if (gameObject.GetComponent<CharacterController2D>().currentHidingPower > 0 && (Input.GetButtonDown("Transformation0") || 
+                                                                                             Input.GetButtonDown("Transformation1") || Input.GetButtonDown("Transformation2")))
         {
             
-            //gameObject.GetComponent<Animator>().SetBool("transformed", true);
             if (Input.GetButtonDown("Transformation0"))
             {
-                //To reset possible movements 
-                canMove = true;
                 gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                 currentTransformation = Transformations.Normal;
+                canMove = true;                 //To reset possible movements 
+                transformedToTrashCan = false;
+                gameObject.GetComponent<Animator>().SetBool("transformedToTrashCan", false);
             }
             else if (Input.GetButtonDown("Transformation1"))
             {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 currentTransformation = Transformations.Bush;
                 canMove = false;
+                transformedToTrashCan = true;
+                gameObject.GetComponent<Animator>().SetBool("transformedToTrashCan", true);
             }
             else if (Input.GetButtonDown("Transformation2"))
             {
-                //To reset possible movements 
-                canMove = true;
+
                 gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                 currentTransformation = Transformations.Rabbit;
+                canMove = true;                 //To reset possible movements 
             }
         }
     }
