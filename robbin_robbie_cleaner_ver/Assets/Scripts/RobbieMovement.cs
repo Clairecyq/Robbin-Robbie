@@ -11,63 +11,41 @@ public class RobbieMovement : MonoBehaviour {
     public float horizontalMove;
     public float bottomDeathPlane = -6f;
     public bool jump = false;
-    public bool can_jump = true;
 
-    public bool hide   = false;
+    public bool canMove;
+    public bool transformed = false;
 
-    public bool qHide = false;
-    public bool eHide = false;
-    public bool hiding = false;
+    public Transformations currentTransformation = Transformations.Normal;
 
-    void start () {
-        //robbie = GameObject.FindGameObjectWithTag ("Player");
+    GameObject robbie;
+
+    public enum Transformations
+    {
+        Bush,
+        Normal,         
+        Rabbit, 
+    }
+
+    void Start () {
+        robbie = GameObject.FindGameObjectWithTag ("Player");
+        canMove = true;
+        //canJump = false;
     }
 
 	// Update is called once per frame
 	void Update () {
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         gameObject.GetComponent<Animator>().SetInteger("movement_speed", (int)Mathf.Abs(horizontalMove));
-        if (Input.GetButtonDown("Jump") && gameObject.GetComponent<CharacterController2D>().currentHidingPower > 9 && can_jump) {
-            LoggingManager.instance.RecordEvent(6, "Successful Jump");
+
+        //Debug.Log(Input.GetButtonDown("Jump"));
+        //Debug.Log("RBIGOJFEOJOFIJN");
+
+        if (Input.GetButtonDown("Jump") && canMove) {
+            Debug.Log("I am in the jump");
             jump = true;  
         }
-        else if (gameObject.GetComponent<CharacterController2D>().currentHidingPower <= 9){
-            LoggingManager.instance.RecordEvent(5, "Not enough stamina - Jump");
-        }
-        if ((Input.GetButtonDown("Hide") || Input.GetButtonDown("Hide2")) && gameObject.GetComponent<CharacterController2D>().currentHidingPower > 0) {
-            hide   = true;
-            hiding = true;
-            gameObject.GetComponent<Animator>().SetBool("hiding", true);
-            if (Input.GetButtonDown("Hide")) {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-                qHide = true;
-                eHide = false;
-            }
-            else {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
-                qHide = false;
-                eHide = true;
-            }
-        }
-        
-        if (Input.GetButtonUp("Hide") || Input.GetButtonUp("Hide2") || gameObject.GetComponent<CharacterController2D>().currentHidingPower == 0) {
-            if (Input.GetButtonUp("Hide") && eHide) {
-                LoggingManager.instance.RecordEvent(2, "Left Hide");
-            }
-            if (Input.GetButtonUp("Hide2") && qHide) {
-                LoggingManager.instance.RecordEvent(3, "Right Hide");
-            }
-
-            if (gameObject.GetComponent<CharacterController2D>().currentHidingPower == 0) {
-                LoggingManager.instance.RecordEvent(5, "Not enough stamina - Hide");
-            }
-
-            hide  = false;
-            qHide = false;
-            eHide = false;
-            gameObject.GetComponent<Animator>().SetBool("hiding", false);
-            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        }
+       
+        checkTransform();
 
         if (GetComponent<Transform>().position.y < bottomDeathPlane) //robbie dies if he falls off the screen
         {
@@ -75,9 +53,54 @@ public class RobbieMovement : MonoBehaviour {
         }
 	}
 
+    void checkTransform()
+    {        
+        if (gameObject.GetComponent<CharacterController2D>().currentHidingPower == 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            currentTransformation = Transformations.Normal;
+            return;
+        }
+
+        else if (gameObject.GetComponent<CharacterController2D>().currentHidingPower > 0 && (Input.GetButtonDown("Transformation0")) || 
+            (Input.GetButtonDown("Transformation1")) || Input.GetButtonDown("Transformation2"))
+        {
+            
+            //gameObject.GetComponent<Animator>().SetBool("transformed", true);
+            if (Input.GetButtonDown("Transformation0"))
+            {
+                //To reset possible movements 
+                canMove = true;
+                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                currentTransformation = Transformations.Normal;
+            }
+            else if (Input.GetButtonDown("Transformation1"))
+            {
+                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                currentTransformation = Transformations.Bush;
+                canMove = false;
+            }
+            else if (Input.GetButtonDown("Transformation2"))
+            {
+                //To reset possible movements 
+                canMove = true;
+                gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+                currentTransformation = Transformations.Rabbit;
+            }
+        }
+    }
+
     void FixedUpdate() {
-        if (hide) horizontalMove *= hiding_speed_adjust; 
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        if (canMove) 
+        {        
+            controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        }
+
+        else
+        {
+            controller.Move(0, false, jump);
+        }
+
         jump = false;
     }
 
