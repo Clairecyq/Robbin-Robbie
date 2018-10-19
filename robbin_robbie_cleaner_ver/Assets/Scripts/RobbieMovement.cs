@@ -27,6 +27,9 @@ public class RobbieMovement : MonoBehaviour {
 	void Update () {
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         gameObject.GetComponent<Animator>().SetInteger("movement_speed", (int)Mathf.Abs(horizontalMove));
+        Debug.Log("Jump: " + Input.GetButtonDown("Jump"));
+        Debug.Log("POWER " + gameObject.GetComponent<CharacterController2D>().currentHidingPower);
+        Debug.Log("canjump: " + can_jump);
         if (Input.GetButtonDown("Jump") && gameObject.GetComponent<CharacterController2D>().currentHidingPower > 9 && can_jump) {
             LoggingManager.instance.RecordEvent(6, "Successful Jump");
             jump = true;  
