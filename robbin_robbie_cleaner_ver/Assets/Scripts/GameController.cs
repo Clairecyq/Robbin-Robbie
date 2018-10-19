@@ -28,10 +28,8 @@ public class GameController : MonoBehaviour {
 	void Awake () {
         LoggingManager.instance.RecordLevelStart(LoggingManager.instance.LevelID, LoggingManager.instance.LevelDescription);
         if (instance == null) {
-            Debug.Log("KILLSWITCH");
             instance = this;
         } else if (instance != this) {
-            Debug.Log("RA HUIR GUL");
             Destroy(gameObject);
         }
         anchor = UnityEngine.RectTransform.Axis.Horizontal;
