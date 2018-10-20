@@ -239,7 +239,7 @@ public class CharacterController2D : MonoBehaviour
 		float powerRatio = ((float) currentHidingPower) / getMaxHidingEnergy();
 		currentHidingPower = Mathf.Max(0, currentHidingPower - fr);
 		if (powerRatio >= 0.5 && powerRatio - fr < 0.5) {
-			LoggingManager.instance.RecordEvent(4, "Stamina at 50%");
+			//LoggingManager.instance.RecordEvent(4, "Stamina at 50%");
 		}
 		//Debug.Log(currentHidingPower);
 	}

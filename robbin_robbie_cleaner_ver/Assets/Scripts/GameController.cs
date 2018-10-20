@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour {
             int level = LoggingManager.instance.LevelID;
             float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
             float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
-            float ypos = robbie.GetComponent<CharacterController2D>().transform.position.x;
+            float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
             LoggingManager.instance.RecordEvent(8, 
             "Snapshot - level: " + level.ToString() + "  stamina: " + stamina.ToString() + "  Xpos: " + xpos.ToString() + "  Ypos: " + ypos.ToString()
             ); 
