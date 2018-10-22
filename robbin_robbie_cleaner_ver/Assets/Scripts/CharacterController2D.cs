@@ -118,6 +118,7 @@ public class CharacterController2D : MonoBehaviour
 
 		for (int i = 0; i < collidersItem.Length; i++) {
 			if (collidersItem[i].ToString().Contains("fire")) {
+				Debug.Log("FIRE!!!");
 				collidersItem[i].gameObject.SetActive(false);
 				GameController.instance.obtainCoin();
 			}
