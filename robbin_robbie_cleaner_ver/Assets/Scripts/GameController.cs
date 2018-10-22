@@ -16,6 +16,9 @@ public class GameController : MonoBehaviour {
     public GameObject tutorialText2;
     public GameObject trashcan;
     public GameObject boot;
+    private int robbieScore = 0;
+
+    public GameObject scoreText;
     public RectTransform.Axis anchor;
 
     public AudioClip robbieVictorySound1;
@@ -51,6 +54,8 @@ public class GameController : MonoBehaviour {
         }
         CharacterController2D char_component = robbie.GetComponent<CharacterController2D>();
         energyBarOne.GetComponent<Image>().fillAmount = Mathf.Min(1.0f, (float) char_component.currentHidingPower / char_component.getMaxHidingEnergy());
+
+        scoreText.GetComponent<Text>().text = "Score: " + robbieScore.ToString();
 
         //TODO: this needs to be modified
         if (levelFinish && !gameOver) {
@@ -129,5 +134,9 @@ public class GameController : MonoBehaviour {
             SoundManager.instance.RandomizeSfx(robbieVictorySound1, robbieVictorySound2, robbieVictorySound3);
             levelFinish = true;
         }
+    }
+
+    public void obtainCoin() {
+        robbieScore += 100;
     }
 }
