@@ -32,14 +32,17 @@ public class GameController : MonoBehaviour {
 
     private int snapshot = 0;
 
+    public int levelId;
+    public string levelDescription;
+
 	void Awake () {
-        LoggingManager.instance.RecordLevelStart(LoggingManager.instance.LevelID, LoggingManager.instance.LevelDescription);
         if (instance == null) {
             instance = this;
         } else if (instance != this) {
             Destroy(gameObject);
         }
         anchor = UnityEngine.RectTransform.Axis.Horizontal;
+        if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
 	}
 
     public void ChangeToScene(string targetScene)
@@ -61,7 +64,7 @@ public class GameController : MonoBehaviour {
         if (levelFinish && !gameOver) {
             if (Input.GetKeyDown("c"))
             {
-                LoggingManager.instance.RecordLevelEnd();
+                if (LoggingManager.instance != null ) LoggingManager.instance.RecordLevelEnd();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
@@ -75,7 +78,7 @@ public class GameController : MonoBehaviour {
             float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
             float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
             float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
-            LoggingManager.instance.RecordEvent(8, 
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(8, 
             "Snapshot - level: " + level.ToString() + "  stamina: " + stamina.ToString() + "  Xpos: " + xpos.ToString() + "  Ypos: " + ypos.ToString()
             ); 
             snapshot = 0;
@@ -86,7 +89,7 @@ public class GameController : MonoBehaviour {
         if (isPaused) {
             Resume();
         } else {
-            LoggingManager.instance.RecordEvent(9, "Pause");
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(9, "Pause");
             Pause();
         }
     }
@@ -102,7 +105,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void Restart() {
-        LoggingManager.instance.RecordEvent(7, "Level Reset");
+        if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(7, "Level Reset");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         levelFinish = false;
         gameOver = false;
@@ -114,7 +117,7 @@ public class GameController : MonoBehaviour {
     public void RobbieDied() {
         if (!levelFinish)
         {
-            LoggingManager.instance.RecordEvent(1, "Robbie Died");
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(1, "Robbie Died");
             gameOverText.SetActive(true);
             gameOver = true;
             if (trashcan != null) trashcan.SetActive(false);
@@ -126,7 +129,7 @@ public class GameController : MonoBehaviour {
 
     public void PickedDonut() {
         if (!gameOver) {
-            LoggingManager.instance.RecordEvent(0, "Robbie Victory");
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(0, "Robbie Victory");
             finishLevelText.SetActive(true);
             finishLevelText2.SetActive(true);
             if (tutorialText1!=null) tutorialText1.SetActive(false);
