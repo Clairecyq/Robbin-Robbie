@@ -22,6 +22,11 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 
 	[SerializeField] private LayerMask m_WhatIsFinishLevel;
+
+	[SerializeField] private LayerMask m_WhatIsItem;
+
+	[SerializeField] private LayerMask m_WhatIsTrap;
+
 	[SerializeField] private Transform m_DonutCheck;
 
 	[SerializeField] private LayerMask m_WhatIsEnemy;
@@ -88,6 +93,8 @@ public class CharacterController2D : MonoBehaviour
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
 		Collider2D[] colliders              = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		Collider2D[] collidersItem          = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsItem);
+		Collider2D[] collidersTrap          = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsTrap);
 		Collider2D[] collides_with_donut    = Physics2D.OverlapCircleAll(m_DonutCheck.position, k_GroundedRadius, m_WhatIsFinishLevel);
         // Debug.Log("groundcheck position");
         // Debug.Log(m_GroundCheck.position);
@@ -108,6 +115,18 @@ public class CharacterController2D : MonoBehaviour
             }
 
         }
+
+		for (int i = 0; i < collidersItem.Length; i++) {
+			if (collidersItem[i].ToString().Contains("fire")) {
+				Debug.Log("FIRE!!!");
+				collidersItem[i].gameObject.SetActive(false);
+				GameController.instance.obtainCoin();
+			}
+		}
+
+		for (int i = 0; i < collidersTrap.Length; i++) {
+			GameController.instance.RobbieDied();
+		}
             
         for (int i = 0; i < collides_with_donut.Length; i++) {
 			Collider2D d_col = collides_with_donut[i];
