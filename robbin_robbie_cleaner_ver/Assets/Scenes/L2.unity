@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114775860496798300, guid: af821e23048a6a94db846ba76cfd6df9,
         type: 2}
       propertyPath: startingHidingPower
-      value: 600
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 114775860496798300, guid: af821e23048a6a94db846ba76cfd6df9,
         type: 2}
