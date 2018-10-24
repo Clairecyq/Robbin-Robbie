@@ -231,7 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal_JumpForce: 450
   transformed_JumpForce: 500
-  startingHidingPower: 300
+  startingHidingPower: 600
   regen_counter: 0
   groundCheckBoxSize: {x: 0.5, y: 1.4}
   m_CrouchSpeed: 0.36
@@ -243,6 +243,12 @@ MonoBehaviour:
   m_WhatIsFinishLevel:
     serializedVersion: 2
     m_Bits: 2048
+  m_WhatIsItem:
+    serializedVersion: 2
+    m_Bits: 1048576
+  m_WhatIsTrap:
+    serializedVersion: 2
+    m_Bits: 2097152
   m_DonutCheck: {fileID: 4111969948758468, guid: 6dd4dda940871457cbf874cdd4d7a435,
     type: 2}
   m_WhatIsEnemy:
@@ -261,7 +267,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  currentHidingPower: 300
+  currentHidingPower: 600
 --- !u!212 &212336071736902436
 SpriteRenderer:
   m_ObjectHideFlags: 1
