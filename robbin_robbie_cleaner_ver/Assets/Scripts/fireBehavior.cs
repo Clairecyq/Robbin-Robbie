@@ -14,11 +14,11 @@ public class fireBehavior : MonoBehaviour {
 		 transform.Rotate (new Vector3 (0, 0, 90) * Time.deltaTime);
 	}
 
-	//  private void OnCollisionEnter2D(Collision2D c)
-    // {   
-    //     if (c.gameObject.name == "Robbie" && this.isActiveAndEnabled){
-    //         gameObject.SetActive(false);
-	// 		GameController.instance.obtainCoin();
-	// 	}
-    // }
+	 private void OnCollisionEnter2D(Collision2D c)
+    {   
+        if (c.gameObject.name == "Robbie" && this.isActiveAndEnabled){
+            gameObject.SetActive(false);
+			GameController.instance.obtainCoin();
+		}
+    }
 }
