@@ -41,7 +41,7 @@ public class RobbieMovement : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump") && canMove) {
             Debug.Log("I am in the jump");
-            LoggingManager.instance.RecordEvent(6, "Successful Jump!");
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(6, "Successful Jump!");
             jump = true;  
         }
        
@@ -98,7 +98,7 @@ public class RobbieMovement : MonoBehaviour {
         else if ((Input.GetButtonUp("Transformation0") || Input.GetButtonUp("Transformation1") || Input.GetButtonUp("Transformation2")))
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-            LoggingManager.instance.RecordEvent(2, "End Hiding - Left or Hide");
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(2, "End Hiding - Left or Hide");
             currentTransformation = Transformations.Normal;
             canMove = true;                 //To reset possible movements 
             transformedToTrashCan = false;
