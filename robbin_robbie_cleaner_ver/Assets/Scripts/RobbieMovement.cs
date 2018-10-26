@@ -40,7 +40,6 @@ public class RobbieMovement : MonoBehaviour {
         //Debug.Log(Input.GetButtonDown("Jump"));
 
         if (Input.GetButtonDown("Jump") && canMove) {
-            Debug.Log("I am in the jump");
             if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(6, "Successful Jump!");
             jump = true;  
         }
