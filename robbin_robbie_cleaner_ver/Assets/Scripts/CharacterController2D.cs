@@ -117,17 +117,18 @@ public class CharacterController2D : MonoBehaviour
 
         }
 
-		for (int i = 0; i < collidersItem.Length; i++) {
-			if (collidersItem[i].ToString().Contains("fire")) {
-				Debug.Log("FIRE!!!");
-				collidersItem[i].gameObject.SetActive(false);
-				GameController.instance.obtainCoin();
-			}
-		}
+		// for (int i = 0; i < collidersItem.Length; i++) {
+		// 	Debug.Log("SHIIIIT!!!");
+		// 	if (collidersItem[i].ToString().Contains("fire")) {
+		// 		Debug.Log("FIRE!!!");
+		// 		collidersItem[i].gameObject.SetActive(false);
+		// 		GameController.instance.obtainCoin();
+		// 	}
+		// }
 
-		for (int i = 0; i < collidersTrap.Length; i++) {
-			GameController.instance.RobbieDied();
-		}
+		// for (int i = 0; i < collidersTrap.Length; i++) {
+		// 	GameController.instance.RobbieDied();
+		// }
             
         for (int i = 0; i < collides_with_donut.Length; i++) {
 			Collider2D d_col = collides_with_donut[i];

@@ -1,0 +1,19 @@
+﻿<game>
+    <name>Robbin’ Robbie</name>
+    <description>Help Robbie the Raccoon find  the Golden Donuts of Hesperides and bring them to his raccoon clan.</description>
+    <short></short>
+    <team name="Boba Time">
+        <member>Eric Mei</member>
+        <member>Claire Yuqing Cui</member>
+        <member>Jake Padilla</member>
+        <member>Yuchang Zhou</member>
+        <member>Willy Miles</member>
+        <member>Matthew Haro</member>
+    </team>
+    <source>
+        <format>html5</format>
+        <background>#ffffff</background>
+        <width>800</width>
+        <height>600</height>
+    </source>
+</game>

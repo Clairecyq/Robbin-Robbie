@@ -78,7 +78,7 @@ public class RobbieMovement : MonoBehaviour {
             }
             else if (Input.GetButtonDown("Transformation1"))
             {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 currentTransformation = Transformations.Bush;
                 canMove = false;
                 transformedToTrashCan = true;
