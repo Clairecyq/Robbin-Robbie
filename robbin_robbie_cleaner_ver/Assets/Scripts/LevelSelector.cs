@@ -11,7 +11,7 @@ public class LevelSelector : MonoBehaviour {
     {
         totalNumLevels = 12;
 
-        LoggingManager.instance.Initialize(626, 0, false);
+        LoggingManager.instance.Initialize(626, 0, true);
         LoggingManager.instance.RecordPageLoad("Game Instance Manager Started");
 
         if (!GameStateManager.instance.isInitialized )
