@@ -35,6 +35,8 @@ public class GameController : MonoBehaviour {
     private int robbieScore = 0;
 
     public int levelId;
+    public int totalNumLevels;
+
 
     public string levelDescription;
 
@@ -48,6 +50,17 @@ public class GameController : MonoBehaviour {
         anchor = UnityEngine.RectTransform.Axis.Horizontal;
         if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
         robbieMovement = robbie.GetComponent<RobbieMovement>();
+
+        /*
+         * TODO: create testing instance 
+        if (GameStateManager.instance == null || !GameStateManager.instance.isInitialized)
+        {
+            Debug.Log("I am intializing");
+            totalNumLevels = 12;
+            GameStateManager.instance.Initialize(totalNumLevels);
+            GameStateManager.instance.isInitialized = true;
+        }
+        */
 	}
 
     public void ChangeToScene(string targetScene)

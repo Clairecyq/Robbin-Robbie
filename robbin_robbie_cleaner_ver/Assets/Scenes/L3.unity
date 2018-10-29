@@ -113,26 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &81493057 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1563803263319646, guid: 85f8134833588504e8171f947dc09415,
-    type: 2}
-  m_PrefabInternal: {fileID: 1995588495}
---- !u!114 &81493058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 81493057}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21fcdd692dc5d3c4bbb0108fc749fd4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalNumLevels: 0
-  levelStartingIndex: 0
-  levelDescription: 
-  levelsUnlocked: 
 --- !u!1001 &171892504
 Prefab:
   m_ObjectHideFlags: 0
