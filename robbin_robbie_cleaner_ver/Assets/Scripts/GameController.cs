@@ -154,7 +154,14 @@ public class GameController : MonoBehaviour {
         if (!levelFinish)
         {
             robbieMovement.canMove = false;
-            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(1, "Robbie Died");
+            int level = levelId;
+            float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
+            float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
+            float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(
+                1, 
+                "Robbie Died: " + level.ToString() + "  stamina: " + stamina.ToString() + "  Xpos: " + xpos.ToString() + "  Ypos: " + ypos.ToString()
+                );
             gameOverText.SetActive(true);
             gameOver = true;
             if (trashcan != null) trashcan.SetActive(false);
