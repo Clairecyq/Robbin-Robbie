@@ -100,10 +100,14 @@ public class CharacterController2D : MonoBehaviour
         // Debug.Log("groundcheck position");
         // Debug.Log(m_GroundCheck.position);
 
-		for (int i = 0; i < colliders.Length; i++)
+
+        for (int i = 0; i < colliders.Length; i++)
 		{
             colliders[i].sharedMaterial = new PhysicsMaterial2D();
-			if (colliders[i].gameObject != gameObject)
+
+            colliders[i].sharedMaterial.friction = 0f;
+            colliders[i].sharedMaterial = colliders[i].sharedMaterial;
+            if (colliders[i].gameObject != gameObject)
 			{
 				m_Grounded = true;
 				if (!wasGrounded)
@@ -111,8 +115,8 @@ public class CharacterController2D : MonoBehaviour
 			}
             if (!m_Grounded)
             {
-                colliders[i].sharedMaterial.friction = 0f;
-                colliders[i].sharedMaterial = colliders[i].sharedMaterial;
+                //colliders[i].sharedMaterial.friction = 0f;
+                //colliders[i].sharedMaterial = colliders[i].sharedMaterial;
             }
 
         }
