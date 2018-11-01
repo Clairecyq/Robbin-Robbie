@@ -13,8 +13,9 @@ public class CharacterController2D : MonoBehaviour
 
     public Vector2 groundCheckBoxSize;
 
+    public float maxFallSpeed;
 
-	Sprite HidingSprite;
+    Sprite HidingSprite;
 
 	Sprite OriginalSprite;
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
@@ -162,6 +163,11 @@ public class CharacterController2D : MonoBehaviour
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy2"), LayerMask.NameToLayer("Enemy2"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy2"));
+
+        m_Rigidbody2D.velocity = new Vector3(
+             m_Rigidbody2D.velocity.x,
+             Mathf.Clamp(m_Rigidbody2D.velocity.y, -maxFallSpeed, maxFallSpeed)
+             );
     }
 
 
