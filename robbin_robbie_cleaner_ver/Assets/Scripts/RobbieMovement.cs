@@ -26,6 +26,8 @@ public class RobbieMovement : MonoBehaviour {
         Rabbit, 
     }
 
+    private bool pulse = false;
+
     void Start () {
         robbie = GameObject.FindGameObjectWithTag ("Player");
         canMove = true;
@@ -120,6 +122,14 @@ public class RobbieMovement : MonoBehaviour {
         {
             controller.Move(0, false, jump);
         }
+        BoxCollider2D box = gameObject.GetComponent<BoxCollider2D>();
+
+        if (!transformedToTrashCan)
+        {
+            if (pulse) { box.size = new Vector2(box.size.x, box.size.y - .05f); }
+            else { box.size = new Vector2(box.size.x, box.size.y + .05f); }
+        }
+        pulse = !pulse;
 
         jump = false;
     }
