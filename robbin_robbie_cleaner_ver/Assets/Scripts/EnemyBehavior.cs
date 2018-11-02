@@ -24,10 +24,8 @@ public class EnemyBehavior : MonoBehaviour {
     }
 	void Update () {
         float sp = walkSpeed;
-        Debug.Log(chase);
         if (robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft) {
             sp = sp * chase;
-            Debug.Log(sp);
         }
         walkAmount.x = walkingDirection * sp * Time.deltaTime;
         if (transform.position.x >= wallRight) {
