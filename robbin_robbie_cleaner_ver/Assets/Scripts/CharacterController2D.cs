@@ -56,8 +56,12 @@ public class CharacterController2D : MonoBehaviour
 
 	public int currentHidingPower;
 
+    private float jumpTimer = 0;
+    public float boostLenience = 1f;
 
-	private void start() {
+
+
+    private void start() {
 		//currentHidingPower = startingHidingPower;
 	}
 
@@ -237,20 +241,40 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
-			// Add a vertical force to the player.
-			m_Grounded = false;
-            if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Rabbit)
-            {
-                transformationUpdate(10);
-                m_Rigidbody2D.AddForce(new Vector2(0f, transformed_JumpForce));
-            }
+            // Add a vertical force to the player.
 
-            else
-            {
+            jumpTimer = boostLenience;
+			m_Grounded = false;
+            //if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Rabbit)
+            //{
+            //    transformationUpdate(10);
+            //    m_Rigidbody2D.AddForce(new Vector2(0f, transformed_JumpForce));
+            //}
+
+            //else
+            //{
                 m_Rigidbody2D.AddForce(new Vector2(0f, normal_JumpForce));
-            }
-            Debug.Log(transformed_JumpForce);
+            //}
+            //Debug.Log(transformed_JumpForce);
 		}
+        if (jumpTimer > 0) { jumpTimer -= Time.deltaTime; }
+        if (jumpTimer < 0) { jumpTimer = 0; }
+
+        //if the player can boost, give them some time to do it
+        if (!m_Grounded)
+        {
+            if (jumpTimer > 0f) {
+                if (jump)
+                {
+                    if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Rabbit)
+                    {
+                        transformationUpdate(10);
+                        m_Rigidbody2D.AddForce(new Vector2(0f, transformed_JumpForce - normal_JumpForce));
+                        jumpTimer = 0;
+                    }
+                }
+            }
+        }
 	}
 
 
