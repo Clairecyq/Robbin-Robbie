@@ -141,6 +141,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void Restart() {
+        Time.timeScale = 1f;
         if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(7, "Level Reset");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         levelFinish = false;
@@ -166,6 +167,7 @@ public class GameController : MonoBehaviour {
             gameOver = true;
             if (trashcan != null) trashcan.SetActive(false);
             if (boot != null) boot.SetActive(false);
+            Time.timeScale = 0f;
             SoundManager.instance.PlaySingle(robbieGameOverSound1);
             levelFinish = true;
         }
