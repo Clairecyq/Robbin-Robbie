@@ -55,12 +55,22 @@ MonoBehaviour:
   finishLevelText: {fileID: 0}
   finishLevelText2: {fileID: 0}
   gameOverText: {fileID: 0}
+  tutorialText1: {fileID: 0}
+  tutorialText2: {fileID: 0}
+  trashcan: {fileID: 0}
+  boot: {fileID: 0}
+  scoreText: {fileID: 0}
+  energyBarOne: {fileID: 0}
   anchor: 0
   robbieVictorySound1: {fileID: 8300000, guid: 69071c644e0c9433bae9bc25f02f3aa0, type: 3}
   robbieVictorySound2: {fileID: 8300000, guid: 790f12eda40e244258169cd3818d5977, type: 3}
   robbieVictorySound3: {fileID: 8300000, guid: 9770a7fe98c5d4b85ba7f5265f4e85a7, type: 3}
   robbieGameOverSound1: {fileID: 8300000, guid: 6a2be034085824cf2b0d15c1f9b4ce70,
     type: 3}
-  energyBarOne: {fileID: 0}
   gameOver: 0
   levelFinish: 0
+  levelId: 8
+  totalNumLevels: 0
+  levelStartingIndex: 0
+  levelDescription: level four
+  levelCompletionStatuses: 

@@ -73,6 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224004358208610652}
+  - component: {fileID: 114790100069776498}
   m_Layer: 5
   m_Name: LevelNavButtonBar
   m_TagString: Untagged
@@ -407,6 +408,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &114790100069776498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568447605221536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc3502b5d6e52640af789b24ea36e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelNavButtonBar: {fileID: 114790100069776498}
+  pauseButton: {fileID: 114348776927769944}
+  restartButton: {fileID: 114129140007654350}
+  homeButton: {fileID: 114632581436496058}
 --- !u!114 &114847837860102628
 MonoBehaviour:
   m_ObjectHideFlags: 1
