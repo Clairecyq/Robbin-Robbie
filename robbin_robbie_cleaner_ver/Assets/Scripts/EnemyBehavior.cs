@@ -13,7 +13,6 @@ public class EnemyBehavior : MonoBehaviour {
     public bool m_facingRight = true;
     Vector2 walkAmount;
 
-	
 	// Update is called once per frame
 
     void Awake () {

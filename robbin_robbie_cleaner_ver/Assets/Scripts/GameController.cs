@@ -16,9 +16,9 @@ public class GameController : MonoBehaviour {
     public GameObject tutorialText2;
     public GameObject trashcan;
     public GameObject boot;
-    private int robbieScore = 0;
-
     public GameObject scoreText;
+    public GameObject energyBarOne;
+
     public RectTransform.Axis anchor;
 
     public AudioClip robbieVictorySound1;
@@ -26,16 +26,22 @@ public class GameController : MonoBehaviour {
     public AudioClip robbieVictorySound3;
     public AudioClip robbieGameOverSound1;
 
-    public GameObject energyBarOne;
+    RobbieMovement robbieMovement;
+
     public bool gameOver = false;
     public bool levelFinish = false;
-
+    
     private int snapshot = 0;
+    private int robbieScore = 0;
 
     public int levelId;
+    public int totalNumLevels;
+
+
     public string levelDescription;
 
-	void Awake () {
+    void Awake ()
+    {       
         if (instance == null) {
             instance = this;
         } else if (instance != this) {
@@ -43,11 +49,28 @@ public class GameController : MonoBehaviour {
         }
         anchor = UnityEngine.RectTransform.Axis.Horizontal;
         if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
+        robbieMovement = robbie.GetComponent<RobbieMovement>();
+
+        /*
+         * TODO: create testing instance 
+        if (GameStateManager.instance == null || !GameStateManager.instance.isInitialized)
+        {
+            Debug.Log("I am intializing");
+            totalNumLevels = 12;
+            GameStateManager.instance.Initialize(totalNumLevels);
+            GameStateManager.instance.isInitialized = true;
+        }
+        */
 	}
 
     public void ChangeToScene(string targetScene)
     {
         SceneManager.LoadScene(targetScene);
+    }
+
+    public void ChangeToHome()
+    {
+        SceneManager.LoadScene("LevelSelector");
     }
 
     // Update is called once per frame
@@ -61,11 +84,24 @@ public class GameController : MonoBehaviour {
         scoreText.GetComponent<Text>().text = "Score: " + robbieScore.ToString();
 
         //TODO: this needs to be modified
-        if (levelFinish && !gameOver) {
+        if (levelFinish && !gameOver) {            
+
+            robbieMovement.canMove = false;
+
             if (Input.GetKeyDown("c"))
             {
-                if (LoggingManager.instance != null ) LoggingManager.instance.RecordLevelEnd();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                if (LoggingManager.instance != null) {
+                    LoggingManager.instance.RecordLevelEnd();
+                }
+
+                int currentLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
+                int levelStartingIndex = SceneManager.GetSceneByName("T1").buildIndex;
+
+                if (currentLevelBuildIndex + 1 < GameStateManager.instance.totalNumLevels)
+                {
+                    GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex] = true;
+                    SceneManager.LoadScene(currentLevelBuildIndex + 1);
+                }
             }
         }
 	}
@@ -118,7 +154,15 @@ public class GameController : MonoBehaviour {
     public void RobbieDied() {
         if (!levelFinish)
         {
-            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(1, "Robbie Died");
+            robbieMovement.canMove = false;
+            int level = levelId;
+            float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
+            float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
+            float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(
+                1, 
+                "Robbie Died: " + level.ToString() + "  stamina: " + stamina.ToString() + "  Xpos: " + xpos.ToString() + "  Ypos: " + ypos.ToString()
+                );
             gameOverText.SetActive(true);
             gameOver = true;
             if (trashcan != null) trashcan.SetActive(false);

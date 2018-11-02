@@ -2834,29 +2834,14 @@ Prefab:
       objectReference: {fileID: 1374274835}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
-      propertyPath: energyBarOne
-      value: 
-      objectReference: {fileID: 1723229846}
-    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
-        type: 2}
-      propertyPath: trashcan
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
-        type: 2}
-      propertyPath: levelId
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
-        type: 2}
-      propertyPath: levelDescription
-      value: level four
-      objectReference: {fileID: 0}
-    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
-        type: 2}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1723229845}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: energyBarOne
+      value: 
+      objectReference: {fileID: 1723229846}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8134833588504e8171f947dc09415, type: 2}
   m_IsPrefabAsset: 0

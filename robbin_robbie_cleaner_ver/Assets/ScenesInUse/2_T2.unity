@@ -402,6 +402,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224004358208610652, guid: b05c856e16feeef4bacdf0bc390434d2,
     type: 2}
   m_PrefabInternal: {fileID: 211035100}
+--- !u!1 &211035102 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1568447605221536, guid: b05c856e16feeef4bacdf0bc390434d2,
+    type: 2}
+  m_PrefabInternal: {fileID: 211035100}
+--- !u!114 &211035103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 211035102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc3502b5d6e52640af789b24ea36e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &215875767
 Prefab:
   m_ObjectHideFlags: 0
@@ -1457,7 +1473,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
-      m_ColliderType: 1
+      m_ColliderType: 2
   - first: {x: -4, y: -4, z: 0}
     second:
       m_TileIndex: 1
@@ -1466,7 +1482,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
-      m_ColliderType: 1
+      m_ColliderType: 2
   - first: {x: -3, y: -4, z: 0}
     second:
       m_TileIndex: 1
@@ -1475,7 +1491,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
-      m_ColliderType: 1
+      m_ColliderType: 2
   - first: {x: -2, y: -4, z: 0}
     second:
       m_TileIndex: 1
@@ -1484,7 +1500,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
-      m_ColliderType: 1
+      m_ColliderType: 2
   - first: {x: -1, y: -4, z: 0}
     second:
       m_TileIndex: 1
@@ -1493,7 +1509,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
-      m_ColliderType: 1
+      m_ColliderType: 2
   - first: {x: 0, y: -4, z: 0}
     second:
       m_TileIndex: 0
