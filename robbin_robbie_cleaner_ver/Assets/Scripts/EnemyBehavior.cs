@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour {
     public GameObject robbie;
     public float walkSpeed = 2.0f;
-    public float wallLeft = -4.0f;
-    public float wallRight = 5.0f;
+    public float chase = 1.5f;
+    public float wallLeft;
+    public float wallRight;
     float walkingDirection = 1.0f;
 
     public bool m_facingRight = true;
@@ -23,7 +24,13 @@ public class EnemyBehavior : MonoBehaviour {
         }
     }
 	void Update () {
-        walkAmount.x = walkingDirection * walkSpeed * Time.deltaTime;
+        float sp = walkSpeed;
+        Debug.Log(chase);
+        if (robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft) {
+            sp = sp * chase;
+            Debug.Log(sp);
+        }
+        walkAmount.x = walkingDirection * sp * Time.deltaTime;
         if (transform.position.x >= wallRight) {
             if (m_facingRight) {
                 enemy_flip();
