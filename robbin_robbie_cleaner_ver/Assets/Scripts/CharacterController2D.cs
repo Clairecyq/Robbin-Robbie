@@ -11,6 +11,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private int startingHidingPower = 300;
 	[SerializeField] private int regen_counter = 0;
 
+    public Vector2 groundCheckBoxSize;
 
 
 	Sprite HidingSprite;
@@ -22,6 +23,11 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 
 	[SerializeField] private LayerMask m_WhatIsFinishLevel;
+
+	[SerializeField] private LayerMask m_WhatIsItem;
+
+	[SerializeField] private LayerMask m_WhatIsTrap;
+
 	[SerializeField] private Transform m_DonutCheck;
 
 	[SerializeField] private LayerMask m_WhatIsEnemy;
@@ -87,7 +93,9 @@ public class CharacterController2D : MonoBehaviour
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
-		Collider2D[] colliders              = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		Collider2D[] colliders              = Physics2D.OverlapBoxAll(m_GroundCheck.position + new Vector3(0f, -1f, 0f), groundCheckBoxSize, m_WhatIsGround);
+		Collider2D[] collidersItem          = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsItem);
+		Collider2D[] collidersTrap          = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsTrap);
 		Collider2D[] collides_with_donut    = Physics2D.OverlapCircleAll(m_DonutCheck.position, k_GroundedRadius, m_WhatIsFinishLevel);
         // Debug.Log("groundcheck position");
         // Debug.Log(m_GroundCheck.position);
@@ -101,13 +109,26 @@ public class CharacterController2D : MonoBehaviour
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 			}
-            if (m_Grounded)
+            if (!m_Grounded)
             {
                 colliders[i].sharedMaterial.friction = 0f;
                 colliders[i].sharedMaterial = colliders[i].sharedMaterial;
             }
 
         }
+
+		// for (int i = 0; i < collidersItem.Length; i++) {
+		// 	Debug.Log("SHIIIIT!!!");
+		// 	if (collidersItem[i].ToString().Contains("fire")) {
+		// 		Debug.Log("FIRE!!!");
+		// 		collidersItem[i].gameObject.SetActive(false);
+		// 		GameController.instance.obtainCoin();
+		// 	}
+		// }
+
+		// for (int i = 0; i < collidersTrap.Length; i++) {
+		// 	GameController.instance.RobbieDied();
+		// }
             
         for (int i = 0; i < collides_with_donut.Length; i++) {
 			Collider2D d_col = collides_with_donut[i];
@@ -239,7 +260,7 @@ public class CharacterController2D : MonoBehaviour
 		float powerRatio = ((float) currentHidingPower) / getMaxHidingEnergy();
 		currentHidingPower = Mathf.Max(0, currentHidingPower - fr);
 		if (powerRatio >= 0.5 && powerRatio - fr < 0.5) {
-			LoggingManager.instance.RecordEvent(4, "Stamina at 50%");
+			//LoggingManager.instance.RecordEvent(4, "Stamina at 50%");
 		}
 		//Debug.Log(currentHidingPower);
 	}

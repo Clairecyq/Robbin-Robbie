@@ -9,7 +9,7 @@ public class RobbieMovement : MonoBehaviour {
 
     public float hiding_speed_adjust = 0.35f;
     public float horizontalMove;
-    public float bottomDeathPlane = -6f;
+    public float bottomDeathPlane = -15f;
     public bool jump = false;
 
     public bool canMove;
@@ -41,7 +41,7 @@ public class RobbieMovement : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump") && canMove) {
             Debug.Log("I am in the jump");
-            LoggingManager.instance.RecordEvent(6, "Successful Jump!");
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(6, "Successful Jump!");
             jump = true;  
         }
        
@@ -59,7 +59,7 @@ public class RobbieMovement : MonoBehaviour {
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             gameObject.GetComponent<Animator>().SetBool("transformed", false);
-            LoggingManager.instance.RecordEvent(5, "Not Enough Stamina");
+            //LoggingManager.instance.RecordEvent(5, "Not Enough Stamina");
             currentTransformation = Transformations.Normal;
             canMove = true;
             return;
@@ -75,11 +75,10 @@ public class RobbieMovement : MonoBehaviour {
                 canMove = true;                 //To reset possible movements 
                 transformedToTrashCan = false;
                 gameObject.GetComponent<Animator>().SetBool("transformed", false);
-                LoggingManager.instance.RecordEvent(2, "End Hiding - Left or Hide");
             }
             else if (Input.GetButtonDown("Transformation1"))
             {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 currentTransformation = Transformations.Bush;
                 canMove = false;
                 transformedToTrashCan = true;
@@ -99,6 +98,7 @@ public class RobbieMovement : MonoBehaviour {
         else if ((Input.GetButtonUp("Transformation0") || Input.GetButtonUp("Transformation1") || Input.GetButtonUp("Transformation2")))
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(2, "End Hiding - Left or Hide");
             currentTransformation = Transformations.Normal;
             canMove = true;                 //To reset possible movements 
             transformedToTrashCan = false;

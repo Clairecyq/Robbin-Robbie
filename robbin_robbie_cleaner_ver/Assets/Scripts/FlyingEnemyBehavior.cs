@@ -10,6 +10,7 @@ public class FlyingEnemyBehavior : MonoBehaviour {
     public float FlySpeed = 2.0f;
     public float wallLeft = -5.0f;
     public float wallRight = 5.0f;
+
     float walkingDirection = 1.0f;
 
     public bool m_facingRight = true;

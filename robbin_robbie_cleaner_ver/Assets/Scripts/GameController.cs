@@ -14,6 +14,11 @@ public class GameController : MonoBehaviour {
     public GameObject gameOverText;
     public GameObject tutorialText1;
     public GameObject tutorialText2;
+    public GameObject trashcan;
+    public GameObject boot;
+    private int robbieScore = 0;
+
+    public GameObject scoreText;
     public RectTransform.Axis anchor;
 
     public AudioClip robbieVictorySound1;
@@ -27,14 +32,17 @@ public class GameController : MonoBehaviour {
 
     private int snapshot = 0;
 
+    public int levelId;
+    public string levelDescription;
+
 	void Awake () {
-        LoggingManager.instance.RecordLevelStart(LoggingManager.instance.LevelID, LoggingManager.instance.LevelDescription);
         if (instance == null) {
             instance = this;
         } else if (instance != this) {
             Destroy(gameObject);
         }
         anchor = UnityEngine.RectTransform.Axis.Horizontal;
+        if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
 	}
 
     public void ChangeToScene(string targetScene)
@@ -50,11 +58,13 @@ public class GameController : MonoBehaviour {
         CharacterController2D char_component = robbie.GetComponent<CharacterController2D>();
         energyBarOne.GetComponent<Image>().fillAmount = Mathf.Min(1.0f, (float) char_component.currentHidingPower / char_component.getMaxHidingEnergy());
 
+        scoreText.GetComponent<Text>().text = "Score: " + robbieScore.ToString();
+
         //TODO: this needs to be modified
         if (levelFinish && !gameOver) {
             if (Input.GetKeyDown("c"))
             {
-                LoggingManager.instance.RecordLevelEnd();
+                if (LoggingManager.instance != null ) LoggingManager.instance.RecordLevelEnd();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
@@ -64,11 +74,11 @@ public class GameController : MonoBehaviour {
         snapshot += 1;
 
         if (snapshot % 300 == 0) {
-            int level = LoggingManager.instance.LevelID;
+            int level = levelId;
             float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
             float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
-            float ypos = robbie.GetComponent<CharacterController2D>().transform.position.x;
-            LoggingManager.instance.RecordEvent(8, 
+            float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(8, 
             "Snapshot - level: " + level.ToString() + "  stamina: " + stamina.ToString() + "  Xpos: " + xpos.ToString() + "  Ypos: " + ypos.ToString()
             ); 
             snapshot = 0;
@@ -79,7 +89,7 @@ public class GameController : MonoBehaviour {
         if (isPaused) {
             Resume();
         } else {
-            LoggingManager.instance.RecordEvent(9, "Pause");
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(9, "Pause");
             Pause();
         }
     }
@@ -95,7 +105,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void Restart() {
-        LoggingManager.instance.RecordEvent(7, "Level Reset");
+        if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(7, "Level Reset");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         levelFinish = false;
         gameOver = false;
@@ -107,9 +117,11 @@ public class GameController : MonoBehaviour {
     public void RobbieDied() {
         if (!levelFinish)
         {
-            LoggingManager.instance.RecordEvent(1, "Robbie Died");
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(1, "Robbie Died");
             gameOverText.SetActive(true);
             gameOver = true;
+            if (trashcan != null) trashcan.SetActive(false);
+            if (boot != null) boot.SetActive(false);
             SoundManager.instance.PlaySingle(robbieGameOverSound1);
             levelFinish = true;
         }
@@ -117,7 +129,7 @@ public class GameController : MonoBehaviour {
 
     public void PickedDonut() {
         if (!gameOver) {
-            LoggingManager.instance.RecordEvent(0, "Robbie Victory");
+            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(0, "Robbie Victory");
             finishLevelText.SetActive(true);
             finishLevelText2.SetActive(true);
             if (tutorialText1!=null) tutorialText1.SetActive(false);
@@ -125,5 +137,9 @@ public class GameController : MonoBehaviour {
             SoundManager.instance.RandomizeSfx(robbieVictorySound1, robbieVictorySound2, robbieVictorySound3);
             levelFinish = true;
         }
+    }
+
+    public void obtainCoin() {
+        robbieScore += 100;
     }
 }

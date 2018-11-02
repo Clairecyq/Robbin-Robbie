@@ -14,17 +14,23 @@ public class EnemyBehavior : MonoBehaviour {
 
 	
 	// Update is called once per frame
+
+    void Awake () {
+        if (m_facingRight && walkSpeed > 0.0f) {
+            enemy_flip();
+            m_facingRight = !m_facingRight;
+            walkingDirection *= -1.0f;
+        }
+    }
 	void Update () {
         walkAmount.x = walkingDirection * walkSpeed * Time.deltaTime;
-        if (walkingDirection >= 0.0f && transform.position.x >= wallRight) {
-            walkingDirection = -1.0f;
+        if (transform.position.x >= wallRight) {
             if (m_facingRight) {
                 enemy_flip();
             }
 
         }
-        else if (walkingDirection <= 0.0f && transform.position.x <= wallLeft) {
-            walkingDirection = 1.0f;
+        else if (transform.position.x <= wallLeft) {
             if (!m_facingRight) {
                 enemy_flip();
             }
@@ -37,6 +43,7 @@ public class EnemyBehavior : MonoBehaviour {
         // Multiply the player's x local scale by -1.
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
+        walkingDirection *= -1.0f;
 		transform.localScale = theScale;
     }
 
@@ -45,8 +52,6 @@ public class EnemyBehavior : MonoBehaviour {
     {   
         if (c.gameObject.name == "Robbie") {
             GameController.instance.RobbieDied();
-        } else {
-            enemy_flip();
         }
     }
 }
