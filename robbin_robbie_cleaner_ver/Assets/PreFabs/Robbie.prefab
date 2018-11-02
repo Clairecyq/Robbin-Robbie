@@ -234,6 +234,7 @@ MonoBehaviour:
   startingHidingPower: 600
   regen_counter: 0
   groundCheckBoxSize: {x: 0, y: 0}
+  maxFallSpeed: 30
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -268,6 +269,7 @@ MonoBehaviour:
     m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   currentHidingPower: 600
+  boostLenience: 10
 --- !u!212 &212336071736902436
 SpriteRenderer:
   m_ObjectHideFlags: 1
