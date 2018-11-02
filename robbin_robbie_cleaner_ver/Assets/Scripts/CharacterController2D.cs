@@ -13,7 +13,7 @@ public class CharacterController2D : MonoBehaviour
 
     public Vector2 groundCheckBoxSize;
 
-    public float maxFallSpeed;
+    public float maxFallSpeed = 30f;
 
     Sprite HidingSprite;
 
