@@ -167,9 +167,11 @@ public class GameController : MonoBehaviour {
             gameOver = true;
             if (trashcan != null) trashcan.SetActive(false);
             if (boot != null) boot.SetActive(false);
-            Time.timeScale = 0f;
             SoundManager.instance.PlaySingle(robbieGameOverSound1);
             levelFinish = true;
+            robbie.gameObject.GetComponent<Animator>().SetBool("died", true);
+
+            //Time.timeScale = 0f;
         }
     }
 

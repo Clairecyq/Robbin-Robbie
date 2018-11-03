@@ -26,6 +26,9 @@ public class EnemyBehavior : MonoBehaviour {
         float sp = walkSpeed;
         if (robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft) {
             sp = sp * chase;
+            gameObject.GetComponent<Animator>().SetBool("alerted", true);
+        } else {
+            gameObject.GetComponent<Animator>().SetBool("alerted", false);
         }
         walkAmount.x = walkingDirection * sp * Time.deltaTime;
         if (transform.position.x >= wallRight) {
@@ -39,7 +42,10 @@ public class EnemyBehavior : MonoBehaviour {
                 enemy_flip();
             }
         }
-        transform.Translate(walkAmount);
+        if (!robbie.gameObject.GetComponent<Animator>().GetBool("died")) {
+            Debug.Log(robbie.gameObject.GetComponent<Animator>().GetBool("died"));
+            transform.Translate(walkAmount);
+        }
     }
 
     void enemy_flip() {
