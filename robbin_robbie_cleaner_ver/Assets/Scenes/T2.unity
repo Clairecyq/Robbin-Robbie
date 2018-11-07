@@ -418,6 +418,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc3502b5d6e52640af789b24ea36e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelNavButtonBar: {fileID: 0}
+  pauseButton: {fileID: 0}
+  restartButton: {fileID: 0}
+  homeButton: {fileID: 0}
 --- !u!1001 &215875767
 Prefab:
   m_ObjectHideFlags: 0
@@ -736,7 +740,7 @@ Prefab:
         type: 2}
       propertyPath: robbie
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 59500298}
     - target: {fileID: 61089936878612848, guid: f86024fb01c8e43699884e9a812ae5a9,
         type: 2}
       propertyPath: m_Offset.y
