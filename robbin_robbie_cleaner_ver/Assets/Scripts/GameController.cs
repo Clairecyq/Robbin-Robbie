@@ -17,6 +17,9 @@ public class GameController : MonoBehaviour {
     public GameObject trashcan;
     public GameObject boot;
     public GameObject scoreText;
+    public GameObject collectText;
+
+    public GameObject targetTimeText;
     public GameObject energyBarOne;
 
     public RectTransform.Axis anchor;
@@ -36,6 +39,8 @@ public class GameController : MonoBehaviour {
 
     public int levelId;
     public int totalNumLevels;
+    private float timer = 0;
+    private int minutesElapsed;
 
 
     public string levelDescription;
@@ -81,7 +86,7 @@ public class GameController : MonoBehaviour {
         CharacterController2D char_component = robbie.GetComponent<CharacterController2D>();
         energyBarOne.GetComponent<Image>().fillAmount = Mathf.Min(1.0f, (float) char_component.currentHidingPower / char_component.getMaxHidingEnergy());
 
-        scoreText.GetComponent<Text>().text = "Score: " + robbieScore.ToString();
+        //scoreText.GetComponent<Text>().text = "Score: " + robbieScore.ToString();
 
         //TODO: this needs to be modified
         if (levelFinish && !gameOver) {            
@@ -108,6 +113,15 @@ public class GameController : MonoBehaviour {
 
     void FixedUpdate() {
         snapshot += 1;
+        timer += Time.deltaTime;
+
+        minutesElapsed = (int) timer/60;
+        string extraZero = "";
+        if ((int) timer % 60 < 10) {
+            extraZero = "0";
+        }
+
+        scoreText.GetComponent<Text>().text = minutesElapsed.ToString() + " : " + extraZero + (((int) timer) % 60).ToString();
 
         if (snapshot % 300 == 0) {
             int level = levelId;
@@ -171,11 +185,48 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    public void displayVictoryStats() {
+        // step 1: display all fires collected
+        Camera cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
+
+        int ctr = 0;
+
+        for (int idx = 0; idx < fires.Length; idx++) {
+            GameObject fire = fires[idx];
+            if (fire.GetComponent<SpriteRenderer>().enabled) {
+                fire.GetComponent<SpriteRenderer>().color = Color.grey;
+            }
+            else {
+                ctr += 1;
+            }
+            fire.GetComponent<SpriteRenderer>().enabled = true;
+            Vector2 fpos = new Vector2(0,0);
+            Vector2 fviewpos = cam.WorldToViewportPoint(fpos);
+            fviewpos.x += (idx*2);
+            fire.transform.position = fviewpos;
+        }
+        if (ctr == fires.Length) {
+            collectText.GetComponent<Text>().text = "All Fire Collected!";
+        }
+        else {
+            collectText.GetComponent<Text>().text = "Fires Collected: " + ctr.ToString();
+        }
+        collectText.SetActive(true);
+
+        // step 2: display time
+
+        string finishTime = scoreText.GetComponent<Text>().text;
+        targetTimeText.GetComponent<Text>().text = "Finished in " + finishTime + "!";
+        targetTimeText.SetActive(true);
+    }
+
     public void PickedDonut() {
         if (!gameOver) {
             if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(0, "Robbie Victory");
             finishLevelText.SetActive(true);
             finishLevelText2.SetActive(true);
+            displayVictoryStats();
             if (tutorialText1!=null) tutorialText1.SetActive(false);
             if (tutorialText2!=null) tutorialText2.SetActive(false);
             SoundManager.instance.RandomizeSfx(robbieVictorySound1, robbieVictorySound2, robbieVictorySound3);
