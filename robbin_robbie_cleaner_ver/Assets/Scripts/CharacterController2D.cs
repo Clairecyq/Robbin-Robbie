@@ -13,8 +13,9 @@ public class CharacterController2D : MonoBehaviour
 
     public Vector2 groundCheckBoxSize;
 
+    public float maxFallSpeed = 30f;
 
-	Sprite HidingSprite;
+    Sprite HidingSprite;
 
 	Sprite OriginalSprite;
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
@@ -55,8 +56,12 @@ public class CharacterController2D : MonoBehaviour
 
 	public int currentHidingPower;
 
+    private float jumpTimer = 0;
+    public float boostLenience = 1f;
 
-	private void start() {
+
+
+    private void start() {
 		//currentHidingPower = startingHidingPower;
 	}
 
@@ -100,10 +105,14 @@ public class CharacterController2D : MonoBehaviour
         // Debug.Log("groundcheck position");
         // Debug.Log(m_GroundCheck.position);
 
-		for (int i = 0; i < colliders.Length; i++)
+
+        for (int i = 0; i < colliders.Length; i++)
 		{
             colliders[i].sharedMaterial = new PhysicsMaterial2D();
-			if (colliders[i].gameObject != gameObject)
+
+            colliders[i].sharedMaterial.friction = 0f;
+            colliders[i].sharedMaterial = colliders[i].sharedMaterial;
+            if (colliders[i].gameObject != gameObject)
 			{
 				m_Grounded = true;
 				if (!wasGrounded)
@@ -111,8 +120,8 @@ public class CharacterController2D : MonoBehaviour
 			}
             if (!m_Grounded)
             {
-                colliders[i].sharedMaterial.friction = 0f;
-                colliders[i].sharedMaterial = colliders[i].sharedMaterial;
+                //colliders[i].sharedMaterial.friction = 0f;
+                //colliders[i].sharedMaterial = colliders[i].sharedMaterial;
             }
 
         }
@@ -158,6 +167,11 @@ public class CharacterController2D : MonoBehaviour
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy2"), LayerMask.NameToLayer("Enemy2"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy2"));
+
+        m_Rigidbody2D.velocity = new Vector3(
+             m_Rigidbody2D.velocity.x,
+             Mathf.Clamp(m_Rigidbody2D.velocity.y, -maxFallSpeed, maxFallSpeed)
+             );
     }
 
 
@@ -227,20 +241,40 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
-			// Add a vertical force to the player.
-			m_Grounded = false;
-            if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Rabbit)
-            {
-                transformationUpdate(10);
-                m_Rigidbody2D.AddForce(new Vector2(0f, transformed_JumpForce));
-            }
+            // Add a vertical force to the player.
 
-            else
-            {
+            jumpTimer = boostLenience;
+			m_Grounded = false;
+            //if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Rabbit)
+            //{
+            //    transformationUpdate(10);
+            //    m_Rigidbody2D.AddForce(new Vector2(0f, transformed_JumpForce));
+            //}
+
+            //else
+            //{
                 m_Rigidbody2D.AddForce(new Vector2(0f, normal_JumpForce));
-            }
-            Debug.Log(transformed_JumpForce);
+            //}
+            //Debug.Log(transformed_JumpForce);
 		}
+        if (jumpTimer > 0) { jumpTimer -= Time.deltaTime; }
+        if (jumpTimer < 0) { jumpTimer = 0; }
+
+        //if the player can boost, give them some time to do it
+        if (!m_Grounded)
+        {
+            if (jumpTimer > 0f) {
+                if (jump)
+                {
+                    if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Rabbit)
+                    {
+                        transformationUpdate(10);
+                        m_Rigidbody2D.AddForce(new Vector2(0f, transformed_JumpForce - normal_JumpForce));
+                        jumpTimer = 0;
+                    }
+                }
+            }
+        }
 	}
 
 

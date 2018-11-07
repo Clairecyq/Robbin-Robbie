@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour {
     public GameObject robbie;
-    public float walkSpeed = 2.0f;
+    public float walkSpeed = 2.5f;
     public float wallLeft = -4.0f;
     public float wallRight = 5.0f;
     float walkingDirection = 1.0f;
@@ -12,7 +12,6 @@ public class EnemyBehavior : MonoBehaviour {
     public bool m_facingRight = true;
     Vector2 walkAmount;
 
-	
 	// Update is called once per frame
 
     void Awake () {
