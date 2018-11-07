@@ -20,6 +20,7 @@ public class EnemyBehavior : MonoBehaviour {
             m_facingRight = !m_facingRight;
             walkingDirection *= -1.0f;
         }
+        robbie = GameObject.FindGameObjectWithTag("Player");
     }
 	void Update () {
         walkAmount.x = walkingDirection * walkSpeed * Time.deltaTime;
@@ -50,7 +51,7 @@ public class EnemyBehavior : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D c)
     {   
         if (c.gameObject.name == "Robbie") {
-            GameController.instance.RobbieDied();
+            robbie.GetComponent<RobbieMovement>().takeDamage();
         }
     }
 }

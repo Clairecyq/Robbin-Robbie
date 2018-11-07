@@ -62,7 +62,7 @@ public class CharacterController2D : MonoBehaviour
 
 
     private void start() {
-		//currentHidingPower = startingHidingPower;
+        //currentHidingPower = startingHidingPower;
 	}
 
 	private void Awake()
@@ -143,8 +143,8 @@ public class CharacterController2D : MonoBehaviour
 			Collider2D d_col = collides_with_donut[i];
 			//Debug.Log(d_col.gameObject.layer.ToString());
 			if (d_col.gameObject.name == "Robbie") {
-				Debug.Log(gameObject.ToString());
-				Debug.Log(d_col.gameObject.ToString());
+				//Debug.Log(gameObject.ToString());
+				//Debug.Log(d_col.gameObject.ToString());
 				GameController.instance.PickedDonut();
 			}
 		}
@@ -155,7 +155,8 @@ public class CharacterController2D : MonoBehaviour
             transformationUpdate(1);
         }
 
-        if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Bush)
+        if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Bush || 
+            gameObject.GetComponent<RobbieMovement>().iTime > 0) 
         {
             // gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
