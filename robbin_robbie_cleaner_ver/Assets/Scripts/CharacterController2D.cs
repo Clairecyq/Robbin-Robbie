@@ -93,7 +93,7 @@ public class CharacterController2D : MonoBehaviour
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Interactable"), true);
 		}
 		else {
-			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Interactable"), false);
+			//Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Interactable"), false);
 		}
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -155,15 +155,20 @@ public class CharacterController2D : MonoBehaviour
             transformationUpdate(1);
         }
 
+        
+        //PHYSICS BASED collisions
         if (gameObject.GetComponent<RobbieMovement>().currentTransformation == RobbieMovement.Transformations.Bush || 
-            gameObject.GetComponent<RobbieMovement>().iTime > 0) 
+            gameObject.GetComponent<RobbieMovement>().iTime > 0 || GameController.instance.gameOver) 
         {
             // gameObject.GetComponent<SpriteRenderer>().sprite = HidingSprite;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
 		}
 		else {
 			Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
-		}
+		} 
+        
+
+        //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
 
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy2"), LayerMask.NameToLayer("Enemy2"));

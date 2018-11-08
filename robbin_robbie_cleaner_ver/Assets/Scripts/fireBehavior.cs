@@ -11,10 +11,10 @@ public class fireBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		 transform.Rotate (new Vector3 (0, 0, 90) * Time.deltaTime);
+		 transform.Rotate (new Vector3 (0, 90, 0) * Time.deltaTime);
 	}
 
-	 private void OnCollisionEnter2D(Collision2D c)
+	 private void OnTriggerEnter2D(Collider2D c)
     {   
         if (c.gameObject.name == "Robbie" && this.isActiveAndEnabled){
             gameObject.SetActive(false);

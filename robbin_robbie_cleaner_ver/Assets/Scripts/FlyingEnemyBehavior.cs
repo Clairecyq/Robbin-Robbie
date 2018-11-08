@@ -53,7 +53,7 @@ public class FlyingEnemyBehavior : MonoBehaviour {
     }
 
 
-    private void OnCollisionEnter2D(Collision2D c)
+    private void OnTriggerEnter2D(Collider2D c)
     {   
         if (c.gameObject.name == "Robbie") {
             robbie.GetComponent<RobbieMovement>().takeDamage();

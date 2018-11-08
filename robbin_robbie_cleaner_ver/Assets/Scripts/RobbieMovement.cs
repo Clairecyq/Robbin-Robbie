@@ -151,7 +151,6 @@ public class RobbieMovement : MonoBehaviour {
         if (iTime > 0)
         {
             visible = !visible;
-            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
         }
         if (iTime < 0)
         {

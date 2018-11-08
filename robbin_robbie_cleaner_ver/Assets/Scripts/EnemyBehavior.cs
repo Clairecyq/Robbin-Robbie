@@ -24,6 +24,7 @@ public class EnemyBehavior : MonoBehaviour {
     }
 	void Update () {
         walkAmount.x = walkingDirection * walkSpeed * Time.deltaTime;
+        //Debug.Log(walkingDirection);
         if (transform.position.x >= wallRight) {
             if (m_facingRight) {
                 enemy_flip();
@@ -47,11 +48,10 @@ public class EnemyBehavior : MonoBehaviour {
 		transform.localScale = theScale;
     }
 
+    
+    //Physics based collisions
 
-    private void OnCollisionEnter2D(Collision2D c)
-    {   
-        if (c.gameObject.name == "Robbie") {
-            robbie.GetComponent<RobbieMovement>().takeDamage();
-        }
-    }
+    
+   
+    
 }

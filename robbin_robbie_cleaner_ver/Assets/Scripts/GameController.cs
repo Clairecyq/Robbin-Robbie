@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour {
     public static GameController instance;
     public static bool isPaused;
 
-    public GameObject robbie;
+    private GameObject robbie;
     public GameObject finishLevelText;
     public GameObject finishLevelText2;
     public GameObject gameOverText;
@@ -41,7 +41,9 @@ public class GameController : MonoBehaviour {
     public string levelDescription;
 
     void Awake ()
-    {       
+    {
+        robbie = GameObject.FindWithTag("Player");
+
         if (instance == null) {
             instance = this;
         } else if (instance != this) {
@@ -162,6 +164,7 @@ public class GameController : MonoBehaviour {
                 1, 
                 "Robbie Died: " + level.ToString() + "  stamina: " + stamina.ToString() + "  Xpos: " + xpos.ToString() + "  Ypos: " + ypos.ToString()
                 );
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
             gameOverText.SetActive(true);
             gameOver = true;
             if (trashcan != null) trashcan.SetActive(false);
