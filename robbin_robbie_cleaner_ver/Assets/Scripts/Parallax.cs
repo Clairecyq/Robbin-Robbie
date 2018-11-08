@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour {
 
-    public GameObject background;
+    private GameObject background;
     public float scrollspeed = 1;
     private Vector3 offset;
     private Vector3 start;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+        background = GameObject.FindWithTag("Background");
         if (background != null)
         {
             offset = -transform.position + background.transform.position;
