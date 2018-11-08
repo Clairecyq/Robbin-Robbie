@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 95602488856278516}
   - component: {fileID: 58239052012585138}
   - component: {fileID: 58137675249498648}
+  - component: {fileID: 61131681035637238}
   m_Layer: 13
   m_Name: Robbie
   m_TagString: Player
@@ -84,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1664522702860658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.61, y: 10.37, z: 0.25322878}
+  m_LocalPosition: {x: -9.85, y: -6.71, z: 0.25322878}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 4385363895014376}
@@ -155,6 +156,31 @@ CircleCollider2D:
   m_Offset: {x: 0.07, y: -0.114}
   serializedVersion: 2
   m_Radius: 0.07
+--- !u!61 &61131681035637238
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1664522702860658}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.23, y: -0.01999545}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.5166667, y: 2.7133334}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.63, y: 2.223024}
+  m_EdgeRadius: 0
 --- !u!61 &61236828833448748
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -218,6 +244,9 @@ MonoBehaviour:
   canMove: 0
   transformedToTrashCan: 0
   currentTransformation: 1
+  maxHealth: 2
+  health: 0
+  iTime: 0
 --- !u!114 &114775860496798300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,8 +260,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal_JumpForce: 750
   transformed_JumpForce: 1000
-  startingHidingPower: 600
-  regen_counter: 0
+  startingHidingPower: 300
+  regenpersec: 25
+  lockout: 1
   groundCheckBoxSize: {x: 0, y: 0}
   maxFallSpeed: 30
   m_CrouchSpeed: 0.36
