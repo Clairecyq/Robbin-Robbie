@@ -23,6 +23,7 @@ public class LoggingManager : MonoBehaviour
                                // and after very large changes to your logging methods.
                                // 0 - Friends release
                                // 1 - Newgrounds
+    public int playerABValue;
 
     private bool isLevelStarted = false; // Semaphore for assertion
 
@@ -278,6 +279,17 @@ public class LoggingManager : MonoBehaviour
         TestInitialization();
         Debug.Assert(abValueSet, "recordABTestValue: You must call assignABTestValue before recording the A/B test value.");
         StartCoroutine(GetABTestRecordRequest());
+    }
+
+    public void InitializeABTestValue()
+    {
+        // Here the mapping for our AB tests
+
+        // 1 - Normal
+        // 2 - Faster Enemies
+        // 3 - One Half the Amount of Collectables
+        playerABValue = AssignABTestValue(Random.Range(1,3));
+        RecordABTestValue();
     }
 
     private IEnumerator GetABTestRecordRequest()

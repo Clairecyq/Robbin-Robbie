@@ -38,7 +38,8 @@ public class GameController : MonoBehaviour {
     private int robbieScore = 0;
 
     public int levelId;
-    public int totalNumLevels = 12; // this should not 
+    public int totalNumLevels = 12; // this should not
+    public int targetTime = 30; 
     private float timer = 0;
     private int minutesElapsed;
 
@@ -55,6 +56,14 @@ public class GameController : MonoBehaviour {
         anchor = UnityEngine.RectTransform.Axis.Horizontal;
         if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
         robbieMovement = robbie.GetComponent<RobbieMovement>();
+
+        if (LoggingManager.instance.playerABValue == 3) {
+            GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
+            for (int idx = 0; idx < fires.Length; idx++) {
+                GameObject fire = fires[idx];
+                fire.SetActive(false);
+            }
+        }
 
         /*
          * TODO: create testing instance 
@@ -184,16 +193,18 @@ public class GameController : MonoBehaviour {
 
         for (int idx = 0; idx < fires.Length; idx++) {
             GameObject fire = fires[idx];
-            if (fire.GetComponent<SpriteRenderer>().enabled) {
-                fire.GetComponent<SpriteRenderer>().color = Color.grey;
+            if (fire.activeSelf) {
+                if (fire.GetComponent<SpriteRenderer>().enabled) {
+                    fire.GetComponent<SpriteRenderer>().color = Color.grey;
+                }
+                else {
+                    ctr += 1;
+                }
+                fire.GetComponent<SpriteRenderer>().enabled = true;
+                Vector2 fviewpos = fpos;
+                fviewpos.x += (idx);
+                fire.transform.position = fviewpos;
             }
-            else {
-                ctr += 1;
-            }
-            fire.GetComponent<SpriteRenderer>().enabled = true;
-            Vector2 fviewpos = fpos;
-            fviewpos.x += (idx);
-            fire.transform.position = fviewpos;
         }
         if (ctr == fires.Length) {
             collectText.GetComponent<Text>().text = "All Fire Collected!";
@@ -208,7 +219,15 @@ public class GameController : MonoBehaviour {
         // step 2: display time
 
         string finishTime = scoreText.GetComponent<Text>().text;
-        targetTimeText.GetComponent<Text>().text = "Finished in " + finishTime + "!";
+        string finText = finishTime + "!  ";
+        int lossTime = targetTime - (int) timer;
+        int winTime = (int) timer - targetTime;
+        if ((int) timer <= targetTime) {
+            targetTimeText.GetComponent<Text>().text = finText + "-" + lossTime.ToString() + " fast!";
+        }
+        else {
+            targetTimeText.GetComponent<Text>().text = finText + "+" + winTime.ToString() + " slow :(";
+        }
         //targetTimeText.transform.position = fpos + new Vector2(-20,8);
         targetTimeText.SetActive(true);
         scoreText.SetActive(false);

@@ -23,6 +23,9 @@ public class EnemyBehavior : MonoBehaviour {
             m_facingRight = !m_facingRight;
             walkingDirection *= -1.0f;
         }
+        if (LoggingManager.instance.playerABValue == 2) {
+            walkSpeed *= 1.35f;
+        }
     }
 	void Update () {
         float sp = walkSpeed;
