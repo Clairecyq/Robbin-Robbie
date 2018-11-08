@@ -23,6 +23,8 @@ public class EnemyBehavior : MonoBehaviour {
             m_facingRight = !m_facingRight;
             walkingDirection *= -1.0f;
         }
+
+        robbie = GameObject.FindGameObjectWithTag("Player");
         if (LoggingManager.instance.playerABValue == 2) {
             walkSpeed *= 1.35f;
         }
@@ -65,12 +67,5 @@ public class EnemyBehavior : MonoBehaviour {
 		transform.localScale = theScale;
     }
 
-
-    private void OnCollisionEnter2D(Collision2D c)
-    {   
-        if (c.gameObject.name == "Robbie") {
-            GameController.instance.RobbieDied();
-            robbie.gameObject.GetComponent<Animator>().SetBool("died", true);
-        }
-    }
-}
+    
+    //Physics based collisions

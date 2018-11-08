@@ -16,9 +16,13 @@ public class FlyingEnemyBehavior : MonoBehaviour {
     public bool m_facingRight = true;
     Vector2 walkAmount;
 
-	
-	// Update is called once per frame
-	void Update () {
+    private void Awake()
+    {
+        robbie = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    // Update is called once per frame
+    void Update () {
 		transform.position = new Vector3(
             (radius * Mathf.Cos(Time.time*FlySpeed))+offset.x,
             (radius * Mathf.Sin(Time.time*FlySpeed))+offset.y,
@@ -49,10 +53,10 @@ public class FlyingEnemyBehavior : MonoBehaviour {
     }
 
 
-    private void OnCollisionEnter2D(Collision2D c)
+    private void OnTriggerEnter2D(Collider2D c)
     {   
         if (c.gameObject.name == "Robbie") {
-            GameController.instance.RobbieDied();
+            robbie.GetComponent<RobbieMovement>().takeDamage();
         } else {
             enemy_flip();
         }

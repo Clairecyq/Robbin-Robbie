@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-    public GameObject robbie;
+    private GameObject robbie;
     public bool FollowY = false;
     public float SetY = 0; //only used if FollowY is true, the y to set the camera at
     public float SetDepth = -10; //the depth of the camera, usually less than the depth of anything else in the scene
@@ -22,7 +22,9 @@ public class CameraFollow : MonoBehaviour {
     public bool manualOffset = false;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+        robbie = GameObject.FindWithTag("Player");
+
         if (manualOffset)
         {
             offset = transform.position - robbie.transform.position;

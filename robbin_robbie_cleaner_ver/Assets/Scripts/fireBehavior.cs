@@ -21,7 +21,7 @@ public class FireBehavior : MonoBehaviour {
 		circularRotation = newRot;
 	}
 
-	 private void OnCollisionEnter2D(Collision2D c)
+	 private void OnTriggerEnter2D(Collider2D c)
     {   
         if (c.gameObject.name == "Robbie" && this.isActiveAndEnabled){
             // gameObject.SetActive(false);
