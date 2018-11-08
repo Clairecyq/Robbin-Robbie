@@ -150,6 +150,7 @@ public class GameController : MonoBehaviour {
         Vector3 energyScale = energyBarOne.transform.localScale;
         energyScale.x = 1.0f;
         energyBarOne.transform.localScale = energyScale;
+        robbie.GetComponent<RobbieMovement>().health = robbie.GetComponent<RobbieMovement>().maxHealth;
     }
 
     public void RobbieDied() {

@@ -20,7 +20,7 @@ public class RobbieMovement : MonoBehaviour {
     GameObject robbie;
 
     public int maxHealth = 2;
-    private int health;
+    public int health;
     private float iTimeMax = 1;
     public float iTime = 0;
     private float kTimeMax = .5f;
@@ -36,7 +36,7 @@ public class RobbieMovement : MonoBehaviour {
 
     private bool pulse = false;
 
-    void Start () {
+    void Awake () {
         robbie = GameObject.FindGameObjectWithTag ("Player");
         canMove = true;
         health = maxHealth;
@@ -86,40 +86,58 @@ public class RobbieMovement : MonoBehaviour {
                 transformedToTrashCan = false;
                 gameObject.GetComponent<Animator>().SetBool("transformed", false);
             }
-            else if (Input.GetButtonDown("Transformation1"))
+             else if (Input.GetButtonDown("Transformation1"))
             {
+                endRabbit();
                 //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 currentTransformation = Transformations.Bush;
                 canMove = false;
                 transformedToTrashCan = true;
                 gameObject.GetComponent<Animator>().SetBool("transformed", true);
             }
-            else if (Input.GetButtonDown("Transformation2"))
+             else if (Input.GetButtonDown("Transformation2"))
             {
-
+                endTrash();
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(Color.green.r, Color.green.g, Color.green.b,
                                                                     gameObject.GetComponent<SpriteRenderer>().color.a);
                 currentTransformation = Transformations.Rabbit;
                 //gameObject.GetComponent<Animator>().SetBool("transformed", true);
-                canMove = true;                 //To reset possible movements 
+                             //To reset possible movements 
             }
             //gameObject.GetComponent<Animator>().SetBool("transformed", true);
         }
 
-        else if ((Input.GetButtonUp("Transformation0") || Input.GetButtonUp("Transformation1") || Input.GetButtonUp("Transformation2")))
+        else if (Input.GetButtonUp("Transformation1"))
         {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(Color.white.r, Color.white.g, Color.white.b, 
-                                                                    gameObject.GetComponent<SpriteRenderer>().color.a);
-            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(2, "End Hiding - Left or Hide");
+
+            endTrash();
+            
+        }
+        else if (Input.GetButtonUp("Transformation2"))
+        {
+            endRabbit();
+        }
+
+    }
+
+    void endRabbit()
+    {
+        if (currentTransformation == Transformations.Rabbit)
+        {
             currentTransformation = Transformations.Normal;
+            if (LoggingManager.instance != null) LoggingManager.instance.RecordEvent(2, "End Rabbit");
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(Color.white.r, Color.white.g, Color.white.b,
+                                                                gameObject.GetComponent<SpriteRenderer>().color.a);
+        }
+    }
+
+    private void endTrash() {
+        if (currentTransformation == Transformations.Bush){
+            currentTransformation = Transformations.Normal;
+            if (LoggingManager.instance != null) LoggingManager.instance.RecordEvent(2, "End Trash Can");
             canMove = true;                 //To reset possible movements 
             transformedToTrashCan = false;
             gameObject.GetComponent<Animator>().SetBool("transformed", false);
-        }
-
-        else
-        {
-            //gameObject.GetComponent<Animator>().SetBool("transformed", false);
         }
     }
 
