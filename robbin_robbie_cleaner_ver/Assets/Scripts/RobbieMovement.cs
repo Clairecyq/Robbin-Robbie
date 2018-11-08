@@ -51,7 +51,7 @@ public class RobbieMovement : MonoBehaviour {
         //Debug.Log(Input.GetButtonDown("Jump"));
 
         if (Input.GetButtonDown("Jump") && canMove) {
-            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(6, "Successful Jump!");
+            GameController.instance.packageInfo(16, "Successful Jump!");
             jump = true;  
         }
        
@@ -124,8 +124,8 @@ public class RobbieMovement : MonoBehaviour {
     {
         if (currentTransformation == Transformations.Rabbit)
         {
+            GameController.instance.packageInfo(12, "End Rabbit");
             currentTransformation = Transformations.Normal;
-            if (LoggingManager.instance != null) LoggingManager.instance.RecordEvent(2, "End Rabbit");
             gameObject.GetComponent<SpriteRenderer>().color = new Color(Color.white.r, Color.white.g, Color.white.b,
                                                                 gameObject.GetComponent<SpriteRenderer>().color.a);
         }
@@ -133,8 +133,8 @@ public class RobbieMovement : MonoBehaviour {
 
     private void endTrash() {
         if (currentTransformation == Transformations.Bush){
+             GameController.instance.packageInfo(12, "End Trash Can");
             currentTransformation = Transformations.Normal;
-            if (LoggingManager.instance != null) LoggingManager.instance.RecordEvent(2, "End Trash Can");
             canMove = true;                 //To reset possible movements 
             transformedToTrashCan = false;
             gameObject.GetComponent<Animator>().SetBool("transformed", false);

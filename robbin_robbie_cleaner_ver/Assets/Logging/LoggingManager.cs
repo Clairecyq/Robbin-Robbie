@@ -19,8 +19,11 @@ public class LoggingManager : MonoBehaviour
     private bool isDebugging = false; // A convenience parameter which, when set to TRUE, disables logging. 
                                       // Make sure you set this to FALSE before you submit your game online!
     private int gameId = 626; // The game's specific ID number
-    private int versionId = 0; // Your game's current version number. You should change this number between releases, 
+    private int versionId = 1; // Your game's current version number. You should change this number between releases, 
                                // and after very large changes to your logging methods.
+                               // 0 - Friends release
+                               // 1 - Newgrounds
+    public int playerABValue;
 
     private bool isLevelStarted = false; // Semaphore for assertion
 
@@ -276,6 +279,17 @@ public class LoggingManager : MonoBehaviour
         TestInitialization();
         Debug.Assert(abValueSet, "recordABTestValue: You must call assignABTestValue before recording the A/B test value.");
         StartCoroutine(GetABTestRecordRequest());
+    }
+
+    public void InitializeABTestValue()
+    {
+        // Here the mapping for our AB tests
+
+        // 1 - Normal
+        // 2 - Faster Enemies
+        // 3 - One Half the Amount of Collectables
+        playerABValue = AssignABTestValue(Random.Range(1,3));
+        RecordABTestValue();
     }
 
     private IEnumerator GetABTestRecordRequest()
