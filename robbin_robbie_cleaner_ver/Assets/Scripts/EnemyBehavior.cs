@@ -67,5 +67,6 @@ public class EnemyBehavior : MonoBehaviour {
 		transform.localScale = theScale;
     }
 
+}
     
     //Physics based collisions
