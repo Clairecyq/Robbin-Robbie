@@ -36,8 +36,6 @@ public class EnemyBehavior : MonoBehaviour {
             alertTime = 0.0f;
             gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
         }
-        Debug.Log(alertTime);
-        Debug.Log(gameObject.GetComponent<Animator>().GetBool("alerted"));
         walkAmount.x = walkingDirection * sp * Time.deltaTime;
         if (transform.position.x >= wallRight) {
             if (m_facingRight) {

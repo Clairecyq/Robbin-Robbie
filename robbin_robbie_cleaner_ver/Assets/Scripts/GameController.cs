@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour {
     private int robbieScore = 0;
 
     public int levelId;
-    public int totalNumLevels;
+    public int totalNumLevels = 12; // this should not 
     private float timer = 0;
     private int minutesElapsed;
 
@@ -124,13 +124,7 @@ public class GameController : MonoBehaviour {
         scoreText.GetComponent<Text>().text = minutesElapsed.ToString() + " : " + extraZero + (((int) timer) % 60).ToString();
 
         if (snapshot % 300 == 0) {
-            int level = levelId;
-            float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
-            float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
-            float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
-            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(8, 
-            "Snapshot - level: " + level.ToString() + "  stamina: " + stamina.ToString() + "  Xpos: " + xpos.ToString() + "  Ypos: " + ypos.ToString()
-            ); 
+            packageInfo(18, "Snapshot - level:");
             snapshot = 0;
         }
     }
@@ -139,7 +133,7 @@ public class GameController : MonoBehaviour {
         if (isPaused) {
             Resume();
         } else {
-            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(9, "Pause");
+            packageInfo(19, "Pause");
             Pause();
         }
     }
@@ -155,7 +149,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void Restart() {
-        if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(7, "Level Reset");
+        packageInfo(17, "Level Reset");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         levelFinish = false;
         gameOver = false;
@@ -168,14 +162,7 @@ public class GameController : MonoBehaviour {
         if (!levelFinish)
         {
             robbieMovement.canMove = false;
-            int level = levelId;
-            float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
-            float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
-            float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
-            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(
-                1, 
-                "Robbie Died: " + level.ToString() + "  stamina: " + stamina.ToString() + "  Xpos: " + xpos.ToString() + "  Ypos: " + ypos.ToString()
-                );
+            packageInfo(11, "Robbie Died - Generic");
             gameOverText.SetActive(true);
             gameOver = true;
             if (trashcan != null) trashcan.SetActive(false);
@@ -191,6 +178,9 @@ public class GameController : MonoBehaviour {
         GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
 
         int ctr = 0;
+        float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
+        float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
+        Vector2 fpos = new Vector2(xpos-fires.Length+1, ypos+2);
 
         for (int idx = 0; idx < fires.Length; idx++) {
             GameObject fire = fires[idx];
@@ -201,9 +191,8 @@ public class GameController : MonoBehaviour {
                 ctr += 1;
             }
             fire.GetComponent<SpriteRenderer>().enabled = true;
-            Vector2 fpos = new Vector2(0,0);
-            Vector2 fviewpos = cam.WorldToViewportPoint(fpos);
-            fviewpos.x += (idx*2);
+            Vector2 fviewpos = fpos;
+            fviewpos.x += (idx);
             fire.transform.position = fviewpos;
         }
         if (ctr == fires.Length) {
@@ -212,18 +201,22 @@ public class GameController : MonoBehaviour {
         else {
             collectText.GetComponent<Text>().text = "Fires Collected: " + ctr.ToString();
         }
+        //Vector2 ctextLoc = fpos + new Vector2(-20,5);
+        //collectText.transform.position = ctextLoc;
         collectText.SetActive(true);
 
         // step 2: display time
 
         string finishTime = scoreText.GetComponent<Text>().text;
         targetTimeText.GetComponent<Text>().text = "Finished in " + finishTime + "!";
+        //targetTimeText.transform.position = fpos + new Vector2(-20,8);
         targetTimeText.SetActive(true);
+        scoreText.SetActive(false);
     }
 
     public void PickedDonut() {
         if (!gameOver) {
-            if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(0, "Robbie Victory");
+            packageInfo(10, "Robbie Victory");
             finishLevelText.SetActive(true);
             finishLevelText2.SetActive(true);
             displayVictoryStats();
@@ -235,6 +228,18 @@ public class GameController : MonoBehaviour {
     }
 
     public void obtainCoin() {
-        robbieScore += 100;
+        robbieScore += 1;
+    }
+
+    public void packageInfo(int actionID, string action) {
+        int level = levelId;
+        float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
+        float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
+        float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
+        int totalTime = (int) timer;
+        if (LoggingManager.instance != null ) LoggingManager.instance.RecordEvent(
+            actionID, 
+            action + " " + level.ToString() + "  stamina: " + stamina.ToString() + "  Xpos: " + xpos.ToString() + "  Ypos: " + ypos.ToString() + "  playtime: " + totalTime.ToString() + " fires: " + robbieScore.ToString()
+        );
     }
 }
