@@ -23,6 +23,9 @@ public class EnemyBehavior : MonoBehaviour {
             m_facingRight = !m_facingRight;
             walkingDirection *= -1.0f;
         }
+        if (LoggingManager.instance.playerABValue == 2) {
+            walkSpeed *= 1.35f;
+        }
     }
 	void Update () {
         float sp = walkSpeed;
@@ -36,8 +39,6 @@ public class EnemyBehavior : MonoBehaviour {
             alertTime = 0.0f;
             gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
         }
-        Debug.Log(alertTime);
-        Debug.Log(gameObject.GetComponent<Animator>().GetBool("alerted"));
         walkAmount.x = walkingDirection * sp * Time.deltaTime;
         if (transform.position.x >= wallRight) {
             if (m_facingRight) {
