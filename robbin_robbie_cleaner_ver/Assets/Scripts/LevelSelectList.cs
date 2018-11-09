@@ -9,7 +9,7 @@ using System.Collections.Generic;
 public class LevelSelectList : MonoBehaviour {
 
     private GameObject levelSelectButton;
-    private bool godMode = false;
+    private bool godMode = true;
     public Transform contentPanel;
 
     // Use this for initialization

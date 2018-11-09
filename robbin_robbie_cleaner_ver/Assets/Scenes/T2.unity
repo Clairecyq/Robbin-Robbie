@@ -1212,15 +1212,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &1004108249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1164177305502808, guid: c333d6ab16c653a4ebf805db2c0a12d8,
-=======
---- !u!1 &762965611 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1292684257469696, guid: c333d6ab16c653a4ebf805db2c0a12d8,
->>>>>>> 581635e423f685a2928a7905eba42ee975b8bf6f
     type: 2}
   m_PrefabInternal: {fileID: 89836258}
 --- !u!1001 &1096709231
@@ -2631,20 +2625,12 @@ Prefab:
         type: 2}
       propertyPath: energyBarOne
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 1004108249}
-=======
-      objectReference: {fileID: 2078908963}
->>>>>>> 581635e423f685a2928a7905eba42ee975b8bf6f
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: trashcan
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 1113602194}
-=======
-      objectReference: {fileID: 762965611}
->>>>>>> 581635e423f685a2928a7905eba42ee975b8bf6f
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: levelId
@@ -2659,11 +2645,7 @@ Prefab:
         type: 2}
       propertyPath: scoreText
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 502135363}
-=======
-      objectReference: {fileID: 1291293924}
->>>>>>> 581635e423f685a2928a7905eba42ee975b8bf6f
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: collectText
@@ -2673,16 +2655,7 @@ Prefab:
         type: 2}
       propertyPath: targetTimeText
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 1448794187}
-=======
-      objectReference: {fileID: 0}
-    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
-        type: 2}
-      propertyPath: boot
-      value: 
-      objectReference: {fileID: 1163909993}
->>>>>>> 581635e423f685a2928a7905eba42ee975b8bf6f
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8134833588504e8171f947dc09415, type: 2}
   m_IsPrefabAsset: 0

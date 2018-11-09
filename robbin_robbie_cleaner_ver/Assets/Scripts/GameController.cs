@@ -120,9 +120,11 @@ public class GameController : MonoBehaviour {
                 int currentLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
                 int levelStartingIndex = SceneManager.GetSceneByName("T1").buildIndex;
 
-                if (currentLevelBuildIndex < GameStateManager.instance.totalNumLevels)
+                if (currentLevelBuildIndex < GameStateManager.instance.totalNumLevels + 2)
                 {
-                    GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex] = true;
+                    Debug.Log(currentLevelBuildIndex + 1);
+
+                    GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex - 2] = true; //levels are offset by 2 because of load scene and level selector
                     SceneManager.LoadScene(currentLevelBuildIndex + 1);
                 }
             }

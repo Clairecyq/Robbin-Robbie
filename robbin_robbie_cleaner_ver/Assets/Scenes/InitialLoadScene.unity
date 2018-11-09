@@ -868,7 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21fcdd692dc5d3c4bbb0108fc749fd4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalNumLevels: 22
+  totalNumLevels: 21
   levelStartingIndex: 0
   levelDescription: 
   levelsUnlocked: 00
