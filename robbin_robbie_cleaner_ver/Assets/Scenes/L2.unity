@@ -1396,7 +1396,7 @@ Prefab:
     - target: {fileID: 224852392637570262, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 224282193463370872, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
@@ -1436,6 +1436,36 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224148647039103298, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224582079544278414, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224488981891824238, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224648387070950570, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077201651241404, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224581299730594406, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c333d6ab16c653a4ebf805db2c0a12d8, type: 2}
@@ -2375,6 +2405,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1374274835}
   m_CullTransparentMesh: 0
+--- !u!1 &1423506271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1817061742627158, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 876318384}
 --- !u!1 &1518075044 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1190632479174352, guid: c333d6ab16c653a4ebf805db2c0a12d8,
@@ -2579,6 +2614,11 @@ CanvasRenderer:
 --- !u!1 &1681340329 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1164177305502808, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 876318384}
+--- !u!1 &1770984759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1371668886688272, guid: c333d6ab16c653a4ebf805db2c0a12d8,
     type: 2}
   m_PrefabInternal: {fileID: 876318384}
 --- !u!1 &1858034995
@@ -2800,6 +2840,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1894009013}
   m_CullTransparentMesh: 0
+--- !u!1 &1942150883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1187288984142462, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 876318384}
 --- !u!1001 &1995588495
 Prefab:
   m_ObjectHideFlags: 0
@@ -2841,14 +2886,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
-      propertyPath: robbie
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
-        type: 2}
       propertyPath: finishLevelText
       value: 
-      objectReference: {fileID: 2002460567}
+      objectReference: {fileID: 1770984759}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: finishLevelText2
@@ -2861,24 +2901,9 @@ Prefab:
       objectReference: {fileID: 1374274835}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
-      propertyPath: energyBarOne
-      value: 
-      objectReference: {fileID: 1681340329}
-    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
-        type: 2}
       propertyPath: trashcan
       value: 
       objectReference: {fileID: 2117551096}
-    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
-        type: 2}
-      propertyPath: levelId
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
-        type: 2}
-      propertyPath: levelDescription
-      value: level two
-      objectReference: {fileID: 0}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: scoreText
@@ -2886,14 +2911,19 @@ Prefab:
       objectReference: {fileID: 1518075044}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
-      propertyPath: targetTimeText
-      value: 
-      objectReference: {fileID: 1894009013}
-    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
-        type: 2}
       propertyPath: collectText
       value: 
-      objectReference: {fileID: 1634434946}
+      objectReference: {fileID: 1942150883}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: targetTimeText
+      value: 
+      objectReference: {fileID: 1423506271}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: energyBarOne
+      value: 
+      objectReference: {fileID: 1681340329}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8134833588504e8171f947dc09415, type: 2}
   m_IsPrefabAsset: 0

@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde1175cc73ba8f43be13b4b085cdaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
   finishLevelText: {fileID: 0}
   finishLevelText2: {fileID: 0}
   gameOverText: {fileID: 0}
@@ -60,6 +59,8 @@ MonoBehaviour:
   trashcan: {fileID: 0}
   boot: {fileID: 0}
   scoreText: {fileID: 0}
+  collectText: {fileID: 0}
+  targetTimeText: {fileID: 0}
   energyBarOne: {fileID: 0}
   anchor: 0
   robbieVictorySound1: {fileID: 8300000, guid: 69071c644e0c9433bae9bc25f02f3aa0, type: 3}
@@ -69,8 +70,7 @@ MonoBehaviour:
     type: 3}
   gameOver: 0
   levelFinish: 0
-  levelId: 8
+  levelId: 10
   totalNumLevels: 0
-  levelStartingIndex: 0
-  levelDescription: level four
-  levelCompletionStatuses: 
+  targetTime: 30
+  levelDescription: level two
