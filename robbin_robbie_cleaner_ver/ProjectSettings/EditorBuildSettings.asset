@@ -72,6 +72,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Matt-6.unity
     guid: 61587f5ca8c10774583e8430c3d8dc6f
   - enabled: 1
+    path: Assets/Scenes/Matt-7.unity
+    guid: 74552b315847bb540a7c8496f97b3bd7
+  - enabled: 1
     path: Assets/Scenes/Matt-8.unity
     guid: c51722ee5f37bc7419993a784bbd2ad8
   m_configObjects: {}
