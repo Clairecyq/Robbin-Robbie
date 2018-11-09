@@ -61,7 +61,8 @@ public class FlyingEnemyBehavior : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D c)
     {   
         if (c.gameObject.name == "Robbie") {
-            robbie.GetComponent<RobbieMovement>().takeDamage();
+            robbie.GetComponent<RobbieMovement>().takeDamage(this.gameObject.name);
+            GameController.instance.packageInfo(22, "Damage Eagle");
         } else {
             enemy_flip();
         }

@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
     public GameObject boot;
     public GameObject scoreText;
     public GameObject collectText;
+    public GameObject levelNavButtonBar;
 
     public GameObject targetTimeText;
     public GameObject energyBarOne;
@@ -38,7 +39,7 @@ public class GameController : MonoBehaviour {
     private int robbieScore = 0;
 
     public int levelId;
-    public int totalNumLevels = 12; // this should not
+    public int totalNumLevels = 21; // this should not
     public int targetTime = 30; 
     private float timer = 0;
     private int minutesElapsed;
@@ -59,7 +60,7 @@ public class GameController : MonoBehaviour {
         if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
         robbieMovement = robbie.GetComponent<RobbieMovement>();
 
-        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 3) {
+        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
             GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
             for (int idx = 0; idx < fires.Length; idx++) {
                 GameObject fire = fires[idx];
@@ -87,6 +88,12 @@ public class GameController : MonoBehaviour {
     public void ChangeToHome()
     {
         SceneManager.LoadScene("LevelSelector");
+        AudioListener.pause = true;
+    }
+
+    public void MuteMusic()
+    {
+        AudioListener.pause = !AudioListener.pause;
     }
 
     // Update is called once per frame
@@ -113,9 +120,11 @@ public class GameController : MonoBehaviour {
                 int currentLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
                 int levelStartingIndex = SceneManager.GetSceneByName("T1").buildIndex;
 
-                if (currentLevelBuildIndex + 1 < GameStateManager.instance.totalNumLevels)
+                if (currentLevelBuildIndex < GameStateManager.instance.totalNumLevels + 2)
                 {
-                    GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex] = true;
+                    Debug.Log(currentLevelBuildIndex + 1);
+
+                    GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex - 2] = true; //levels are offset by 2 because of load scene and level selector
                     SceneManager.LoadScene(currentLevelBuildIndex + 1);
                 }
             }
@@ -160,14 +169,17 @@ public class GameController : MonoBehaviour {
     }
 
     public void Restart() {
-        packageInfo(17, "Level Reset");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        levelFinish = false;
-        gameOver = false;
-        Vector3 energyScale = energyBarOne.transform.localScale;
-        energyScale.x = 1.0f;
-        energyBarOne.transform.localScale = energyScale;
-        robbie.GetComponent<RobbieMovement>().health = robbie.GetComponent<RobbieMovement>().maxHealth;
+        if (gameOver || isPaused) {
+            packageInfo(17, "Level Reset");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            levelFinish = false;
+            gameOver = false;
+            isPaused = false;
+            Vector3 energyScale = energyBarOne.transform.localScale;
+            energyScale.x = 1.0f;
+            energyBarOne.transform.localScale = energyScale;
+            robbie.GetComponent<RobbieMovement>().health = robbie.GetComponent<RobbieMovement>().maxHealth;
+        }
     }
 
     public void RobbieDied() {
@@ -213,15 +225,15 @@ public class GameController : MonoBehaviour {
                 fire.transform.position = fviewpos;
             }
         }
-        if (ctr == fires.Length) {
-            collectText.GetComponent<Text>().text = "All Fire Collected!";
-        }
-        else {
-            collectText.GetComponent<Text>().text = "Fires Collected: " + ctr.ToString();
-        }
+        // if (ctr == fires.Length) {
+        //     collectText.GetComponent<Text>().text = "All Fire Collected!";
+        // }
+        // else {
+        //     collectText.GetComponent<Text>().text = "Fires Collected: " + ctr.ToString();
+        // }
         //Vector2 ctextLoc = fpos + new Vector2(-20,5);
         //collectText.transform.position = ctextLoc;
-        collectText.SetActive(true);
+        //collectText.SetActive(true);
 
         // step 2: display time
 
@@ -229,14 +241,14 @@ public class GameController : MonoBehaviour {
         string finText = finishTime + "!  ";
         int lossTime = targetTime - (int) timer;
         int winTime = (int) timer - targetTime;
-        if ((int) timer <= targetTime) {
-            targetTimeText.GetComponent<Text>().text = finText;// + "-" + lossTime.ToString() + " fast!";
-        }
-        else {
-            targetTimeText.GetComponent<Text>().text = finText;// + "+" + winTime.ToString() + " slow :(";
-        }
+        // if ((int) timer <= targetTime) {
+        //     targetTimeText.GetComponent<Text>().text = finText;// + "-" + lossTime.ToString() + " fast!";
+        // }
+        // else {
+        //     targetTimeText.GetComponent<Text>().text = finText;// + "+" + winTime.ToString() + " slow :(";
+        // }
         //targetTimeText.transform.position = fpos + new Vector2(-20,8);
-        targetTimeText.SetActive(true);
+        //targetTimeText.SetActive(true);
         scoreText.SetActive(false);
     }
 
@@ -244,7 +256,7 @@ public class GameController : MonoBehaviour {
         if (!gameOver) {
             packageInfo(10, "Robbie Victory");
             finishLevelText.SetActive(true);
-            //finishLevelText2.SetActive(true);
+            finishLevelText2.SetActive(true);
             displayVictoryStats();
             if (tutorialText1!=null) tutorialText1.SetActive(false);
             if (tutorialText2!=null) tutorialText2.SetActive(false);
@@ -255,6 +267,7 @@ public class GameController : MonoBehaviour {
 
     public void obtainCoin() {
         robbieScore += 1;
+        //packageInfo(20, "Collect Fire");
     }
 
     public void packageInfo(int actionID, string action) {

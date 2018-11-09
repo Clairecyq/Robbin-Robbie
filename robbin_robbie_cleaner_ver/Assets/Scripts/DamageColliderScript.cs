@@ -16,7 +16,7 @@ public class DamageColliderScript : MonoBehaviour {
     {
         if (c.gameObject.name == "Robbie")
         {
-            robbie.GetComponent<RobbieMovement>().takeDamage();
+            robbie.GetComponent<RobbieMovement>().takeDamage(this.gameObject.name);
         }
     }
 }

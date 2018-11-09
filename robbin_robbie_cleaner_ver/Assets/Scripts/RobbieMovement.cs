@@ -79,7 +79,7 @@ public class RobbieMovement : MonoBehaviour {
         //Debug.Log(Input.GetButtonDown("Jump"));
 
         if (Input.GetButtonDown("Jump") && canMove) {
-            GameController.instance.packageInfo(16, "Successful Jump!");
+            //GameController.instance.packageInfo(16, "Successful Jump!");
             jump = true;  
         }
        
@@ -87,6 +87,7 @@ public class RobbieMovement : MonoBehaviour {
 
         if (GetComponent<Transform>().position.y < bottomDeathPlane) //robbie dies if he falls off the screen
         {
+            GameController.instance.packageInfo(24, "Death by Fall");
             GameController.instance.RobbieDied();
         }
 	}
@@ -154,7 +155,7 @@ public class RobbieMovement : MonoBehaviour {
     {
         if (currentTransformation == Transformations.Rabbit)
         {
-            GameController.instance.packageInfo(12, "End Rabbit");
+            GameController.instance.packageInfo(13, "End Rabbit");
             currentTransformation = Transformations.Normal;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(Color.white.r, Color.white.g, Color.white.b,
                                                                 gameObject.GetComponent<SpriteRenderer>().color.a);
@@ -163,7 +164,7 @@ public class RobbieMovement : MonoBehaviour {
 
     private void endTrash() {
         if (currentTransformation == Transformations.Bush){
-             GameController.instance.packageInfo(12, "End Trash Can");
+            GameController.instance.packageInfo(12, "End Trash Can");
             currentTransformation = Transformations.Normal;
             canMove = true;                 //To reset possible movements 
             transformedToTrashCan = false;
@@ -216,18 +217,21 @@ public class RobbieMovement : MonoBehaviour {
 
     }
 
-    public void takeDamage()
+    public void takeDamage(string c)
     {
         if (iTime < 0)
         {
             if (health > 1)
             {
+                GameController.instance.packageInfo(21, "Damage Taken");
                 health -= 1;
                 iTime = iTimeMax;
                 kTime = kTimeMax;
             }
             else
             {
+                if (c.Contains("Eagle")) {GameController.instance.packageInfo(22, "Death Eagle");}
+                else {GameController.instance.packageInfo(23, "Death Bear");}
                 GameController.instance.RobbieDied();
             }
         }
