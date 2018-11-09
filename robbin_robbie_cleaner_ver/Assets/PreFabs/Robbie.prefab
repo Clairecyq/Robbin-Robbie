@@ -261,7 +261,7 @@ MonoBehaviour:
   normal_JumpForce: 750
   transformed_JumpForce: 1000
   startingHidingPower: 300
-  regenpersec: 25
+  regenpersec: 100
   lockout: 1
   groundCheckBoxSize: {x: 0, y: 0}
   maxFallSpeed: 30
