@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour {
     public static GameController instance;
     public static bool isPaused;
 
-    public GameObject robbie;
+    private GameObject robbie;
     public GameObject finishLevelText;
     public GameObject finishLevelText2;
     public GameObject gameOverText;
@@ -48,7 +48,9 @@ public class GameController : MonoBehaviour {
     public string levelDescription;
 
     void Awake ()
-    {       
+    {
+        robbie = GameObject.FindWithTag("Player");
+
         if (instance == null) {
             instance = this;
         } else if (instance != this) {
@@ -58,7 +60,7 @@ public class GameController : MonoBehaviour {
         if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
         robbieMovement = robbie.GetComponent<RobbieMovement>();
 
-        if (LoggingManager.instance.playerABValue == 3) {
+        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 3) {
             GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
             for (int idx = 0; idx < fires.Length; idx++) {
                 GameObject fire = fires[idx];
@@ -171,12 +173,14 @@ public class GameController : MonoBehaviour {
         Vector3 energyScale = energyBarOne.transform.localScale;
         energyScale.x = 1.0f;
         energyBarOne.transform.localScale = energyScale;
+        robbie.GetComponent<RobbieMovement>().health = robbie.GetComponent<RobbieMovement>().maxHealth;
     }
 
     public void RobbieDied() {
         if (!levelFinish)
         {
             robbieMovement.canMove = false;
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
             packageInfo(11, "Robbie Died - Generic");
             gameOverText.SetActive(true);
             gameOver = true;
