@@ -174,6 +174,7 @@ public class GameController : MonoBehaviour {
         if (!levelFinish)
         {
             robbie.gameObject.GetComponent<Animator>().SetBool("died", true);
+            robbie.gameObject.GetComponent<RobbieMovement>().killHeart();
             robbieMovement.canMove = false;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
             packageInfo(11, "Robbie Died - Generic");
@@ -199,7 +200,7 @@ public class GameController : MonoBehaviour {
 
         for (int idx = 0; idx < fires.Length; idx++) {
             GameObject fire = fires[idx];
-            if (fire.activeSelf) {
+            if (fire.activeSelf && fire.name.Contains("fire")) {
                 if (fire.GetComponent<SpriteRenderer>().enabled) {
                     fire.GetComponent<SpriteRenderer>().color = Color.grey;
                 }
@@ -229,10 +230,10 @@ public class GameController : MonoBehaviour {
         int lossTime = targetTime - (int) timer;
         int winTime = (int) timer - targetTime;
         if ((int) timer <= targetTime) {
-            targetTimeText.GetComponent<Text>().text = finText + "-" + lossTime.ToString() + " fast!";
+            targetTimeText.GetComponent<Text>().text = finText;// + "-" + lossTime.ToString() + " fast!";
         }
         else {
-            targetTimeText.GetComponent<Text>().text = finText + "+" + winTime.ToString() + " slow :(";
+            targetTimeText.GetComponent<Text>().text = finText;// + "+" + winTime.ToString() + " slow :(";
         }
         //targetTimeText.transform.position = fpos + new Vector2(-20,8);
         targetTimeText.SetActive(true);
@@ -243,7 +244,7 @@ public class GameController : MonoBehaviour {
         if (!gameOver) {
             packageInfo(10, "Robbie Victory");
             finishLevelText.SetActive(true);
-            finishLevelText2.SetActive(true);
+            //finishLevelText2.SetActive(true);
             displayVictoryStats();
             if (tutorialText1!=null) tutorialText1.SetActive(false);
             if (tutorialText2!=null) tutorialText2.SetActive(false);
