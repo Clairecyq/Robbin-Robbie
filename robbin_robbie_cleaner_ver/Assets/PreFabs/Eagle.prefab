@@ -100,7 +100,7 @@ MonoBehaviour:
   robbie: {fileID: 0}
   radius: 3
   offset: {x: 2.75, y: -7, z: 1.7316}
-  FlySpeed: -2
+  FlySpeed: 3
   wallLeft: -5
   wallRight: 5
   m_facingRight: 1

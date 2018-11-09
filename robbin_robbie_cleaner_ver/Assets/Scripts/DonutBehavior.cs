@@ -16,7 +16,6 @@ public class DonutBehavior : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D c)
     {
-        Debug.Log("Trace");
 		if (c.gameObject.name == "Robbie") {GameController.instance.PickedDonut();
 		} else if (c.gameObject.name.Contains("Demon")) {
 			GameController.instance.RobbieDied();
