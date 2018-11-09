@@ -15,6 +15,7 @@ public class FireBehavior : MonoBehaviour {
 
 	public GameObject Spring; // used only in one level
 	public GameObject energyShell; //
+	public GameObject energyBar;
 
 	void Update () {
 		 transform.Rotate (new Vector3 (0, circularRotation, 0) * Time.deltaTime);
@@ -38,6 +39,7 @@ public class FireBehavior : MonoBehaviour {
 			}
 			else {
 				energyShell.SetActive(true);
+				energyBar.SetActive(true);
 				//Spring.SetActive(true);
 				GameObject.FindWithTag("Player").GetComponent<RobbieMovement>().canHide = true;
 			}

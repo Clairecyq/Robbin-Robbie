@@ -87,7 +87,7 @@ public class RobbieMovement : MonoBehaviour {
 
         if (GetComponent<Transform>().position.y < bottomDeathPlane) //robbie dies if he falls off the screen
         {
-            GameController.instance.packageInfo(24, "Death by Fall");
+            if (!robbie.gameObject.GetComponent<Animator>().GetBool("died")) GameController.instance.packageInfo(24, "Death by Fall");
             GameController.instance.RobbieDied();
         }
 	}
