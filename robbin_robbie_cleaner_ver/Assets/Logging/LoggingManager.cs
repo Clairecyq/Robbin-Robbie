@@ -287,7 +287,7 @@ public class LoggingManager : MonoBehaviour
 
         // 1 - Normal
         // 2 - Faster Enemies and One Half the Amount of Collectables
-        playerABValue = AssignABTestValue(Random.Range(1,2));
+        playerABValue = AssignABTestValue(Random.Range(1,3));
         RecordABTestValue();
     }
 
