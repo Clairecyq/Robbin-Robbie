@@ -9,7 +9,7 @@ public class LevelLoader : MonoBehaviour {
     public Slider slider;
     public Button playButton;
 
-    public void Awake() {
+    public void Start() {
         LoggingManager.instance.Initialize(626, 2, false);
         LoggingManager.instance.RecordPageLoad("Game Instance Manager Started");
         LoggingManager.instance.InitializeABTestValue();
