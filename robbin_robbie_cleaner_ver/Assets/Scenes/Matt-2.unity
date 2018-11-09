@@ -4317,12 +4317,12 @@ Prefab:
     - target: {fileID: 224004358208610652, guid: b05c856e16feeef4bacdf0bc390434d2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 224004358208610652, guid: b05c856e16feeef4bacdf0bc390434d2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 224004358208610652, guid: b05c856e16feeef4bacdf0bc390434d2,
         type: 2}

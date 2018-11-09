@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
     public GameObject boot;
     public GameObject scoreText;
     public GameObject collectText;
+    public GameObject levelNavButtonBar;
 
     public GameObject targetTimeText;
     public GameObject energyBarOne;
@@ -85,6 +86,11 @@ public class GameController : MonoBehaviour {
     public void ChangeToHome()
     {
         SceneManager.LoadScene("LevelSelector");
+    }
+
+    public void MuteMusic()
+    {
+        AudioListener.pause = !AudioListener.pause;
     }
 
     // Update is called once per frame

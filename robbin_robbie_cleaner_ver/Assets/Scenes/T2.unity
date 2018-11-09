@@ -357,12 +357,12 @@ Prefab:
     - target: {fileID: 224004358208610652, guid: b05c856e16feeef4bacdf0bc390434d2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 224004358208610652, guid: b05c856e16feeef4bacdf0bc390434d2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 224004358208610652, guid: b05c856e16feeef4bacdf0bc390434d2,
         type: 2}
@@ -402,26 +402,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224004358208610652, guid: b05c856e16feeef4bacdf0bc390434d2,
     type: 2}
   m_PrefabInternal: {fileID: 211035100}
---- !u!1 &211035102 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1568447605221536, guid: b05c856e16feeef4bacdf0bc390434d2,
-    type: 2}
-  m_PrefabInternal: {fileID: 211035100}
---- !u!114 &211035103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211035102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc3502b5d6e52640af789b24ea36e31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelNavButtonBar: {fileID: 0}
-  pauseButton: {fileID: 0}
-  restartButton: {fileID: 0}
-  homeButton: {fileID: 0}
 --- !u!1001 &215875767
 Prefab:
   m_ObjectHideFlags: 0
