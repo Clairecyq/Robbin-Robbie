@@ -126,7 +126,7 @@ public class GameController : MonoBehaviour {
                 {
                     Debug.Log(currentLevelBuildIndex + 1);
 
-                    GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex - 2] = true; //levels are offset by 2 because of load scene and level selector
+                    GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex - 1] = true; //levels are offset by 1 because of load scene and level selector
                     SceneManager.LoadScene(currentLevelBuildIndex + 1);
                 }
             }
