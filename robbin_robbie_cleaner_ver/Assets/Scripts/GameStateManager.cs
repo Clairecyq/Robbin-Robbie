@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameStateManager : MonoBehaviour {
     public static GameStateManager instance;
 
-    public int totalNumLevels;
+    public int totalNumLevels = 21;
     public int levelStartingIndex;
 
     public string levelDescription;

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour {
     public GameObject robbie;
-    public float walkSpeed = 2.5f;
-    public float wallLeft = -4.0f;
-    public float wallRight = 5.0f;
+    public float walkSpeed = 2.0f;
+    public float chase = 1.5f;
+    public float wallLeft;
+    public float wallRight;
+
+    private float alertTime = 0.0f;
     float walkingDirection = 1.0f;
 
     public bool m_facingRight = true;
@@ -20,9 +23,25 @@ public class EnemyBehavior : MonoBehaviour {
             m_facingRight = !m_facingRight;
             walkingDirection *= -1.0f;
         }
+
+        robbie = GameObject.FindGameObjectWithTag("Player");
+        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
+            walkSpeed *= 1.35f;
+        }
     }
 	void Update () {
-        walkAmount.x = walkingDirection * walkSpeed * Time.deltaTime;
+        float sp = walkSpeed;
+        if (robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft) {
+            sp = sp * chase;
+            gameObject.GetComponent<Animator>().SetBool("alerted", true);
+            gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
+            alertTime += 0.06f;
+        } else {
+            gameObject.GetComponent<Animator>().SetBool("alerted", false);
+            alertTime = 0.0f;
+            gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
+        }
+        walkAmount.x = walkingDirection * sp * Time.deltaTime;
         if (transform.position.x >= wallRight) {
             if (m_facingRight) {
                 enemy_flip();
@@ -34,7 +53,9 @@ public class EnemyBehavior : MonoBehaviour {
                 enemy_flip();
             }
         }
-        transform.Translate(walkAmount);
+        if (!robbie.gameObject.GetComponent<Animator>().GetBool("died")) {
+            transform.Translate(walkAmount);
+        }
     }
 
     void enemy_flip() {
@@ -46,11 +67,6 @@ public class EnemyBehavior : MonoBehaviour {
 		transform.localScale = theScale;
     }
 
-
-    private void OnCollisionEnter2D(Collision2D c)
-    {   
-        if (c.gameObject.name == "Robbie") {
-            GameController.instance.RobbieDied();
-        }
-    }
 }
+    
+    //Physics based collisions

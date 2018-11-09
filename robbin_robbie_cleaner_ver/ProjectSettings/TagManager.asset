@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Background
+  - Collectable
   layers:
   - Default
   - TransparentFX
@@ -28,7 +30,7 @@ TagManager:
   - Bullet
   - Item
   - trap
-  - 
+  - Ignore
   - 
   - 
   - 
