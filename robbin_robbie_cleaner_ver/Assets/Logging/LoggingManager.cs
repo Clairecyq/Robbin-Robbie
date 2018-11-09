@@ -286,9 +286,8 @@ public class LoggingManager : MonoBehaviour
         // Here the mapping for our AB tests
 
         // 1 - Normal
-        // 2 - Faster Enemies
-        // 3 - One Half the Amount of Collectables
-        playerABValue = AssignABTestValue(Random.Range(1,3));
+        // 2 - Faster Enemies and One Half the Amount of Collectables
+        playerABValue = AssignABTestValue(Random.Range(1,2));
         RecordABTestValue();
     }
 

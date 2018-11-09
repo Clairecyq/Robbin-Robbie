@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour {
     private int robbieScore = 0;
 
     public int levelId;
-    public int totalNumLevels = 12; // this should not
+    public int totalNumLevels = 21; // this should not
     public int targetTime = 30; 
     private float timer = 0;
     private int minutesElapsed;
@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour {
         if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
         robbieMovement = robbie.GetComponent<RobbieMovement>();
 
-        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 3) {
+        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
             GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
             for (int idx = 0; idx < fires.Length; idx++) {
                 GameObject fire = fires[idx];
@@ -169,14 +169,17 @@ public class GameController : MonoBehaviour {
     }
 
     public void Restart() {
-        packageInfo(17, "Level Reset");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        levelFinish = false;
-        gameOver = false;
-        Vector3 energyScale = energyBarOne.transform.localScale;
-        energyScale.x = 1.0f;
-        energyBarOne.transform.localScale = energyScale;
-        robbie.GetComponent<RobbieMovement>().health = robbie.GetComponent<RobbieMovement>().maxHealth;
+        if (gameOver || isPaused) {
+            packageInfo(17, "Level Reset");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            levelFinish = false;
+            gameOver = false;
+            isPaused = false;
+            Vector3 energyScale = energyBarOne.transform.localScale;
+            energyScale.x = 1.0f;
+            energyBarOne.transform.localScale = energyScale;
+            robbie.GetComponent<RobbieMovement>().health = robbie.GetComponent<RobbieMovement>().maxHealth;
+        }
     }
 
     public void RobbieDied() {
@@ -264,6 +267,7 @@ public class GameController : MonoBehaviour {
 
     public void obtainCoin() {
         robbieScore += 1;
+        //packageInfo(20, "Collect Fire");
     }
 
     public void packageInfo(int actionID, string action) {

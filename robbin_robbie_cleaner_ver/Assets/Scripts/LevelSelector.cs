@@ -9,11 +9,6 @@ public class LevelSelector : MonoBehaviour {
 
     void Start()
     {
-
-        LoggingManager.instance.Initialize(626, 1, true);
-        LoggingManager.instance.RecordPageLoad("Game Instance Manager Started");
-        LoggingManager.instance.InitializeABTestValue();
-
         if (!GameStateManager.instance.isInitialized )
         {
             GameStateManager.instance.Initialize(totalNumLevels);

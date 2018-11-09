@@ -2571,12 +2571,12 @@ Prefab:
     - target: {fileID: 114317053837043316, guid: 9e10dc6fd92b93e44ad7095a2b82ba83,
         type: 2}
       propertyPath: radius
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114317053837043316, guid: 9e10dc6fd92b93e44ad7095a2b82ba83,
         type: 2}
       propertyPath: FlySpeed
-      value: -2.8
+      value: -2.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e10dc6fd92b93e44ad7095a2b82ba83, type: 2}
