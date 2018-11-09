@@ -100,7 +100,7 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown("r")) {
+        if (Input.GetKeyDown("r") && gameOver) {
             Restart();
         }
         CharacterController2D char_component = robbie.GetComponent<CharacterController2D>();
@@ -171,7 +171,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void Restart() {
-        if (gameOver || isPaused) {
+        if (true) {
             packageInfo(17, "Level Reset");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             levelFinish = false;
