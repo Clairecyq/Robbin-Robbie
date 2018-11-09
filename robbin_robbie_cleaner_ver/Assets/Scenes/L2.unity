@@ -2616,11 +2616,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1164177305502808, guid: c333d6ab16c653a4ebf805db2c0a12d8,
     type: 2}
   m_PrefabInternal: {fileID: 876318384}
---- !u!1 &1770984759 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1371668886688272, guid: c333d6ab16c653a4ebf805db2c0a12d8,
-    type: 2}
-  m_PrefabInternal: {fileID: 876318384}
 --- !u!1 &1858034995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,7 +2883,7 @@ Prefab:
         type: 2}
       propertyPath: finishLevelText
       value: 
-      objectReference: {fileID: 1770984759}
+      objectReference: {fileID: 2002460567}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: finishLevelText2

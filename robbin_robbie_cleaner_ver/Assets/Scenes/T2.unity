@@ -1212,9 +1212,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1004108249 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1164177305502808, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+=======
+--- !u!1 &762965611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1292684257469696, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+>>>>>>> 581635e423f685a2928a7905eba42ee975b8bf6f
     type: 2}
   m_PrefabInternal: {fileID: 89836258}
 --- !u!1001 &1096709231
@@ -1377,6 +1383,16 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!1 &1163909993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1600545632303774, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 89836258}
+--- !u!1 &1291293924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1190632479174352, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 89836258}
 --- !u!1 &1354084185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,12 +2631,20 @@ Prefab:
         type: 2}
       propertyPath: energyBarOne
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1004108249}
+=======
+      objectReference: {fileID: 2078908963}
+>>>>>>> 581635e423f685a2928a7905eba42ee975b8bf6f
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: trashcan
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1113602194}
+=======
+      objectReference: {fileID: 762965611}
+>>>>>>> 581635e423f685a2928a7905eba42ee975b8bf6f
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: levelId
@@ -2635,7 +2659,11 @@ Prefab:
         type: 2}
       propertyPath: scoreText
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 502135363}
+=======
+      objectReference: {fileID: 1291293924}
+>>>>>>> 581635e423f685a2928a7905eba42ee975b8bf6f
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: collectText
@@ -2645,7 +2673,16 @@ Prefab:
         type: 2}
       propertyPath: targetTimeText
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1448794187}
+=======
+      objectReference: {fileID: 0}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: boot
+      value: 
+      objectReference: {fileID: 1163909993}
+>>>>>>> 581635e423f685a2928a7905eba42ee975b8bf6f
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8134833588504e8171f947dc09415, type: 2}
   m_IsPrefabAsset: 0
@@ -2861,6 +2898,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97c9ca386e9cbe94ea3902f814f086df, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2078908963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1164177305502808, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 89836258}
 --- !u!1001 &2120826699
 Prefab:
   m_ObjectHideFlags: 0

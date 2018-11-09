@@ -38,7 +38,7 @@ public class FireBehavior : MonoBehaviour {
 			}
 			else {
 				energyShell.SetActive(true);
-				Spring.SetActive(true);
+				//Spring.SetActive(true);
 				GameObject.FindWithTag("Player").GetComponent<RobbieMovement>().canHide = true;
 			}
 		}

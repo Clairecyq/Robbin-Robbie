@@ -220,15 +220,15 @@ public class GameController : MonoBehaviour {
                 fire.transform.position = fviewpos;
             }
         }
-        if (ctr == fires.Length) {
-            collectText.GetComponent<Text>().text = "All Fire Collected!";
-        }
-        else {
-            collectText.GetComponent<Text>().text = "Fires Collected: " + ctr.ToString();
-        }
+        // if (ctr == fires.Length) {
+        //     collectText.GetComponent<Text>().text = "All Fire Collected!";
+        // }
+        // else {
+        //     collectText.GetComponent<Text>().text = "Fires Collected: " + ctr.ToString();
+        // }
         //Vector2 ctextLoc = fpos + new Vector2(-20,5);
         //collectText.transform.position = ctextLoc;
-        collectText.SetActive(true);
+        //collectText.SetActive(true);
 
         // step 2: display time
 
@@ -236,14 +236,14 @@ public class GameController : MonoBehaviour {
         string finText = finishTime + "!  ";
         int lossTime = targetTime - (int) timer;
         int winTime = (int) timer - targetTime;
-        if ((int) timer <= targetTime) {
-            targetTimeText.GetComponent<Text>().text = finText;// + "-" + lossTime.ToString() + " fast!";
-        }
-        else {
-            targetTimeText.GetComponent<Text>().text = finText;// + "+" + winTime.ToString() + " slow :(";
-        }
+        // if ((int) timer <= targetTime) {
+        //     targetTimeText.GetComponent<Text>().text = finText;// + "-" + lossTime.ToString() + " fast!";
+        // }
+        // else {
+        //     targetTimeText.GetComponent<Text>().text = finText;// + "+" + winTime.ToString() + " slow :(";
+        // }
         //targetTimeText.transform.position = fpos + new Vector2(-20,8);
-        targetTimeText.SetActive(true);
+        //targetTimeText.SetActive(true);
         scoreText.SetActive(false);
     }
 
@@ -251,7 +251,7 @@ public class GameController : MonoBehaviour {
         if (!gameOver) {
             packageInfo(10, "Robbie Victory");
             finishLevelText.SetActive(true);
-            //finishLevelText2.SetActive(true);
+            finishLevelText2.SetActive(true);
             displayVictoryStats();
             if (tutorialText1!=null) tutorialText1.SetActive(false);
             if (tutorialText2!=null) tutorialText2.SetActive(false);
