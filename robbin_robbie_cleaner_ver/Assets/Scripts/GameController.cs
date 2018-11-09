@@ -173,6 +173,7 @@ public class GameController : MonoBehaviour {
     public void RobbieDied() {
         if (!levelFinish)
         {
+            robbie.gameObject.GetComponent<Animator>().SetBool("died", true);
             robbieMovement.canMove = false;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
             packageInfo(11, "Robbie Died - Generic");
@@ -182,6 +183,7 @@ public class GameController : MonoBehaviour {
             if (boot != null) boot.SetActive(false);
             SoundManager.instance.PlaySingle(robbieGameOverSound1);
             levelFinish = true;
+
         }
     }
 

@@ -7,6 +7,8 @@ public class RobbieMovement : MonoBehaviour {
     public CharacterController2D controller;
     public float speed;
 
+    public bool canJump = true;
+
     public float hiding_speed_adjust = 0.35f;
     public float horizontalMove;
     public float bottomDeathPlane = -15f;
@@ -34,10 +36,14 @@ public class RobbieMovement : MonoBehaviour {
         Rabbit, 
     }
 
+    private GameObject heart;
+    private GameObject spring;
     private bool pulse = false;
 
     void Awake () {
         robbie = GameObject.FindGameObjectWithTag ("Player");
+        heart = GameObject.Find("heart");
+        spring = GameObject.Find("Boot");
         canMove = true;
         health = maxHealth;
         //canJump = false;
@@ -45,6 +51,26 @@ public class RobbieMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if (!canJump)
+        {
+            if (spring != null)
+            {
+                spring.SetActive(false);
+            }
+        }
+
+        if (heart != null)
+        {
+            if (health == 2)
+            {
+                heart.SetActive(true);
+            }
+            else
+            {
+                heart.SetActive(false);
+            }
+        }
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         gameObject.GetComponent<Animator>().SetInteger("movement_speed", (int)Mathf.Abs(horizontalMove));
 
@@ -95,7 +121,7 @@ public class RobbieMovement : MonoBehaviour {
                 transformedToTrashCan = true;
                 gameObject.GetComponent<Animator>().SetBool("transformed", true);
             }
-             else if (Input.GetButtonDown("Transformation2"))
+             else if (Input.GetButtonDown("Transformation2") && canJump)
             {
                 endTrash();
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(Color.green.r, Color.green.g, Color.green.b,

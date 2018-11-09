@@ -1168,11 +1168,16 @@ Prefab:
     - target: {fileID: 114775860496798300, guid: af821e23048a6a94db846ba76cfd6df9,
         type: 2}
       propertyPath: startingHidingPower
-      value: 1000
+      value: 1050
       objectReference: {fileID: 0}
     - target: {fileID: 1664522702860658, guid: af821e23048a6a94db846ba76cfd6df9, type: 2}
       propertyPath: m_Name
       value: Robbie
+      objectReference: {fileID: 0}
+    - target: {fileID: 114196672425722392, guid: af821e23048a6a94db846ba76cfd6df9,
+        type: 2}
+      propertyPath: canJump
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af821e23048a6a94db846ba76cfd6df9, type: 2}
