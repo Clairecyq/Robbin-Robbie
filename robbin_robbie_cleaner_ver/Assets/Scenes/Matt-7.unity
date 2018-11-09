@@ -516,6 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &292218991
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1135,6 +1136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &693715499
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1431,6 +1433,11 @@ Prefab:
       propertyPath: m_Name
       value: BlueEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: robbie
+      value: 
+      objectReference: {fileID: 57476175}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
@@ -1489,7 +1496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 57476175}
   radius: 3
   offset: {x: 49.9, y: 4.4, z: 1.7316}
   FlySpeed: 2
@@ -1695,6 +1702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1294421090
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2049,6 +2057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1622175406
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2171,6 +2180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1634176954
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2293,6 +2303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1652344892
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3861,6 +3872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1797134837
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

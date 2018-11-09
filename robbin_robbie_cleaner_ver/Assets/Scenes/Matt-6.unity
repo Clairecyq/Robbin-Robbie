@@ -248,6 +248,11 @@ Prefab:
       propertyPath: m_Name
       value: BlueEnemy (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: robbie
+      value: 
+      objectReference: {fileID: 1158946595}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
@@ -999,6 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &612260504
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1362,7 +1368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 1158946595}
   radius: 3
   offset: {x: 9.4, y: 3.3, z: 1.7316}
   FlySpeed: 2
@@ -1476,6 +1482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &937626987
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1598,6 +1605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &987224811
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1720,6 +1728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1034147688
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1842,6 +1851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1089805895
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2074,6 +2084,11 @@ Prefab:
       propertyPath: m_Name
       value: BlueEnemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: robbie
+      value: 
+      objectReference: {fileID: 1158946595}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
@@ -2507,7 +2522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 1158946595}
   radius: 3
   offset: {x: 50.3, y: 3.3, z: 1.7316}
   FlySpeed: -2
@@ -2621,6 +2636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1651557376
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5068,6 +5084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &2033885124
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5370,6 +5387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &2129204932
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &168170206
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -983,6 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &586573162
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1210,6 +1212,11 @@ Prefab:
       propertyPath: m_Name
       value: BlueEnemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: robbie
+      value: 
+      objectReference: {fileID: 1537159684}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
@@ -1415,7 +1422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 1537159684}
   radius: 3
   offset: {x: -17.83, y: -1.78, z: 1.7316}
   FlySpeed: -3
@@ -1623,7 +1630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 1537159684}
   radius: 3
   offset: {x: -4.06, y: 1.92, z: 1.7316}
   FlySpeed: 3
@@ -1842,6 +1849,11 @@ Prefab:
       propertyPath: m_Name
       value: BlueEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: robbie
+      value: 
+      objectReference: {fileID: 1537159684}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
@@ -2147,6 +2159,11 @@ Prefab:
       propertyPath: m_Name
       value: BlueEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: robbie
+      value: 
+      objectReference: {fileID: 1537159684}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
@@ -2285,6 +2302,11 @@ Prefab:
       propertyPath: m_Name
       value: BlueEnemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: robbie
+      value: 
+      objectReference: {fileID: 1537159684}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0
@@ -2527,6 +2549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1541896204
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3633,6 +3656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1716568392
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3980,6 +4004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &2000801016
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4207,6 +4232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &2079343393
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4509,6 +4535,11 @@ Prefab:
       propertyPath: m_Name
       value: BlueEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114869130896335576, guid: f86024fb01c8e43699884e9a812ae5a9,
+        type: 2}
+      propertyPath: robbie
+      value: 
+      objectReference: {fileID: 1537159684}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f86024fb01c8e43699884e9a812ae5a9, type: 2}
   m_IsPrefabAsset: 0

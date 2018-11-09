@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &71369457
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -484,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 119312202}
   radius: 3
   offset: {x: 9.3, y: 2.3, z: 1.7316}
   FlySpeed: 2
@@ -673,6 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &217228472
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -924,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 119312202}
   radius: 3
   offset: {x: -16.5, y: 11.3, z: 1.7316}
   FlySpeed: 2
@@ -1269,7 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 119312202}
   radius: 3
   offset: {x: -15.5, y: -2.7, z: 1.7316}
   FlySpeed: 2
@@ -1725,6 +1727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &693715499
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1847,6 +1850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &909279873
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2038,6 +2042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1205327846
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2185,7 +2190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 119312202}
   radius: 3
   offset: {x: 36.8, y: 4, z: 1.7316}
   FlySpeed: -2
@@ -2299,6 +2304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1259205517
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2513,6 +2519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1294421090
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2660,7 +2667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 119312202}
   radius: 3
   offset: {x: 56.7, y: 6.4, z: 1.7316}
   FlySpeed: -2
@@ -2849,6 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1398200811
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2996,7 +3004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 119312202}
   radius: 3
   offset: {x: 48.5, y: 2.1, z: 1.7316}
   FlySpeed: 2
@@ -3292,7 +3300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 119312202}
   radius: 3
   offset: {x: 8.2, y: 12.4, z: 1.7316}
   FlySpeed: -2
@@ -3431,7 +3439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c64d02de32e404db36bdd2657d89fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
+  robbie: {fileID: 119312202}
   radius: 3
   offset: {x: -3, y: 2, z: 1.7316}
   FlySpeed: -2
@@ -3545,6 +3553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1634176954
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3667,6 +3676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1652344892
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4746,6 +4756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1704866152
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4868,6 +4879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1751231518
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4990,6 +5002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1762570737
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5187,6 +5200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1797134837
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5459,6 +5473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a892b0676bbc24e1d9b2176799e89c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circularRotation: 90
 --- !u!70 &1969433149
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
