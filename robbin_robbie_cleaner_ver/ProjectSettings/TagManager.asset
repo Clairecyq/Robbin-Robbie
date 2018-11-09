@@ -32,8 +32,8 @@ TagManager:
   - trap
   - Ignore
   - 
-  - 
-  - 
+  - LoadingBar
+  - IntialLoadingScreen
   - 
   - 
   - 

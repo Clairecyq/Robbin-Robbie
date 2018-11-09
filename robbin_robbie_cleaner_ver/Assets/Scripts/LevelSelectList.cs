@@ -8,7 +8,8 @@ using System.Collections.Generic;
 
 public class LevelSelectList : MonoBehaviour {
 
-    public GameObject levelSelectButton;
+    private GameObject levelSelectButton;
+    private bool godMode = true;
     public Transform contentPanel;
 
     // Use this for initialization
@@ -35,7 +36,7 @@ public class LevelSelectList : MonoBehaviour {
 
                 bool currentLevelPassed = GameStateManager.instance.levelsUnlocked[currentLevel];
 
-                if (currentLevelPassed)
+                if (currentLevelPassed || godMode)
                 {
                     newLevelSelectButton.locked.enabled = false;
                     newLevelSelectButton.currentLevel.enabled = true;

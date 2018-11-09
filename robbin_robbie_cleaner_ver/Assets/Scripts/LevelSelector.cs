@@ -24,7 +24,8 @@ public class LevelSelector : MonoBehaviour {
 
     public void Select (int levelIndex)
 	{
-		fader.FadeTo(levelIndex);
+        AudioListener.pause = false;
+        fader.FadeTo(levelIndex);
 	}
 
 }

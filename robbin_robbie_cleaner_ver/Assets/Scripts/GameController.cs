@@ -88,6 +88,7 @@ public class GameController : MonoBehaviour {
     public void ChangeToHome()
     {
         SceneManager.LoadScene("LevelSelector");
+        AudioListener.pause = true;
     }
 
     public void MuteMusic()
@@ -119,7 +120,7 @@ public class GameController : MonoBehaviour {
                 int currentLevelBuildIndex = SceneManager.GetActiveScene().buildIndex;
                 int levelStartingIndex = SceneManager.GetSceneByName("T1").buildIndex;
 
-                if (currentLevelBuildIndex + 1 < GameStateManager.instance.totalNumLevels)
+                if (currentLevelBuildIndex < GameStateManager.instance.totalNumLevels)
                 {
                     GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex] = true;
                     SceneManager.LoadScene(currentLevelBuildIndex + 1);

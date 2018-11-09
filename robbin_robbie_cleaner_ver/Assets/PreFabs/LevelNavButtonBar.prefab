@@ -239,7 +239,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 115c5fff22e3274468663b8e4a0efd48, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b88ef274d1dde144baf24d81fe4f8ea6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -263,8 +263,8 @@ MonoBehaviour:
   restartButton: {fileID: 114129140007654350}
   homeButton: {fileID: 114632581436496058}
   muteButton: {fileID: 114968212005385024}
-  musicOn: {fileID: 21300000, guid: 115c5fff22e3274468663b8e4a0efd48, type: 3}
-  musicMuted: {fileID: 21300000, guid: ec3af4511e197374ba7a7cf8a23b0514, type: 3}
+  musicOn: {fileID: 21300000, guid: b88ef274d1dde144baf24d81fe4f8ea6, type: 3}
+  musicMuted: {fileID: 21300000, guid: f1c97f201fd940d4cad5c8e8ed9e28cc, type: 3}
 --- !u!114 &114348776927769944
 MonoBehaviour:
   m_ObjectHideFlags: 1
