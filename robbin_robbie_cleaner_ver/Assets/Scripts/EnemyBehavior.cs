@@ -69,7 +69,6 @@ public class EnemyBehavior : MonoBehaviour {
     {   
         if (c.gameObject.name == "Robbie") {
             GameController.instance.RobbieDied();
-            robbie.gameObject.GetComponent<Animator>().SetBool("died", true);
         }
     }
 }

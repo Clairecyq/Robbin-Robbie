@@ -167,6 +167,7 @@ public class GameController : MonoBehaviour {
     public void RobbieDied() {
         if (!levelFinish)
         {
+            robbie.gameObject.GetComponent<Animator>().SetBool("died", true);
             robbieMovement.canMove = false;
             int level = levelId;
             float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
