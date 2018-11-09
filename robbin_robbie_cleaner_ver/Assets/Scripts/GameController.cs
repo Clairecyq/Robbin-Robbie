@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour {
         if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
         robbieMovement = robbie.GetComponent<RobbieMovement>();
 
-        if (LoggingManager.instance.playerABValue == 3) {
+        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 3) {
             GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
             for (int idx = 0; idx < fires.Length; idx++) {
                 GameObject fire = fires[idx];

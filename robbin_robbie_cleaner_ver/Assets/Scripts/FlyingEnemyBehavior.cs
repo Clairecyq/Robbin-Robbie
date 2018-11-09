@@ -18,6 +18,8 @@ public class FlyingEnemyBehavior : MonoBehaviour {
 
     private void Awake()
     {
+        offset.x = this.transform.position.x;
+        offset.y = this.transform.position.y;
         robbie = GameObject.FindGameObjectWithTag("Player");
     }
 
