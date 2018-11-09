@@ -19,6 +19,9 @@ public class FlyingEnemyBehavior : MonoBehaviour {
     private void Awake()
     {
         robbie = GameObject.FindGameObjectWithTag("Player");
+        offset.x = this.transform.position.x;
+        offset.y = this.transform.position.y;
+
     }
 
     // Update is called once per frame
