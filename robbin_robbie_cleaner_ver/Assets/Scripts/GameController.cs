@@ -63,8 +63,10 @@ public class GameController : MonoBehaviour {
         if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
             GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
             for (int idx = 0; idx < fires.Length; idx++) {
-                GameObject fire = fires[idx];
-                fire.SetActive(false);
+                if (idx % 2 == 0 && fires[idx].name.Contains("fire")) {
+                    GameObject fire = fires[idx];
+                    fire.SetActive(false);
+                }
             }
         }
 
