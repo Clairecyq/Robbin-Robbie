@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour {
     public GameObject robbie;
     public float walkSpeed = 2.0f;
-    public float chase = 1.5f;
+    public float chase = 3f;
     public float wallLeft;
     public float wallRight;
 
@@ -31,12 +31,18 @@ public class EnemyBehavior : MonoBehaviour {
     }
 	void Update () {
         float sp = walkSpeed;
-        if (robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft) {
+        bool inRange = robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft;
+        bool rightDirection = false;
+        if (m_facingRight && robbie.transform.position.x > transform.position.x) rightDirection = true;
+        else if (!m_facingRight && robbie.transform.position.x < transform.position.x) rightDirection = true;
+        Debug.Log(alertTime);
+        if (inRange && rightDirection && !robbie.GetComponent<RobbieMovement>().transformedToTrashCan) {
             sp = sp * chase;
             gameObject.GetComponent<Animator>().SetBool("alerted", true);
             gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
             alertTime += 0.06f;
-        } else {
+        }
+        else {
             gameObject.GetComponent<Animator>().SetBool("alerted", false);
             alertTime = 0.0f;
             gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
