@@ -16,14 +16,18 @@ public class CameraFollow : MonoBehaviour {
     private float topBound;
     private float bottomBound;
 
+    public GameObject bound;
     private Transform target;
-    public SpriteRenderer spriteBounds;
-    public Transform spriteTransform;
+    private SpriteRenderer spriteBounds;
+    private Transform spriteTransform;
     public bool manualOffset = false;
 
 	// Use this for initialization
 	void Awake () {
         robbie = GameObject.FindWithTag("Player");
+        bound = GameObject.Find("box"); 
+        spriteTransform = bound.transform;
+        spriteBounds = bound.GetComponent < SpriteRenderer >();
 
         if (manualOffset)
         {
