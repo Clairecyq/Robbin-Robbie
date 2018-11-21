@@ -8,6 +8,7 @@ public class EnemyBehavior : MonoBehaviour {
     public float chase = 3f;
     public float wallLeft;
     public float wallRight;
+    public float vertRange = 5f;
 
     private float alertTime = 0.0f;
     float walkingDirection = 1.0f;
@@ -31,12 +32,20 @@ public class EnemyBehavior : MonoBehaviour {
     }
 	void Update () {
         float sp = walkSpeed;
-        bool inRange = robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft;
-        bool rightDirection = false;
-        if (m_facingRight && robbie.transform.position.x > transform.position.x) rightDirection = true;
-        else if (!m_facingRight && robbie.transform.position.x < transform.position.x) rightDirection = true;
-        Debug.Log(alertTime);
-        if (inRange && rightDirection && !robbie.GetComponent<RobbieMovement>().transformedToTrashCan) {
+
+        bool robbieInRange = robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft;
+
+        bool facingRobbie = false;
+        if (m_facingRight && robbie.transform.position.x > transform.position.x) 
+            facingRobbie = true;
+        else if (!m_facingRight && robbie.transform.position.x < transform.position.x) 
+            facingRobbie = true;
+
+        bool robbieHiding = robbie.GetComponent<RobbieMovement>().transformedToTrashCan;
+
+        bool sameVerticalLevel = Mathf.Abs(robbie.transform.position.y - transform.position.y) <= vertRange;
+
+        if (robbieInRange && facingRobbie && !robbieHiding && sameVerticalLevel) {
             sp = sp * chase;
             gameObject.GetComponent<Animator>().SetBool("alerted", true);
             gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
