@@ -9,8 +9,11 @@ public class EnemyBehavior : MonoBehaviour {
     public float wallLeft;
     public float wallRight;
     public float vertRange = 5f;
+    public float curSpeed;
+    public float deceleration = 1.0f;
+    public bool slowingDown = false;
 
-    private float alertTime = 0.0f;
+    //private float alertTime = 0.0f;
     float walkingDirection = 1.0f;
 
     public bool m_facingRight = true;
@@ -31,7 +34,8 @@ public class EnemyBehavior : MonoBehaviour {
         }
     }
 	void Update () {
-        float sp = walkSpeed;
+        //float sp = walkSpeed;
+        curSpeed = curSpeed == 0 ? walkSpeed : curSpeed;
 
         bool robbieInRange = robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft;
 
@@ -44,19 +48,29 @@ public class EnemyBehavior : MonoBehaviour {
         bool robbieHiding = robbie.GetComponent<RobbieMovement>().transformedToTrashCan;
 
         bool sameVerticalLevel = Mathf.Abs(robbie.transform.position.y - transform.position.y) <= vertRange;
+        bool shouldBeAlerted = robbieInRange && facingRobbie && !robbieHiding && sameVerticalLevel;
 
-        if (robbieInRange && facingRobbie && !robbieHiding && sameVerticalLevel) {
-            sp = sp * chase;
+        //Debug.Log("should alerted: " + shouldBeAlerted);
+        //Debug.Log("alerted: " + gcameObject.GetComponent<Animator>().GetBool("alerted"));
+        Debug.Log("curSpeed: " + curSpeed);
+        if (shouldBeAlerted) {
+            curSpeed = walkSpeed * chase;
             gameObject.GetComponent<Animator>().SetBool("alerted", true);
-            gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
-            alertTime += 0.06f;
+        }
+        else if (gameObject.GetComponent<Animator>().GetBool("alerted")) {
+            gameObject.GetComponent<Animator>().SetBool("alerted", false);
+            slowingDown = true;
+            slowDown();
+        }
+        else if (slowingDown) {
+            slowDown();
         }
         else {
             gameObject.GetComponent<Animator>().SetBool("alerted", false);
-            alertTime = 0.0f;
-            gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
+            curSpeed = walkSpeed;
         }
-        walkAmount.x = walkingDirection * sp * Time.deltaTime;
+        walkAmount.x = walkingDirection * curSpeed * Time.deltaTime;
+        
         if (transform.position.x >= wallRight) {
             if (m_facingRight) {
                 enemy_flip();
@@ -70,6 +84,27 @@ public class EnemyBehavior : MonoBehaviour {
         }
         if (!robbie.gameObject.GetComponent<Animator>().GetBool("died")) {
             transform.Translate(walkAmount);
+        }
+    }
+
+    void slowDown() {
+        if (Mathf.Abs(curSpeed)>Mathf.Abs(walkSpeed)) {
+            if (m_facingRight)
+            {
+                if (transform.position.x >= wallRight) {
+                    slowingDown = false;
+                }
+                else curSpeed -= deceleration * Time.deltaTime;
+            }
+            else
+            {
+                if (transform.position.x <= wallLeft) {
+                    slowingDown = false;
+                }
+                else curSpeed += deceleration * Time.deltaTime;
+            }
+        } else {
+            slowingDown = false;
         }
     }
 
