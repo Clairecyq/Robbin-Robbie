@@ -100,7 +100,12 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown("r") && gameOver) {
+        if (Input.GetKeyDown("p"))
+        {
+            PauseOrResume();
+        }
+
+        if (Input.GetKeyDown("r")) {
             Restart();
         }
         CharacterController2D char_component = robbie.GetComponent<CharacterController2D>();
