@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114549482849423114, guid: 607475dd46baf224e904350164cd2a34,
         type: 2}
       propertyPath: deceleration
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 607475dd46baf224e904350164cd2a34, type: 2}
