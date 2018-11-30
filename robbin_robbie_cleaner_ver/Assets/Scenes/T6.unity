@@ -1382,6 +1382,7 @@ Prefab:
   m_SourcePrefab: {fileID: 100100000, guid: 9e10dc6fd92b93e44ad7095a2b82ba83, type: 2}
   m_IsPrefabAsset: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &1257623145
 Prefab:
   m_ObjectHideFlags: 0
@@ -1599,6 +1600,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 1257623145}
 =======
 >>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+=======
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
 --- !u!1001 &1297101746
 Prefab:
   m_ObjectHideFlags: 0

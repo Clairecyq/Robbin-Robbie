@@ -536,6 +536,12 @@ Prefab:
   m_SourcePrefab: {fileID: 100100000, guid: 97c9ca386e9cbe94ea3902f814f086df, type: 2}
   m_IsPrefabAsset: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> ef2e169ff75250d80fe6da3e5877691c1bb1152a
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
 --- !u!1001 &574406457
 Prefab:
   m_ObjectHideFlags: 0
@@ -751,8 +757,16 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224004358208610652, guid: b05c856e16feeef4bacdf0bc390434d2,
     type: 2}
   m_PrefabInternal: {fileID: 574406457}
+<<<<<<< HEAD
 =======
 >>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+=======
+>>>>>>> ef2e169ff75250d80fe6da3e5877691c1bb1152a
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
 --- !u!1 &582309186
 GameObject:
   m_ObjectHideFlags: 0

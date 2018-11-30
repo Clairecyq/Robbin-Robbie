@@ -2519,6 +2519,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &1778099862
 Prefab:
   m_ObjectHideFlags: 0
@@ -2736,6 +2737,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 1778099862}
 =======
 >>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+=======
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
 --- !u!1 &1877341500
 GameObject:
   m_ObjectHideFlags: 0

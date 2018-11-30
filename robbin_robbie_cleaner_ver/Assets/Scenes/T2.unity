@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114549482849423114, guid: 607475dd46baf224e904350164cd2a34,
         type: 2}
       propertyPath: deceleration
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 607475dd46baf224e904350164cd2a34, type: 2}
@@ -292,6 +292,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1001 &211035100
 Prefab:
@@ -510,6 +511,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 211035100}
 =======
 >>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+=======
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
 --- !u!1001 &215875767
 Prefab:
   m_ObjectHideFlags: 0

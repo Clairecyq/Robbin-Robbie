@@ -343,6 +343,7 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 224951358888455724, guid: b05c856e16feeef4bacdf0bc390434d2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -455,6 +456,8 @@ Prefab:
       objectReference: {fileID: 0}
 =======
 >>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+=======
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b05c856e16feeef4bacdf0bc390434d2, type: 2}
   m_IsPrefabAsset: 0

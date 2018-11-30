@@ -3087,6 +3087,7 @@ Prefab:
   m_SourcePrefab: {fileID: 100100000, guid: 97c9ca386e9cbe94ea3902f814f086df, type: 2}
   m_IsPrefabAsset: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &2045649867
 Prefab:
   m_ObjectHideFlags: 0
@@ -3304,6 +3305,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 2045649867}
 =======
 >>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+=======
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
 --- !u!1 &2126812865
 GameObject:
   m_ObjectHideFlags: 0

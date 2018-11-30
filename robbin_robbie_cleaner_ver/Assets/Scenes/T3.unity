@@ -246,6 +246,12 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> ef2e169ff75250d80fe6da3e5877691c1bb1152a
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
 --- !u!1001 &189321939
 Prefab:
   m_ObjectHideFlags: 0
@@ -461,8 +467,16 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224004358208610652, guid: b05c856e16feeef4bacdf0bc390434d2,
     type: 2}
   m_PrefabInternal: {fileID: 189321939}
+<<<<<<< HEAD
 =======
 >>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+=======
+>>>>>>> ef2e169ff75250d80fe6da3e5877691c1bb1152a
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
 --- !u!1 &471898670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,10 +1397,20 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
       value: 10
 =======
       value: 9
 >>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+<<<<<<< HEAD
+=======
+=======
+      value: 9
+>>>>>>> ef2e169ff75250d80fe6da3e5877691c1bb1152a
+>>>>>>> 5fec683060de158007f6b7489f74216a2fefcc10
       objectReference: {fileID: 0}
     - target: {fileID: 224077201651241404, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
