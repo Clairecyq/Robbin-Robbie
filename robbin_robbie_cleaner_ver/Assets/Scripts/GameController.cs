@@ -9,19 +9,19 @@ public class GameController : MonoBehaviour {
     public static bool isPaused;
 
     private GameObject robbie;
-    public GameObject finishLevelText;
-    public GameObject finishLevelText2;
-    public GameObject gameOverText;
-    public GameObject tutorialText1;
-    public GameObject tutorialText2;
-    public GameObject trashcan;
-    public GameObject boot;
-    public GameObject scoreText;
-    public GameObject collectText;
-    public GameObject levelNavButtonBar;
+    private GameObject finishLevelText;
+    private GameObject finishLevelText2;
+    private GameObject gameOverText;
+    private GameObject tutorialText1;
+    private GameObject tutorialText2;
+    private GameObject trashcan;
+    private GameObject boot;
+    private GameObject scoreText;
+    private GameObject collectText;
+    private GameObject levelNavButtonBar;
 
-    public GameObject targetTimeText;
-    public GameObject energyBarOne;
+    private GameObject targetTimeText;
+    private GameObject energyBarOne;
 
     public RectTransform.Axis anchor;
 
@@ -49,7 +49,38 @@ public class GameController : MonoBehaviour {
 
     void Awake ()
     {
+        GameObject[] objects = (GameObject[]) Resources.FindObjectsOfTypeAll( typeof(GameObject) );
+
+        foreach (GameObject o in objects )
+        {
+            switch (o.name)
+            {
+                case "VictoryText":
+                    finishLevelText = o;
+                    break;
+                case "ContinueText":
+                    finishLevelText2 = o;
+                    break;
+                case "GameOverImage":
+                    gameOverText = o;
+                    break;
+                case "scoretext":
+                    scoreText = o;
+                    break;
+                case "CollectionText":
+                    collectText = o;
+                    break;
+                case "TargetTimeText":
+                    targetTimeText = o;
+                    break;
+                case "EnergyBar":
+                    energyBarOne = o;
+                    break;
+            }
+        }
+
         robbie = GameObject.FindWithTag("Player");
+
 
         if (instance == null) {
             instance = this;
@@ -100,7 +131,12 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown("r") && gameOver) {
+        if (Input.GetKeyDown("p"))
+        {
+            PauseOrResume();
+        }
+
+        if (Input.GetKeyDown("r")) {
             Restart();
         }
         CharacterController2D char_component = robbie.GetComponent<CharacterController2D>();
