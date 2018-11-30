@@ -197,11 +197,11 @@ public class RobbieMovement : MonoBehaviour {
         iTime -= Time.deltaTime;
         kTime -= Time.deltaTime;
 
-        if (iTime > 0)
+        if (iTime > 0 && Mathf.Floor(iTime*5)%2 == 0 )
         {
-            visible = !visible;
+            visible = false;
         }
-        if (iTime < 0)
+        else
         {
             visible = true;
         }
