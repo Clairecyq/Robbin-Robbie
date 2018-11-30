@@ -2311,6 +2311,9 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ef2e169ff75250d80fe6da3e5877691c1bb1152a
     - target: {fileID: 1568447605221536, guid: b05c856e16feeef4bacdf0bc390434d2, type: 2}
       propertyPath: m_Name
       value: LevelNavButtonBar
@@ -2425,8 +2428,11 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
 =======
 >>>>>>> 8ab234c2592b9ecca96d9d60e53ccfb0415b3fa9
+=======
+>>>>>>> ef2e169ff75250d80fe6da3e5877691c1bb1152a
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b05c856e16feeef4bacdf0bc390434d2, type: 2}
   m_IsPrefabAsset: 0
