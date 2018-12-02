@@ -52,6 +52,11 @@ public class GameController : MonoBehaviour {
     public int threeStarScore;
     private int starsObtained;
 
+    private GameObject levelCompleteBadge;
+    private GameObject candyBadge;
+
+    private GameObject timeBadge;
+
     public string levelDescription;
     private GameObject CandyText;
     private GameObject CandyCaneUI;
@@ -85,6 +90,15 @@ public class GameController : MonoBehaviour {
                     break;
                 case "EnergyBar":
                     energyBarOne = o;
+                    break;
+                case "LevelCompleteBadge":
+                    levelCompleteBadge = o;
+                    break;
+                case "AllCandyBadge":
+                    candyBadge = o;
+                    break;
+                case "FastTimeBadge":
+                    timeBadge = o;
                     break;
             }
         }
@@ -181,6 +195,11 @@ public class GameController : MonoBehaviour {
                 if (currentLevelBuildIndex < GameStateManager.instance.totalNumLevels + 2)
                 {
                     Debug.Log(currentLevelBuildIndex + 1);
+                    levelCompleteBadge.SetActive(false);
+                    timeBadge.GetComponent<Image>().color = Color.white;
+                    timeBadge.SetActive(false);
+                    candyBadge.GetComponent<Image>().color = Color.white;
+                    candyBadge.SetActive(false);
 
                     GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex - 1] = true; //levels are offset by 1 because of load scene and level selector
                     SceneManager.LoadScene(currentLevelBuildIndex + 1);
@@ -236,6 +255,11 @@ public class GameController : MonoBehaviour {
             Vector3 energyScale = energyBarOne.transform.localScale;
             energyScale.x = 1.0f;
             energyBarOne.transform.localScale = energyScale;
+            levelCompleteBadge.SetActive(false);
+            timeBadge.GetComponent<Image>().color = Color.white;
+            timeBadge.SetActive(false);
+            candyBadge.GetComponent<Image>().color = Color.white;
+            candyBadge.SetActive(false);
             robbie.GetComponent<RobbieMovement>().health = robbie.GetComponent<RobbieMovement>().maxHealth;
         }
     }
@@ -299,15 +323,19 @@ public class GameController : MonoBehaviour {
         string finText = finishTime + "!  ";
         int lossTime = targetTime - (int) timer;
         int winTime = (int) timer - targetTime;
-        // if ((int) timer <= targetTime) {
-        //     targetTimeText.GetComponent<Text>().text = finText;// + "-" + lossTime.ToString() + " fast!";
-        // }
-        // else {
-        //     targetTimeText.GetComponent<Text>().text = finText;// + "+" + winTime.ToString() + " slow :(";
-        // }
+        //Debug.Log("Timer: " + timer.ToString());
+        if ((int) timer > targetTime) {
+            timeBadge.GetComponent<Image>().color = Color.grey;
+        }
         //targetTimeText.transform.position = fpos + new Vector2(-20,8);
         //targetTimeText.SetActive(true);
         scoreText.SetActive(false);
+        
+        levelCompleteBadge.SetActive(true);
+        Debug.Log("FIRES: " + fires.Length.ToString() + "    CANES: " + canesCollected.ToString() );
+        if (fires.Length > canesCollected) candyBadge.GetComponent<Image>().color = Color.grey;
+        timeBadge.SetActive(true);
+        candyBadge.SetActive(true);
     }
 
     public void PickedDonut() {
