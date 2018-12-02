@@ -468,16 +468,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224216130556922176, guid: c333d6ab16c653a4ebf805db2c0a12d8,
     type: 2}
   m_PrefabInternal: {fileID: 119142877}
---- !u!1 &119142879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1190632479174352, guid: c333d6ab16c653a4ebf805db2c0a12d8,
-    type: 2}
-  m_PrefabInternal: {fileID: 119142877}
---- !u!1 &119142880 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1164177305502808, guid: c333d6ab16c653a4ebf805db2c0a12d8,
-    type: 2}
-  m_PrefabInternal: {fileID: 119142877}
 --- !u!1001 &137614278
 Prefab:
   m_ObjectHideFlags: 0
@@ -2521,7 +2511,7 @@ Prefab:
         type: 2}
       propertyPath: energyBarOne
       value: 
-      objectReference: {fileID: 119142880}
+      objectReference: {fileID: 0}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: trashcan
@@ -2541,7 +2531,7 @@ Prefab:
         type: 2}
       propertyPath: scoreText
       value: 
-      objectReference: {fileID: 119142879}
+      objectReference: {fileID: 0}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: levelFinish
@@ -2551,12 +2541,12 @@ Prefab:
         type: 2}
       propertyPath: collectText
       value: 
-      objectReference: {fileID: 780627839}
+      objectReference: {fileID: 0}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: targetTimeText
       value: 
-      objectReference: {fileID: 217415121}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8134833588504e8171f947dc09415, type: 2}
   m_IsPrefabAsset: 0
