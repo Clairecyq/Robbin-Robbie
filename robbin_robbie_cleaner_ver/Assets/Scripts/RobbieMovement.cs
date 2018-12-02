@@ -238,7 +238,8 @@ public class RobbieMovement : MonoBehaviour {
     }
 
     public void killHeart() {
-        heart.SetActive(false);
+        //heart.SetActive(false);
+        health = 0;
     }
 
 }
