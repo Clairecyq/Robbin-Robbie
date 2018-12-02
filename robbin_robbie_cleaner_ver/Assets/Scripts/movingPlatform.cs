@@ -7,7 +7,14 @@ public class movingPlatform : MonoBehaviour {
 	public int upperYBound;
 	public int lowerYBound;
 
+	public int lowerXBound;
+	public int upperXBound;
+
+	public bool movesHorizontal;
+	public bool moveVertical;
+
 	public bool goingUp = true;
+	public bool goingRight = true;
 
 	// Use this for initialization
 	void Start () {
@@ -16,23 +23,46 @@ public class movingPlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector2 position = new Vector2(transform.position.x, transform.position.y);
 
-		if (goingUp) {
-			position.y += 0.05f;
-		}
-		else {
-			position.y -= 0.05f;
+		if (moveVertical) {
+			Vector2 position = new Vector2(transform.position.x, transform.position.y);
+
+			if (goingUp) {
+				position.y += 0.05f;
+			}
+			else {
+				position.y -= 0.05f;
+			}
+
+			if (position.y >= upperYBound && goingUp) {
+				goingUp = false;
+			}
+			else if (position.y <= lowerYBound && !goingUp) {
+				goingUp = true;
+			}
+			transform.position = position;
 		}
 
-		if (position.y >= upperYBound && goingUp) {
-			goingUp = false;
-		}
-		else if (position.y <= lowerYBound && !goingUp) {
-			goingUp = true;
-		}
-		transform.position = position;
+		else if (movesHorizontal) {
+			Vector2 position = new Vector2(transform.position.x, transform.position.y);
 
-		transform.Rotate (new Vector3 (0, 0, 20) * Time.deltaTime);
+			if (goingRight) {
+				position.x += 0.05f;
+			}
+			else {
+				position.x -= 0.05f;
+			}
+
+			if (position.x >= upperXBound && goingRight) {
+				goingRight = false;
+			}
+			else if (position.x <= lowerXBound && !goingRight) {
+				goingRight = true;
+			}
+			transform.position = position;
+		}
+
+		// You can also rotate this too...just change the 3rd number
+		//transform.Rotate (new Vector3 (0, 0, 0) * Time.deltaTime);
 	}
 }

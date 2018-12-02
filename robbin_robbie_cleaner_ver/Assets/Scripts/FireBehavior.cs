@@ -36,6 +36,7 @@ public class FireBehavior : MonoBehaviour {
 			}
 			else if (this.name.Contains("spring")) {
 				Spring.SetActive(true);
+				GameObject.FindWithTag("Player").GetComponent<RobbieMovement>().canJump = true;
 			}
 			else {
 				energyShell.SetActive(true);
