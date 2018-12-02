@@ -16,22 +16,24 @@ public class movingPlatform : MonoBehaviour {
 	public bool goingUp = true;
 	public bool goingRight = true;
 
+	public float speed = 0.05f;
+
 	// Use this for initialization
 	void Start () {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		if (moveVertical) {
 			Vector2 position = new Vector2(transform.position.x, transform.position.y);
 
 			if (goingUp) {
-				position.y += 0.05f;
+				position.y += speed;
 			}
 			else {
-				position.y -= 0.05f;
+				position.y -= speed;
 			}
 
 			if (position.y >= upperYBound && goingUp) {
@@ -47,10 +49,10 @@ public class movingPlatform : MonoBehaviour {
 			Vector2 position = new Vector2(transform.position.x, transform.position.y);
 
 			if (goingRight) {
-				position.x += 0.05f;
+				position.x += speed;
 			}
 			else {
-				position.x -= 0.05f;
+				position.x -= speed;
 			}
 
 			if (position.x >= upperXBound && goingRight) {
@@ -65,4 +67,15 @@ public class movingPlatform : MonoBehaviour {
 		// You can also rotate this too...just change the 3rd number
 		//transform.Rotate (new Vector3 (0, 0, 0) * Time.deltaTime);
 	}
+
+	private void OnCollisionEnter2D(Collision2D c)
+    {   
+        if (c.gameObject.name == "Robbie"){
+			c.transform.parent = transform;
+		}
+		else if (c.gameObject.name.Contains("Blue")) {
+			c.transform.parent = transform;
+		}
+    }
+
 }

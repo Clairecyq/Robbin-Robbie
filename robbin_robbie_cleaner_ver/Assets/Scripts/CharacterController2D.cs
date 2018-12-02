@@ -176,6 +176,10 @@ public class CharacterController2D : MonoBehaviour
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy2"), LayerMask.NameToLayer("Enemy2"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy2"));
 
+        if (!m_Grounded) {
+            transform.parent = null;
+        }
+
         m_Rigidbody2D.velocity = new Vector3(
              m_Rigidbody2D.velocity.x,
              Mathf.Clamp(m_Rigidbody2D.velocity.y, -maxFallSpeed, maxFallSpeed)
