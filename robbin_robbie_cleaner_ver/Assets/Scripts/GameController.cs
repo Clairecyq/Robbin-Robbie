@@ -53,6 +53,9 @@ public class GameController : MonoBehaviour {
     private int starsObtained;
 
     public string levelDescription;
+    private GameObject CandyText;
+    private GameObject CandyCaneUI;
+    private int canesCollected = 0;
 
     void Awake ()
     {
@@ -86,7 +89,9 @@ public class GameController : MonoBehaviour {
             }
         }
 
-        robbie = GameObject.FindWithTag("Player");
+        robbie      = GameObject.FindWithTag("Player");
+        CandyText   = GameObject.Find("CandyText");
+        CandyCaneUI = GameObject.Find("CandyCaneUI");
 
 
         if (instance == null) {
@@ -98,8 +103,8 @@ public class GameController : MonoBehaviour {
         if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
         robbieMovement = robbie.GetComponent<RobbieMovement>();
 
+        GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
         if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
-            GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
             for (int idx = 0; idx < fires.Length; idx++) {
                 if (idx % 2 == 0 && fires[idx].name.Contains("fire")) {
                     GameObject fire = fires[idx];
@@ -107,6 +112,7 @@ public class GameController : MonoBehaviour {
                 }
             }
         }
+        CandyText.GetComponent<Text>().text = "0 / " + fires.Length.ToString();
 
         /*
          * TODO: create testing instance 
@@ -319,6 +325,12 @@ public class GameController : MonoBehaviour {
 
     public void obtainCoin() {
         robbieScore += 100;
+        canesCollected += 1;
+        GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
+        if (canesCollected == fires.Length) {
+            CandyCaneUI.GetComponent<Image>().color = Random.ColorHSV();
+        }
+        CandyText.GetComponent<Text>().text = canesCollected.ToString() + " / " + fires.Length.ToString();
         //packageInfo(20, "Collect Fire");
     }
 
