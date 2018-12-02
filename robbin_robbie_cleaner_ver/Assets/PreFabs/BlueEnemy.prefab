@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1071521226062216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6, y: -3.8, z: 1.6006578}
+  m_LocalPosition: {x: 3.17, y: 11.36, z: 1.6006578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4514075492895450}
@@ -187,9 +187,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robbie: {fileID: 1664522702860658, guid: af821e23048a6a94db846ba76cfd6df9, type: 2}
   walkSpeed: -3.5
-  chase: 3
-  wallLeft: -18
-  wallRight: 5
+  chase: 1.5
+  wallLeft: -5.2
+  wallRight: 3
   m_facingRight: 0
 --- !u!212 &212060243447939246
 SpriteRenderer:

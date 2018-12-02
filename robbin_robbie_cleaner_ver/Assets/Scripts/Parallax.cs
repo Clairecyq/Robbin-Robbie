@@ -23,8 +23,16 @@ public class Parallax : MonoBehaviour {
 	void Update () {
         if (background != null)
         {
+            Vector3 newPos;
             Vector3 newOffset = -transform.position + background.transform.position;
-            Vector3 newPos = ((offset - newOffset) / scrollspeed) + start;
+            if (scrollspeed == 0)
+            {
+                newPos = transform.position + offset;
+            } 
+            else
+            {
+                newPos = ((offset - newOffset) / scrollspeed) + start;
+            }
             background.transform.position = newPos;
         }
 	}
