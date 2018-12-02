@@ -8,14 +8,14 @@ public class GameSwitch : MonoBehaviour {
 
     public Sprite switchOn;
     public Sprite switchOff;
-    private Vector3 originalPos;
+    //private Vector3 originalPos;
 
     [SerializeField]
     public GameObject forceField;
 
     void Start () {
         gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
-        originalPos = transform.position;
+        //originalPos = transform.position;
         isActivated = false;
 	}
 
@@ -24,12 +24,12 @@ public class GameSwitch : MonoBehaviour {
         if (isActivated)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOff;
-            this.gameObject.transform.position = originalPos + new Vector3(0, -0.6f, 0);
+            //this.gameObject.transform.position = originalPos + new Vector3(0, -0.6f, 0);
         }
         else
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
-            this.gameObject.transform.position = originalPos;
+            //this.gameObject.transform.position = originalPos;
         }
     }
 
