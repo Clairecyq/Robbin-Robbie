@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Ice : MonoBehaviour {
 
-    public Vector2 Force = Vector2.zero;
+    private Vector2 rightForce = new Vector2(100,0);
+    private Vector2 leftForce = new Vector2(-100,0);
+    private Vector2 Force;
 
     // Internal list that tracks objects that enter this object's "zone"
     private List<Collider2D> objects = new List<Collider2D>();
@@ -19,6 +21,9 @@ public class Ice : MonoBehaviour {
             Rigidbody2D body = objects[i].attachedRigidbody;
             //Debug.Log(objects[i].gameObject.name);
 
+            if (body.velocity.x > 0) Force = rightForce;
+            else if (body.velocity.x < 0) Force = leftForce;
+            else Force = Vector2.zero;
             // Apply the force
             body.AddForce(Force);
         }
@@ -26,7 +31,6 @@ public class Ice : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
         if (other.gameObject.tag == "Player")
         {
             objects.Add(other);
