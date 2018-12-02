@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeartBar : MonoBehaviour {
 
+    [SerializeField]
     private HeartBar heartBar;
-    public GameObject heart1;
-    public GameObject heart2;
-    public Sprite heartFull;
-    public Sprite heartEmpty;
+    public Image heart1;
+    public Image heart2;
+    public Image heartFull;
+    public Image heartEmpty;
     public GameObject robbie;
 
     // Use this for initialization
@@ -21,15 +23,15 @@ public class HeartBar : MonoBehaviour {
         int health = robbie.gameObject.GetComponent<RobbieMovement>().health;
         if (health == 2)
         {
-            heart1.gameObject.GetComponent<SpriteRenderer>().sprite = heartFull;
-            heart2.gameObject.GetComponent<SpriteRenderer>().sprite = heartFull;
+            heart1 = heartFull;
+            heart2 = heartFull;
         }
         else if (health==1) {
-            heart1.gameObject.GetComponent<SpriteRenderer>().sprite = heartFull;
-            heart2.gameObject.GetComponent<SpriteRenderer>().sprite = heartEmpty;
+            heart1 = heartFull;
+            heart2 = heartEmpty;
         } else if (health == 0) {
-            heart1.gameObject.GetComponent<SpriteRenderer>().sprite = heartEmpty;
-            heart2.gameObject.GetComponent<SpriteRenderer>().sprite = heartEmpty;
+            heart1 = heartEmpty;
+            heart2 = heartEmpty;
         }
 
 	}
