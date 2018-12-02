@@ -16,6 +16,11 @@ public class Forcefield : MonoBehaviour {
 		if (isActivated)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 }
