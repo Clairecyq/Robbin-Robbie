@@ -878,7 +878,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.9633333
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!114 &114619471615227002
@@ -1046,7 +1046,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '0 : 09'
+  m_Text: '0 : 08'
 --- !u!114 &114875905521853002
 MonoBehaviour:
   m_ObjectHideFlags: 1
