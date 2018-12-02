@@ -38,14 +38,14 @@ public class RobbieMovement : MonoBehaviour {
         Rabbit, 
     }
 
-    private GameObject heart;
+    //private GameObject heart;
     private GameObject spring;
     private bool pulse = false;
 
     void Awake () {
         robbie = GameObject.FindGameObjectWithTag ("Player");
-        heart = GameObject.Find("heart");
-        heart.GetComponent<Image>().type = Image.Type.Filled;
+        //heart = GameObject.Find("heart");
+        //heart.GetComponent<Image>().type = Image.Type.Filled;
         spring = GameObject.Find("Boot");
         canMove = true;
         health = maxHealth;
@@ -61,7 +61,7 @@ public class RobbieMovement : MonoBehaviour {
                 spring.SetActive(false);
             }
         }
-
+        /*
         if (heart != null)
         {
             if (health == 1)
@@ -72,6 +72,7 @@ public class RobbieMovement : MonoBehaviour {
                 heart.SetActive(false);
             }
         }
+        */
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         gameObject.GetComponent<Animator>().SetInteger("movement_speed", (int)Mathf.Abs(horizontalMove));
@@ -94,10 +95,11 @@ public class RobbieMovement : MonoBehaviour {
 
     void checkTransform()
     {
-        if (gameObject.GetComponent<CharacterController2D>().currentHidingPower == 0)
+        if (gameObject.GetComponent<CharacterController2D>().currentHidingPower <= 0)
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             gameObject.GetComponent<Animator>().SetBool("transformed", false);
+            gameObject.GetComponent<Animator>().SetBool("jumping", false);
             //LoggingManager.instance.RecordEvent(5, "Not Enough Stamina");
             currentTransformation = Transformations.Normal;
             canMove = true;
@@ -123,10 +125,12 @@ public class RobbieMovement : MonoBehaviour {
                 canMove = false;
                 transformedToTrashCan = true;
                 gameObject.GetComponent<Animator>().SetBool("transformed", true);
+                gameObject.GetComponent<Animator>().SetBool("jumping", false);
             }
              else if (Input.GetButtonDown("Transformation2") && canJump)
             {
                 endTrash();
+                gameObject.GetComponent<Animator>().SetBool("transformed", false);
                 gameObject.GetComponent<Animator>().SetBool("jumping", true);
                 //gameObject.GetComponent<SpriteRenderer>().color = new Color(Color.green.r, Color.green.g, Color.green.b,
                 //                                                    gameObject.GetComponent<SpriteRenderer>().color.a);
@@ -137,16 +141,19 @@ public class RobbieMovement : MonoBehaviour {
             //gameObject.GetComponent<Animator>().SetBool("transformed", true);
         }
 
-        else if (Input.GetButtonUp("Transformation1"))
+        else {
+            if (Input.GetButtonUp("Transformation1"))
         {
 
             endTrash();
             
         }
-        else if (Input.GetButtonUp("Transformation2"))
+            if (Input.GetButtonUp("Transformation2"))
         {
             endRabbit();
             gameObject.GetComponent<Animator>().SetBool("jumping", false);
+        }
+
         }
 
     }
@@ -238,7 +245,8 @@ public class RobbieMovement : MonoBehaviour {
     }
 
     public void killHeart() {
-        heart.SetActive(false);
+        //heart.SetActive(false);
+        health = 0;
     }
 
 }

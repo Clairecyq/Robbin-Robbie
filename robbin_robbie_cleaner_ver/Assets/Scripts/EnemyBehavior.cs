@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour {
     public GameObject robbie;
-    private float walkSpeed = -3.5f;
+    public float walkSpeed = -3.5f;
     private float chase = 2.5f;
     public float wallLeft;
     public float wallRight;
@@ -37,7 +37,7 @@ public class EnemyBehavior : MonoBehaviour {
         }
     }
 	void Update () {
-        Debug.Log(curSpeed);
+        //Debug.Log(curSpeed);
         //float sp = walkSpeed;
         curSpeed = curSpeed == 0 ? walkSpeed : curSpeed;
 
