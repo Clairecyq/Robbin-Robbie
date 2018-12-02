@@ -15,7 +15,9 @@ public class Forcefield : MonoBehaviour {
 	void Update () {
 		if (isActivated)
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            GameObject laser = gameObject.transform.Find("LaserGenerator").gameObject.transform.Find("Laser").gameObject;
+            laser.SetActive(false);
         }
     }
 }
