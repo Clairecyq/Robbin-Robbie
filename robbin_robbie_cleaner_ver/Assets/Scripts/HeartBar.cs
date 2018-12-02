@@ -7,15 +7,15 @@ public class HeartBar : MonoBehaviour {
 
     [SerializeField]
     private HeartBar heartBar;
-    public Image heart1;
-    public Image heart2;
-    public Image heartFull;
-    public Image heartEmpty;
-    public GameObject robbie;
+    public Button heart1;
+    public Button heart2;
+    public Sprite heartFull;
+    public Sprite heartEmpty;
+    private GameObject robbie;
 
     // Use this for initialization
-    void Start () {
-		
+    void Awake () {
+        robbie = GameObject.FindWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -23,15 +23,18 @@ public class HeartBar : MonoBehaviour {
         int health = robbie.gameObject.GetComponent<RobbieMovement>().health;
         if (health == 2)
         {
-            heart1 = heartFull;
-            heart2 = heartFull;
+            heart1.image.sprite = heartFull;
+            heart2.image.sprite = heartFull;
         }
         else if (health==1) {
-            heart1 = heartFull;
-            heart2 = heartEmpty;
+            Debug.Log("health1");
+            heart1.image.sprite = heartFull;
+            heart2.image.sprite = heartEmpty;
         } else if (health == 0) {
-            heart1 = heartEmpty;
-            heart2 = heartEmpty;
+            Debug.Log("health0");
+
+            heart1.image.sprite = heartEmpty;
+            heart2.image.sprite = heartEmpty;
         }
 
 	}
