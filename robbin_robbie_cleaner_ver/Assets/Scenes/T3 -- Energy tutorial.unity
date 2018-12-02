@@ -1656,7 +1656,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 1.7175, y: 0.25, z: 0}
+  m_ChunkCullingBounds: {x: 1.73, y: 0.25, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -1807,8 +1807,8 @@ Tilemap:
       m_ColliderType: 2
   - first: {x: 4, y: -3, z: 0}
     second:
-      m_TileIndex: 3
-      m_TileSpriteIndex: 1
+      m_TileIndex: 4
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -1816,8 +1816,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 5, y: -3, z: 0}
     second:
-      m_TileIndex: 3
-      m_TileSpriteIndex: 1
+      m_TileIndex: 4
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -1825,8 +1825,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 6, y: -3, z: 0}
     second:
-      m_TileIndex: 3
-      m_TileSpriteIndex: 1
+      m_TileIndex: 4
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -1834,8 +1834,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 7, y: -3, z: 0}
     second:
-      m_TileIndex: 3
-      m_TileSpriteIndex: 1
+      m_TileIndex: 4
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -2200,13 +2200,15 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 1ca7f797e09ab6643ab2a0b5ec364061, type: 2}
   - m_RefCount: 13
     m_Data: {fileID: 11400000, guid: 88dcf3ae300cf4314a4e956c6862a290, type: 2}
-  - m_RefCount: 4
-    m_Data: {fileID: 11400000, guid: fba89015a7c599242addb39cc37de989, type: 2}
-  m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: 35f8fe7280510744ea313448aa3eb0bc, type: 3}
+    m_Data: {fileID: 11400000, guid: e866db8ea71074342a5d4b80c0984c58, type: 2}
+  m_TileSpriteArray:
+  - m_RefCount: 4
+    m_Data: {fileID: 21300000, guid: 9a412c2469b56c14d85842f4d3dece3a, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 11
     m_Data: {fileID: 21300000, guid: 0c157037e8f4a2d4f98a035800233e92, type: 3}
   - m_RefCount: 30
