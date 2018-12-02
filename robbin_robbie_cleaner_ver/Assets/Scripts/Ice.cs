@@ -21,9 +21,9 @@ public class Ice : MonoBehaviour {
             Rigidbody2D body = objects[i].attachedRigidbody;
             //Debug.Log(objects[i].gameObject.name);
 
-            if (body.velocity.x > 0) Force = rightForce;
+            if (body.velocity.x >= 0) Force = rightForce;
             else if (body.velocity.x < 0) Force = leftForce;
-            else Force = Vector2.zero;
+            //else Force = Vector2.zero;
             // Apply the force
             body.AddForce(Force);
         }
