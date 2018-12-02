@@ -131,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce6c4f0763bd994da6c2c708a366e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 0}
   scrollspeed: 3
 --- !u!114 &114830906762831950
 MonoBehaviour:
@@ -144,12 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176d68a71a3f45346981c258f3e2e36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robbie: {fileID: 0}
   FollowY: 1
   SetY: 0
   SetDepth: -10
-  spriteBounds: {fileID: 212959716275713182}
-  spriteTransform: {fileID: 4240007828584748}
+  bound: {fileID: 0}
   manualOffset: 0
 --- !u!212 &212959716275713182
 SpriteRenderer:

@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour {
     public GameObject robbie;
-    public float walkSpeed = 2.0f;
-    public float chase = 3f;
+    private float walkSpeed = -3.5f;
+    private float chase = 2.5f;
     public float wallLeft;
     public float wallRight;
     public float vertRange = 5f;
     public float curSpeed;
-    public float deceleration = 1.0f;
+    private float deceleration = 1.0f;
     public bool slowingDown = false;
+    public bool lookingLeftAndRight = false;
 
     //private float alertTime = 0.0f;
     float walkingDirection = 1.0f;
@@ -34,6 +35,7 @@ public class EnemyBehavior : MonoBehaviour {
         }
     }
 	void Update () {
+        Debug.Log(curSpeed);
         //float sp = walkSpeed;
         curSpeed = curSpeed == 0 ? walkSpeed : curSpeed;
 
@@ -52,7 +54,7 @@ public class EnemyBehavior : MonoBehaviour {
 
         //Debug.Log("should alerted: " + shouldBeAlerted);
         //Debug.Log("alerted: " + gcameObject.GetComponent<Animator>().GetBool("alerted"));
-        Debug.Log("curSpeed: " + curSpeed);
+        //Debug.Log("curSpeed: " + curSpeed);
         if (shouldBeAlerted) {
             curSpeed = walkSpeed * chase;
             gameObject.GetComponent<Animator>().SetBool("alerted", true);
@@ -61,6 +63,8 @@ public class EnemyBehavior : MonoBehaviour {
             gameObject.GetComponent<Animator>().SetBool("alerted", false);
             slowingDown = true;
             slowDown();
+            //lookingLeftAndRight = true;
+            //lookLeftAndRight();
         }
         else if (slowingDown) {
             slowDown();
@@ -87,7 +91,12 @@ public class EnemyBehavior : MonoBehaviour {
         }
     }
 
+    void lookLeftAndRight() {
+
+    }
+
     void slowDown() {
+        //enemy_flip();
         if (Mathf.Abs(curSpeed)>Mathf.Abs(walkSpeed)) {
             if (m_facingRight)
             {
