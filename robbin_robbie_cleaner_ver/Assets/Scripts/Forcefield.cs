@@ -10,10 +10,10 @@ public class Forcefield : MonoBehaviour {
 	void Start () {
         isActivated = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (isActivated)
+
+    // Update is called once per frame
+    void Update() {
+        if (isActivated)
         {
             //gameObject.GetComponent<BoxCollider2D>().enabled = false;
             GameObject laser = gameObject.transform.Find("LaserGenerator").gameObject.transform.Find("Laser").gameObject;

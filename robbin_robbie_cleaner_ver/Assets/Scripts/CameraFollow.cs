@@ -21,6 +21,7 @@ public class CameraFollow : MonoBehaviour {
     private SpriteRenderer spriteBounds;
     private Transform spriteTransform;
     public bool manualOffset = false;
+    public bool largeRightOffset = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -46,6 +47,8 @@ public class CameraFollow : MonoBehaviour {
         rightBound = (float)((spriteBounds.sprite.bounds.size.x * xmult) / 2.0f - horzExtent + xadd);
         bottomBound = (float)(yadd + vertExtent - (spriteBounds.sprite.bounds.size.y * ymult) / 2.0f);
         topBound = (float)((spriteBounds.sprite.bounds.size.y * ymult) / 2.0f - vertExtent + yadd);
+
+        if (largeRightOffset) rightBound = 150.0f;
     }
 	
 	// Update is called once per frame

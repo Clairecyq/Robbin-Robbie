@@ -23,12 +23,12 @@ public class GameSwitch : MonoBehaviour {
     {
         if (isActivated)
         {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOff;
             this.gameObject.transform.position = originalPos + new Vector3(0, -0.6f, 0);
         }
         else
         {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOff;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
             this.gameObject.transform.position = originalPos;
         }
     }
