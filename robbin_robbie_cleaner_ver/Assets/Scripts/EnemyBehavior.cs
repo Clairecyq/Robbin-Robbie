@@ -23,6 +23,8 @@ public class EnemyBehavior : MonoBehaviour {
 	// Update is called once per frame
 
     void Awake () {
+
+        walkSpeed = -Mathf.Abs(walkSpeed);
         if (m_facingRight) {
             walkSpeed *= -1;
             enemy_flip();
