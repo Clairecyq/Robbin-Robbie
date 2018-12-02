@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour {
     public GameObject robbie;
-    public float walkSpeed = 2.0f;
-    public float chase = 1.5f;
+    private float walkSpeed = -3.5f;
+    private float chase = 2.5f;
     public float wallLeft;
     public float wallRight;
+    public float vertRange = 5f;
+    public float curSpeed;
+    private float deceleration = 1.0f;
+    public bool slowingDown = false;
+    public bool lookingLeftAndRight = false;
 
-    private float alertTime = 0.0f;
+    //private float alertTime = 0.0f;
     float walkingDirection = 1.0f;
 
     public bool m_facingRight = true;
@@ -18,11 +23,13 @@ public class EnemyBehavior : MonoBehaviour {
 	// Update is called once per frame
 
     void Awake () {
-        if (m_facingRight && walkSpeed > 0.0f) {
+        if (m_facingRight) {
+            walkSpeed *= -1;
             enemy_flip();
             m_facingRight = !m_facingRight;
             walkingDirection *= -1.0f;
         }
+
 
         robbie = GameObject.FindGameObjectWithTag("Player");
         if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
@@ -30,18 +37,46 @@ public class EnemyBehavior : MonoBehaviour {
         }
     }
 	void Update () {
-        float sp = walkSpeed;
-        if (robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft) {
-            sp = sp * chase;
+        Debug.Log(curSpeed);
+        //float sp = walkSpeed;
+        curSpeed = curSpeed == 0 ? walkSpeed : curSpeed;
+
+        bool robbieInRange = robbie.transform.position.x <= wallRight && robbie.transform.position.x >= wallLeft;
+
+        bool facingRobbie = false;
+        if (m_facingRight && robbie.transform.position.x > transform.position.x) 
+            facingRobbie = true;
+        else if (!m_facingRight && robbie.transform.position.x < transform.position.x) 
+            facingRobbie = true;
+
+        bool robbieHiding = robbie.GetComponent<RobbieMovement>().transformedToTrashCan;
+
+        bool sameVerticalLevel = Mathf.Abs(robbie.transform.position.y - transform.position.y) <= vertRange;
+        bool shouldBeAlerted = robbieInRange && facingRobbie && !robbieHiding && sameVerticalLevel;
+
+        //Debug.Log("should alerted: " + shouldBeAlerted);
+        //Debug.Log("alerted: " + gcameObject.GetComponent<Animator>().GetBool("alerted"));
+        //Debug.Log("curSpeed: " + curSpeed);
+        if (shouldBeAlerted) {
+            curSpeed = walkSpeed * chase;
             gameObject.GetComponent<Animator>().SetBool("alerted", true);
-            gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
-            alertTime += 0.06f;
-        } else {
-            gameObject.GetComponent<Animator>().SetBool("alerted", false);
-            alertTime = 0.0f;
-            gameObject.GetComponent<Animator>().SetFloat("alert_time", alertTime);
         }
-        walkAmount.x = walkingDirection * sp * Time.deltaTime;
+        else if (gameObject.GetComponent<Animator>().GetBool("alerted")) {
+            gameObject.GetComponent<Animator>().SetBool("alerted", false);
+            slowingDown = true;
+            slowDown();
+            //lookingLeftAndRight = true;
+            //lookLeftAndRight();
+        }
+        else if (slowingDown) {
+            slowDown();
+        }
+        else {
+            gameObject.GetComponent<Animator>().SetBool("alerted", false);
+            curSpeed = walkSpeed;
+        }
+        walkAmount.x = walkingDirection * curSpeed * Time.deltaTime;
+        
         if (transform.position.x >= wallRight) {
             if (m_facingRight) {
                 enemy_flip();
@@ -55,6 +90,32 @@ public class EnemyBehavior : MonoBehaviour {
         }
         if (!robbie.gameObject.GetComponent<Animator>().GetBool("died")) {
             transform.Translate(walkAmount);
+        }
+    }
+
+    void lookLeftAndRight() {
+
+    }
+
+    void slowDown() {
+        //enemy_flip();
+        if (Mathf.Abs(curSpeed)>Mathf.Abs(walkSpeed)) {
+            if (m_facingRight)
+            {
+                if (transform.position.x >= wallRight) {
+                    slowingDown = false;
+                }
+                else curSpeed -= deceleration * Time.deltaTime;
+            }
+            else
+            {
+                if (transform.position.x <= wallLeft) {
+                    slowingDown = false;
+                }
+                else curSpeed += deceleration * Time.deltaTime;
+            }
+        } else {
+            slowingDown = false;
         }
     }
 
