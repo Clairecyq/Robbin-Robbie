@@ -10,12 +10,18 @@ public class Forcefield : MonoBehaviour {
 	void Start () {
         isActivated = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (isActivated)
+
+    // Update is called once per frame
+    void Update() {
+        if (isActivated)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 }
