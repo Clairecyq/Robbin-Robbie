@@ -37,7 +37,7 @@ public class EnemyBehavior : MonoBehaviour {
         }
     }
 	void Update () {
-        Debug.Log(curSpeed);
+        //Debug.Log(curSpeed);
         //float sp = walkSpeed;
         curSpeed = curSpeed == 0 ? walkSpeed : curSpeed;
 

@@ -38,14 +38,14 @@ public class RobbieMovement : MonoBehaviour {
         Rabbit, 
     }
 
-    private GameObject heart;
+    //private GameObject heart;
     private GameObject spring;
     private bool pulse = false;
 
     void Awake () {
         robbie = GameObject.FindGameObjectWithTag ("Player");
-        heart = GameObject.Find("heart");
-        heart.GetComponent<Image>().type = Image.Type.Filled;
+        //heart = GameObject.Find("heart");
+        //heart.GetComponent<Image>().type = Image.Type.Filled;
         spring = GameObject.Find("Boot");
         canMove = true;
         health = maxHealth;
@@ -61,7 +61,7 @@ public class RobbieMovement : MonoBehaviour {
                 spring.SetActive(false);
             }
         }
-
+        /*
         if (heart != null)
         {
             if (health == 1)
@@ -72,6 +72,7 @@ public class RobbieMovement : MonoBehaviour {
                 heart.SetActive(false);
             }
         }
+        */
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         gameObject.GetComponent<Animator>().SetInteger("movement_speed", (int)Mathf.Abs(horizontalMove));
@@ -244,7 +245,8 @@ public class RobbieMovement : MonoBehaviour {
     }
 
     public void killHeart() {
-        heart.SetActive(false);
+        //heart.SetActive(false);
+        health = 0;
     }
 
 }
