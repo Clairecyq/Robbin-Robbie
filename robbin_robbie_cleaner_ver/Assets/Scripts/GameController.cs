@@ -44,6 +44,11 @@ public class GameController : MonoBehaviour {
     private float timer = 0;
     private int minutesElapsed;
 
+    public int totalPossibleTimeScore = 1000; //this is the amount of time bonus available 
+    public int oneStarScore;
+    public int twoStarScore;
+    public int threeStarScore;
+    private int starsObtained;
 
     public string levelDescription;
 
@@ -304,8 +309,24 @@ public class GameController : MonoBehaviour {
     }
 
     public void obtainCoin() {
-        robbieScore += 1;
+        robbieScore += 100;
         //packageInfo(20, "Collect Fire");
+    }
+
+    public int getNumStarsObtained() {
+        if (robbieScore > threeStarScore) {
+            return 3;
+        }
+
+        else if (robbieScore > twoStarScore) {
+            return 2;
+        }
+
+        else if (robbieScore > oneStarScore) {
+            return 1;
+        }
+
+        return 0;
     }
 
     public void packageInfo(int actionID, string action) {
