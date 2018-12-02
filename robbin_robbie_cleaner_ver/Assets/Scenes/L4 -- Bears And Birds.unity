@@ -1267,6 +1267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde1175cc73ba8f43be13b4b085cdaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftRightTutorial: {fileID: 0}
+  upTutorial: {fileID: 0}
   anchor: 0
   robbieVictorySound1: {fileID: 8300000, guid: 69071c644e0c9433bae9bc25f02f3aa0, type: 3}
   robbieVictorySound2: {fileID: 8300000, guid: 790f12eda40e244258169cd3818d5977, type: 3}
@@ -3225,7 +3227,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 2d1017fca56a44cffb9a05bd95760362, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75fd50d4b86ce4733a5e0aae475b5cff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
