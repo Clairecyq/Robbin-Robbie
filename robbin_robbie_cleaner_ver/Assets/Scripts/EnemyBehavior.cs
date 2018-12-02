@@ -23,11 +23,13 @@ public class EnemyBehavior : MonoBehaviour {
 	// Update is called once per frame
 
     void Awake () {
-        if (m_facingRight && walkSpeed > 0.0f) {
+        if (m_facingRight) {
+            walkSpeed *= -1;
             enemy_flip();
             m_facingRight = !m_facingRight;
             walkingDirection *= -1.0f;
         }
+
 
         robbie = GameObject.FindGameObjectWithTag("Player");
         if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {

@@ -139,8 +139,11 @@ public class GameController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (Input.anyKeyDown) {
-            upTutorial.SetActive(false);
-            leftRightTutorial.SetActive(false);
+            if (upTutorial != null)
+            {
+                upTutorial.SetActive(false);
+                leftRightTutorial.SetActive(false);
+            }
         }
         if (Input.GetKeyDown("p"))
         {
