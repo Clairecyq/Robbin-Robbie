@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour {
     private GameObject scoreText;
     private GameObject collectText;
     private GameObject levelNavButtonBar;
+    public GameObject leftRightTutorial;
+    public GameObject upTutorial;
 
     private GameObject targetTimeText;
     private GameObject energyBarOne;
@@ -136,6 +138,10 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (Input.anyKeyDown) {
+            upTutorial.SetActive(false);
+            leftRightTutorial.SetActive(false);
+        }
         if (Input.GetKeyDown("p"))
         {
             PauseOrResume();
