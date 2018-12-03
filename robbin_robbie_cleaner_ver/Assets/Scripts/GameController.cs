@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
     public static bool isPaused;
 
     private GameObject robbie;
-    private GameObject finishLevelText;
+    public GameObject finishLevelText;
     private GameObject finishLevelText2;
     private GameObject gameOverText;
     private GameObject tutorialText1;
@@ -72,9 +72,9 @@ public class GameController : MonoBehaviour {
             
             switch (o.name)
             {
-                case "VictoryText":
-                    finishLevelText = o;
-                    break;
+                // case "VictoryText":
+                //     finishLevelText = o;
+                //     break;
                 case "ContinueText":
                     finishLevelText2 = o;
                     break;
