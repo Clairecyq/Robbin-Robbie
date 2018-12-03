@@ -1186,6 +1186,13 @@ MonoBehaviour:
   musicSource: {fileID: 1177734698}
   lowPitchRange: 0.95
   highPitchRange: 1.05
+  trashCan: {fileID: 0}
+  candyCollect: {fileID: 0}
+  jumpSound: {fileID: 0}
+  superJumpSound: {fileID: 0}
+  ow1: {fileID: 0}
+  ow2: {fileID: 0}
+  ow3: {fileID: 0}
 --- !u!82 &1177734696
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2593,6 +2600,21 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807957946904970, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.028301895
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807957946904970, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.027367398
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807957946904970, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.027367398
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c333d6ab16c653a4ebf805db2c0a12d8, type: 2}
