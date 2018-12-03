@@ -34,7 +34,7 @@ public class EnemyBehavior : MonoBehaviour {
 
 
         robbie = GameObject.FindGameObjectWithTag("Player");
-        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
+        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2 && false) {
             walkSpeed *= 0.7f;
         }
     }
