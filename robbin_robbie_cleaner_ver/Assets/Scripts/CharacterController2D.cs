@@ -89,7 +89,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(m_Grounded);
+        //Debug.Log(m_Grounded);
 
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
