@@ -9,7 +9,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] public float transformed_JumpForce = 300f;                         // Amount of force added when the player jumps.
 
     [SerializeField] private float startingHidingPower = 300;
-    public float regenpersec = 25f;
+    public float regenpersec = 75f;
     private float regen_counter = 0;
     public float lockout = 1;
 
