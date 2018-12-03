@@ -52,10 +52,10 @@ public class GameController : MonoBehaviour {
     public int threeStarScore;
     private int starsObtained;
 
-    private GameObject levelCompleteBadge;
-    private GameObject candyBadge;
+    public GameObject levelCompleteBadge;
+    public GameObject candyBadge;
 
-    private GameObject timeBadge;
+    public GameObject timeBadge;
 
     public string levelDescription;
     private GameObject CandyText;
@@ -64,48 +64,12 @@ public class GameController : MonoBehaviour {
 
     void Awake ()
     {
-        robbie      = GameObject.FindWithTag("Player");
-        CandyText   = GameObject.Find("CandyText");
-        CandyCaneUI = GameObject.Find("CandyCaneUI");
 
-
-        if (instance == null) {
-            instance = this;
-        } else if (instance != this) {
-            Destroy(gameObject);
-        }
-        anchor = UnityEngine.RectTransform.Axis.Horizontal;
-        if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
-        robbieMovement = robbie.GetComponent<RobbieMovement>();
-
-        GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
-        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
-            for (int idx = 0; idx < fires.Length; idx++) {
-                if (idx % 2 == 0 && fires[idx].name.Contains("fire")) {
-                    GameObject fire = fires[idx];
-                    fire.SetActive(false);
-                }
-            }
-        }
-        CandyText.GetComponent<Text>().text = "0 / " + fires.Length.ToString();
-
-        /*
-         * TODO: create testing instance 
-        if (GameStateManager.instance == null || !GameStateManager.instance.isInitialized)
-        {
-            Debug.Log("I am intializing");
-            totalNumLevels = 12;
-            GameStateManager.instance.Initialize(totalNumLevels);
-            GameStateManager.instance.isInitialized = true;
-        }
-        */
-	}
-
-    void Start() {
         GameObject[] objects = (GameObject[]) Resources.FindObjectsOfTypeAll( typeof(GameObject) );
 
         foreach (GameObject o in objects )
         {
+            
             switch (o.name)
             {
                 case "VictoryText":
@@ -129,18 +93,57 @@ public class GameController : MonoBehaviour {
                 case "EnergyBar":
                     energyBarOne = o;
                     break;
-                case "LevelCompleteBadge":
-                    levelCompleteBadge = o;
-                    break;
-                case "AllCandyBadge":
-                    candyBadge = o;
-                    break;
-                case "FastTimeBadge":
-                    timeBadge = o;
-                    break;
+                // case "LevelCompleteBadge":
+                //      levelCompleteBadge = o;
+                //      break;
+                // case "AllCandyBadge":
+                //     candyBadge = o;
+                //      break;
+                // case "FastTimeBadge":
+                //      timeBadge = o;
+                //      break;
             }
         }
-    }
+        robbie      = GameObject.FindWithTag("Player");
+        CandyText   = GameObject.Find("CandyText");
+        CandyCaneUI = GameObject.Find("CandyCaneUI");
+
+
+        if (instance == null) {
+            instance = this;
+        } else if (instance != this) {
+            Destroy(gameObject);
+        }
+        anchor = UnityEngine.RectTransform.Axis.Horizontal;
+        if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
+        robbieMovement = robbie.GetComponent<RobbieMovement>();
+
+        GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
+        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
+            int ctr = 0;
+            for (int idx = 0; idx < fires.Length; idx++) {
+                if (idx % 2 == 0 && fires[idx].name.Contains("fire")) {
+                    GameObject fire = fires[idx];
+                    fire.SetActive(false);
+                    ctr += 1;
+                }
+            }
+            if (CandyText != null) CandyText.GetComponent<Text>().text = "0 / " + ctr.ToString();
+        } else {
+            if (CandyText != null) CandyText.GetComponent<Text>().text = "0 / " + fires.Length.ToString();
+        }
+
+        /*
+         * TODO: create testing instance 
+        if (GameStateManager.instance == null || !GameStateManager.instance.isInitialized)
+        {
+            Debug.Log("I am intializing");
+            totalNumLevels = 12;
+            GameStateManager.instance.Initialize(totalNumLevels);
+            GameStateManager.instance.isInitialized = true;
+        }
+        */
+	}
 
     public void ChangeToScene(string targetScene)
     {
@@ -197,11 +200,13 @@ public class GameController : MonoBehaviour {
                 if (currentLevelBuildIndex < GameStateManager.instance.totalNumLevels + 2)
                 {
                     Debug.Log(currentLevelBuildIndex + 1);
-                    levelCompleteBadge.SetActive(false);
-                    timeBadge.GetComponent<Image>().color = Color.white;
-                    timeBadge.SetActive(false);
-                    candyBadge.GetComponent<Image>().color = Color.white;
-                    candyBadge.SetActive(false);
+                    if (levelCompleteBadge != null) {
+                        levelCompleteBadge.SetActive(false);
+                        timeBadge.GetComponent<Image>().color = Color.white;
+                        timeBadge.SetActive(false);
+                        candyBadge.GetComponent<Image>().color = Color.white;
+                        candyBadge.SetActive(false);
+                    }
 
                     GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex - 1] = true; //levels are offset by 1 because of load scene and level selector
                     SceneManager.LoadScene(currentLevelBuildIndex + 1);
@@ -257,11 +262,13 @@ public class GameController : MonoBehaviour {
             Vector3 energyScale = energyBarOne.transform.localScale;
             energyScale.x = 1.0f;
             energyBarOne.transform.localScale = energyScale;
-            levelCompleteBadge.SetActive(false);
-            timeBadge.GetComponent<Image>().color = Color.white;
-            timeBadge.SetActive(false);
-            candyBadge.GetComponent<Image>().color = Color.white;
-            candyBadge.SetActive(false);
+            if (levelCompleteBadge != null) {
+                levelCompleteBadge.SetActive(false);
+                timeBadge.GetComponent<Image>().color = Color.white;
+                timeBadge.SetActive(false);
+                candyBadge.GetComponent<Image>().color = Color.white;
+                candyBadge.SetActive(false);
+            }
             robbie.GetComponent<RobbieMovement>().health = robbie.GetComponent<RobbieMovement>().maxHealth;
         }
     }
@@ -309,6 +316,10 @@ public class GameController : MonoBehaviour {
                 fire.transform.position = fviewpos;
             }
         }
+        // levelCompleteBadge = GameObject.Find("LevelCompleteBadge");
+        // candyBadge = GameObject.Find("AllCandyBadge");
+        // timeBadge = GameObject.Find("FastTimeBadge");
+
         // if (ctr == fires.Length) {
         //     collectText.GetComponent<Text>().text = "All Fire Collected!";
         // }
@@ -333,9 +344,10 @@ public class GameController : MonoBehaviour {
         //targetTimeText.SetActive(true);
         scoreText.SetActive(false);
         
+        Debug.Log("Level Complete Badgee BEFORE: " + levelCompleteBadge.activeSelf);
         levelCompleteBadge.SetActive(true);
-        Debug.Log("FIRES: " + fires.Length.ToString() + "    CANES: " + canesCollected.ToString() );
-        if (fires.Length > canesCollected) candyBadge.GetComponent<Image>().color = Color.grey;
+        Debug.Log("Level Complete Badgee AFTER: " + levelCompleteBadge.activeSelf);
+        if (fires.Length > canesCollected) {candyBadge.GetComponent<Image>().color = Color.grey;}
         timeBadge.SetActive(true);
         candyBadge.SetActive(true);
     }
@@ -350,6 +362,7 @@ public class GameController : MonoBehaviour {
             if (tutorialText2!=null) tutorialText2.SetActive(false);
             SoundManager.instance.RandomizeSfx(robbieVictorySound1, robbieVictorySound2, robbieVictorySound3);
             levelFinish = true;
+            Debug.Log("Level Complete Badgee DEUS: " + levelCompleteBadge.activeSelf);
         }
     }
 
