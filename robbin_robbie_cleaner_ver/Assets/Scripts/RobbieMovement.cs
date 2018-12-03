@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class RobbieMovement : MonoBehaviour {
 
@@ -124,6 +125,7 @@ public class RobbieMovement : MonoBehaviour {
                 currentTransformation = Transformations.Bush;
                 canMove = false;
                 transformedToTrashCan = true;
+                SoundManager.instance.PlaySingle(SoundManager.instance.trashCan);
                 gameObject.GetComponent<Animator>().SetBool("transformed", true);
                 gameObject.GetComponent<Animator>().SetBool("jumping", false);
             }
@@ -231,6 +233,9 @@ public class RobbieMovement : MonoBehaviour {
             if (health > 1)
             {
                 GameController.instance.packageInfo(21, "Damage Taken");
+                SoundManager.instance.RandomizeSfx(SoundManager.instance.ow1, 
+                SoundManager.instance.ow2, 
+                SoundManager.instance.ow3);
                 health -= 1;
                 iTime = iTimeMax;
                 kTime = kTimeMax;

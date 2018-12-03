@@ -285,6 +285,10 @@ public class CharacterController2D : MonoBehaviour
                         transformationUpdate(10);
                         m_Rigidbody2D.AddForce(new Vector2(0f, transformed_JumpForce - normal_JumpForce));
                         jumpTimer = 0;
+                        SoundManager.instance.PlaySingle(SoundManager.instance.superJumpSound);
+                    }
+                    else {
+                        SoundManager.instance.PlaySingle(SoundManager.instance.jumpSound);
                     }
                 }
             }

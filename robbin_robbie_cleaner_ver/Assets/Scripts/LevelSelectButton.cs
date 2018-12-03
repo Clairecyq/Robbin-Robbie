@@ -8,6 +8,8 @@ public class LevelSelectButton : MonoBehaviour {
     public Button buttonComponent;
     public Text currentLevel;
     public Image locked;
+    public Texture2D timeBadge;
+    public Texture2D candyBadge;
 
     private LevelSelectList levelSelectList;
     private bool currentLevelPassed;
@@ -20,7 +22,6 @@ public class LevelSelectButton : MonoBehaviour {
     {
         this.currentLevel.text = currentLevel.ToString();
         this.currentLevelPassed = currentLevelPassed;
-        levelSelectList = currentLevelSelectList;
-        
+        levelSelectList = currentLevelSelectList;   
     }
 }
