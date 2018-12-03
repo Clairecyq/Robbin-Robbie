@@ -10,7 +10,7 @@ public class LevelLoader : MonoBehaviour {
     public Button playButton;
 
     public void Start() {
-        LoggingManager.instance.Initialize(626, 2, true);
+        LoggingManager.instance.Initialize(626, 11, false); // logging is active
         LoggingManager.instance.RecordPageLoad("Game Instance Manager Started");
         LoggingManager.instance.InitializeABTestValue();
     }
