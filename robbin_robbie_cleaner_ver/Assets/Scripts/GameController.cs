@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour {
     private int robbieScore = 0;
 
     public int levelId;
-    public int totalNumLevels = 21; // this should not
+    public int totalNumLevels = 26; // this should not
     public int targetTime = 30; 
     private float timer = 0;
     private int minutesElapsed;
