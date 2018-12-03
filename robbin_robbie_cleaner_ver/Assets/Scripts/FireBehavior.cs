@@ -39,7 +39,7 @@ public class FireBehavior : MonoBehaviour {
 				Spring.SetActive(true);
 				GameObject.FindWithTag("Player").GetComponent<RobbieMovement>().canJump = true;
 			}
-			else {
+			else if (this.name.Contains("trashcan")) {
 				energyShell.SetActive(true);
 				energyBar.SetActive(true);
 				//Spring.SetActive(true);

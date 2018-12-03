@@ -387,12 +387,12 @@ Prefab:
     - target: {fileID: 224150018335870172, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 224488981891824238, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 224148647039103298, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
@@ -417,7 +417,7 @@ Prefab:
     - target: {fileID: 224077201651241404, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224581299730594406, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
@@ -632,6 +632,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1164177305502808, guid: c333d6ab16c653a4ebf805db2c0a12d8,
     type: 2}
   m_PrefabInternal: {fileID: 119142877}
+--- !u!4 &119142881 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 119142877}
 --- !u!1001 &129008500
 Prefab:
   m_ObjectHideFlags: 0
@@ -772,16 +776,6 @@ Prefab:
     - target: {fileID: 4053146518284944, guid: ffb4fa25f4fc740fc9b28425bd49ec71, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114789427450978286, guid: ffb4fa25f4fc740fc9b28425bd49ec71,
-        type: 2}
-      propertyPath: wallRight
-      value: 122
-      objectReference: {fileID: 0}
-    - target: {fileID: 114789427450978286, guid: ffb4fa25f4fc740fc9b28425bd49ec71,
-        type: 2}
-      propertyPath: wallLeft
-      value: 115
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffb4fa25f4fc740fc9b28425bd49ec71, type: 2}
@@ -2880,7 +2874,7 @@ RectTransform:
   - {fileID: 358275615}
   - {fileID: 488788491}
   - {fileID: 1430097506}
-  - {fileID: 119142878}
+  - {fileID: 119142881}
   - {fileID: 547026000}
   m_Father: {fileID: 0}
   m_RootOrder: 16

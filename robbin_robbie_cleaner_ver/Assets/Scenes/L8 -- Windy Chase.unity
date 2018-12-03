@@ -407,8 +407,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 224036955613715332, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
-      propertyPath: m_RootOrder
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 224838249635361328, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
@@ -418,7 +416,7 @@ Prefab:
     - target: {fileID: 224061721813521594, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224067391989796044, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
@@ -433,7 +431,7 @@ Prefab:
     - target: {fileID: 224674932030152520, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224074046313677306, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
@@ -624,6 +622,36 @@ Prefab:
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 224811590371686622, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 224277013529321288, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 224101260776583098, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224988894177306808, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224002567198603730, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 224409935921141966, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c333d6ab16c653a4ebf805db2c0a12d8, type: 2}

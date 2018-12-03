@@ -27,11 +27,9 @@ public class HeartBar : MonoBehaviour {
             heart2.image.sprite = heartFull;
         }
         else if (health==1) {
-            Debug.Log("health1");
             heart1.image.sprite = heartFull;
             heart2.image.sprite = heartEmpty;
         } else if (health == 0) {
-            Debug.Log("health0");
 
             heart1.image.sprite = heartEmpty;
             heart2.image.sprite = heartEmpty;

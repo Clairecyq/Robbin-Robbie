@@ -3584,7 +3584,7 @@ Prefab:
     - target: {fileID: 224852392637570262, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 224648387070950570, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
@@ -3604,7 +3604,7 @@ Prefab:
     - target: {fileID: 224760567255247638, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
       propertyPath: m_RootOrder
-      value: 21
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 224067391989796044, guid: c333d6ab16c653a4ebf805db2c0a12d8,
         type: 2}
@@ -3798,6 +3798,10 @@ Prefab:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224216130556922176, guid: c333d6ab16c653a4ebf805db2c0a12d8,
     type: 2}
+  m_PrefabInternal: {fileID: 1879663502}
+--- !u!4 &1879663504 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1879663502}
 --- !u!1001 &1886591434
 Prefab:
@@ -4177,7 +4181,7 @@ RectTransform:
   - {fileID: 1374274836}
   - {fileID: 1156824289}
   - {fileID: 582309187}
-  - {fileID: 1879663503}
+  - {fileID: 1879663504}
   - {fileID: 574406458}
   m_Father: {fileID: 0}
   m_RootOrder: 14

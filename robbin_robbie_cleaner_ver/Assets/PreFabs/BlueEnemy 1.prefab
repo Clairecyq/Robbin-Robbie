@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1748195040064190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33.4, y: 13.6, z: 1.6006578}
+  m_LocalPosition: {x: 121.5, y: -0.6, z: 1.6006578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4656334406113136}
@@ -154,7 +154,7 @@ Animator:
   m_GameObject: {fileID: 1748195040064190}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 49569f8f925904ee5a0e199007be8e6f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3690456c2747d4f2bbfed04899c87690, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -187,9 +187,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robbie: {fileID: 1664522702860658, guid: af821e23048a6a94db846ba76cfd6df9, type: 2}
   walkSpeed: -3.8
-  chase: 1.5
-  wallLeft: -30
-  wallRight: -21
+  wallLeft: 115
+  wallRight: 122
+  vertRange: 5
+  curSpeed: 0
+  slowingDown: 0
+  lookingLeftAndRight: 0
   m_facingRight: 0
 --- !u!212 &212868618901261064
 SpriteRenderer:
