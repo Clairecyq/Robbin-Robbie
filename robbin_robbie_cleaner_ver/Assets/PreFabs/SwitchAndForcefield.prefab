@@ -179,7 +179,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544778334065036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.15, y: 11.5, z: 10}
+  m_LocalPosition: {x: 13.16, y: -0.47, z: 10}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.2}
   m_Children:
   - {fileID: 4704107678304944}
@@ -194,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612858938715834}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.3, y: 0.6, z: -1}
+  m_LocalPosition: {x: -33.38, y: 12.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 4621858676802508}
@@ -222,7 +222,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1830276441998794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.78, y: 2.37, z: 0}
+  m_LocalPosition: {x: 2.2, y: -1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4423851318153288}
@@ -479,7 +479,7 @@ LineRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.2216981, g: 0.5914367, b: 1, a: 1}
-      key1: {r: 0.2216981, g: 0.5914367, b: 1, a: 1}
+      key1: {r: 0.9056604, g: 0.23495908, b: 0.23495908, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

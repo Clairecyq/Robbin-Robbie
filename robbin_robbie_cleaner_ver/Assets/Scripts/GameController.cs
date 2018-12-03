@@ -152,7 +152,7 @@ public class GameController : MonoBehaviour {
 
     public void ChangeToHome()
     {
-        SceneManager.LoadScene("LevelSelector");
+        SceneManager.LoadScene("1 -- LevelSelector");
         AudioListener.pause = true;
     }
 
