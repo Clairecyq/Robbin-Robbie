@@ -64,6 +64,44 @@ public class GameController : MonoBehaviour {
 
     void Awake ()
     {
+        robbie      = GameObject.FindWithTag("Player");
+        CandyText   = GameObject.Find("CandyText");
+        CandyCaneUI = GameObject.Find("CandyCaneUI");
+
+
+        if (instance == null) {
+            instance = this;
+        } else if (instance != this) {
+            Destroy(gameObject);
+        }
+        anchor = UnityEngine.RectTransform.Axis.Horizontal;
+        if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
+        robbieMovement = robbie.GetComponent<RobbieMovement>();
+
+        GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
+        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
+            for (int idx = 0; idx < fires.Length; idx++) {
+                if (idx % 2 == 0 && fires[idx].name.Contains("fire")) {
+                    GameObject fire = fires[idx];
+                    fire.SetActive(false);
+                }
+            }
+        }
+        CandyText.GetComponent<Text>().text = "0 / " + fires.Length.ToString();
+
+        /*
+         * TODO: create testing instance 
+        if (GameStateManager.instance == null || !GameStateManager.instance.isInitialized)
+        {
+            Debug.Log("I am intializing");
+            totalNumLevels = 12;
+            GameStateManager.instance.Initialize(totalNumLevels);
+            GameStateManager.instance.isInitialized = true;
+        }
+        */
+	}
+
+    void Start() {
         GameObject[] objects = (GameObject[]) Resources.FindObjectsOfTypeAll( typeof(GameObject) );
 
         foreach (GameObject o in objects )
@@ -102,43 +140,7 @@ public class GameController : MonoBehaviour {
                     break;
             }
         }
-
-        robbie      = GameObject.FindWithTag("Player");
-        CandyText   = GameObject.Find("CandyText");
-        CandyCaneUI = GameObject.Find("CandyCaneUI");
-
-
-        if (instance == null) {
-            instance = this;
-        } else if (instance != this) {
-            Destroy(gameObject);
-        }
-        anchor = UnityEngine.RectTransform.Axis.Horizontal;
-        if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
-        robbieMovement = robbie.GetComponent<RobbieMovement>();
-
-        GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
-        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
-            for (int idx = 0; idx < fires.Length; idx++) {
-                if (idx % 2 == 0 && fires[idx].name.Contains("fire")) {
-                    GameObject fire = fires[idx];
-                    fire.SetActive(false);
-                }
-            }
-        }
-        CandyText.GetComponent<Text>().text = "0 / " + fires.Length.ToString();
-
-        /*
-         * TODO: create testing instance 
-        if (GameStateManager.instance == null || !GameStateManager.instance.isInitialized)
-        {
-            Debug.Log("I am intializing");
-            totalNumLevels = 12;
-            GameStateManager.instance.Initialize(totalNumLevels);
-            GameStateManager.instance.isInitialized = true;
-        }
-        */
-	}
+    }
 
     public void ChangeToScene(string targetScene)
     {
