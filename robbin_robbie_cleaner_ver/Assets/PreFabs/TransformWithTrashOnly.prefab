@@ -1629,7 +1629,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Target: 15 Sec'
+  m_Text: 'Target: 10 Sec'
 --- !u!114 &114570348496414894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3342,7 +3342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -44.947063, y: 58.4236}
+  m_AnchoredPosition: {x: -100.7101, y: 64.276085}
   m_SizeDelta: {x: 132.9, y: 21.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224502163901955464
