@@ -30,7 +30,7 @@ public class Laser : MonoBehaviour {
         rigidBody.bodyType = RigidbodyType2D.Static;
 
         Vector2 boxSize = new Vector2(LineWidth, (Math.Abs((transform.position - LaserHit.position).magnitude)));
-
+        Debug.DrawLine(transform.position, LaserHit.position );
         boxCollider.size = boxSize;
     }
 
