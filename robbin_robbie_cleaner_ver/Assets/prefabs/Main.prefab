@@ -200,7 +200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1524750053321360
 GameObject:
   m_ObjectHideFlags: 1
@@ -269,7 +269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1709831076565050
 GameObject:
   m_ObjectHideFlags: 1
@@ -386,7 +386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4118409004223764
 Transform:
   m_ObjectHideFlags: 1
@@ -878,7 +878,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0.9633333
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!114 &114619471615227002
@@ -1046,7 +1046,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: '
+  m_Text: '0 : 08'
 --- !u!114 &114875905521853002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1145,17 +1145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde1175cc73ba8f43be13b4b085cdaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishLevelText: {fileID: 1523795798366634}
-  finishLevelText2: {fileID: 1957589824822302}
-  gameOverText: {fileID: 1508602945399834}
-  tutorialText1: {fileID: 0}
-  tutorialText2: {fileID: 0}
-  trashcan: {fileID: 0}
-  boot: {fileID: 0}
-  scoreText: {fileID: 1707288242719642}
-  collectText: {fileID: 1394269015919478}
-  targetTimeText: {fileID: 1547142666622092}
-  energyBarOne: {fileID: 1168436366572488}
+  leftRightTutorial: {fileID: 0}
+  upTutorial: {fileID: 0}
   anchor: 0
   robbieVictorySound1: {fileID: 8300000, guid: 69071c644e0c9433bae9bc25f02f3aa0, type: 3}
   robbieVictorySound2: {fileID: 8300000, guid: 790f12eda40e244258169cd3818d5977, type: 3}
@@ -1167,6 +1158,10 @@ MonoBehaviour:
   levelId: 10
   totalNumLevels: 0
   targetTime: 30
+  totalPossibleTimeScore: 1000
+  oneStarScore: 0
+  twoStarScore: 0
+  threeStarScore: 0
   levelDescription: level twelve
 --- !u!114 &114930210016620748
 MonoBehaviour:
@@ -1183,6 +1178,9 @@ MonoBehaviour:
   pauseButton: {fileID: 114619471615227002}
   restartButton: {fileID: 114329631147177944}
   homeButton: {fileID: 114029680565885096}
+  muteButton: {fileID: 0}
+  musicOn: {fileID: 0}
+  musicMuted: {fileID: 0}
 --- !u!114 &114932487990556400
 MonoBehaviour:
   m_ObjectHideFlags: 1

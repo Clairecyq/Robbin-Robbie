@@ -18,6 +18,9 @@ public class FireBehavior : MonoBehaviour {
 	public GameObject energyBar;
 
 	void Update () {
+		if (gameObject.name.Contains("UI")) {
+			transform.Rotate (new Vector3 (0, 0, circularRotation) * Time.deltaTime);
+		}
 		 transform.Rotate (new Vector3 (0, circularRotation, 0) * Time.deltaTime);
 	}
 
@@ -31,13 +34,12 @@ public class FireBehavior : MonoBehaviour {
             // gameObject.SetActive(false);
 			gameObject.GetComponent<SpriteRenderer>().enabled = false;
 			gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
-			if (this.name.Contains("fire")) {
-				GameController.instance.obtainCoin();
-			}
-			else if (this.name.Contains("spring")) {
+			GameController.instance.obtainCoin();
+			if (this.name.Contains("spring")) {
 				Spring.SetActive(true);
+				GameObject.FindWithTag("Player").GetComponent<RobbieMovement>().canJump = true;
 			}
-			else {
+			else if (this.name.Contains("trashcan")) {
 				energyShell.SetActive(true);
 				energyBar.SetActive(true);
 				//Spring.SetActive(true);

@@ -10,18 +10,20 @@ public class GameController : MonoBehaviour {
 
     private GameObject robbie;
     public GameObject finishLevelText;
-    public GameObject finishLevelText2;
-    public GameObject gameOverText;
-    public GameObject tutorialText1;
-    public GameObject tutorialText2;
-    public GameObject trashcan;
-    public GameObject boot;
-    public GameObject scoreText;
-    public GameObject collectText;
-    public GameObject levelNavButtonBar;
+    private GameObject finishLevelText2;
+    private GameObject gameOverText;
+    private GameObject tutorialText1;
+    private GameObject tutorialText2;
+    private GameObject trashcan;
+    private GameObject boot;
+    private GameObject scoreText;
+    private GameObject collectText;
+    private GameObject levelNavButtonBar;
+    public GameObject leftRightTutorial;
+    public GameObject upTutorial;
 
-    public GameObject targetTimeText;
-    public GameObject energyBarOne;
+    private GameObject targetTimeText;
+    private GameObject energyBarOne;
 
     public RectTransform.Axis anchor;
 
@@ -39,17 +41,73 @@ public class GameController : MonoBehaviour {
     private int robbieScore = 0;
 
     public int levelId;
-    public int totalNumLevels = 21; // this should not
+    public int totalNumLevels = 26; // this should not
     public int targetTime = 30; 
     private float timer = 0;
     private int minutesElapsed;
 
+    public int totalPossibleTimeScore = 1000; //this is the amount of time bonus available 
+    public int oneStarScore;
+    public int twoStarScore;
+    public int threeStarScore;
+    private int starsObtained;
+
+    public GameObject levelCompleteBadge;
+    public GameObject candyBadge;
+
+    public GameObject timeBadge;
 
     public string levelDescription;
+    private GameObject CandyText;
+    private GameObject CandyCaneUI;
+    private int canesCollected = 0;
 
     void Awake ()
     {
-        robbie = GameObject.FindWithTag("Player");
+
+        GameObject[] objects = (GameObject[]) Resources.FindObjectsOfTypeAll( typeof(GameObject) );
+
+        foreach (GameObject o in objects )
+        {
+            
+            switch (o.name)
+            {
+                // case "VictoryText":
+                //     finishLevelText = o;
+                //     break;
+                case "ContinueText":
+                    finishLevelText2 = o;
+                    break;
+                case "GameOverImage":
+                    gameOverText = o;
+                    break;
+                case "scoretext":
+                    scoreText = o;
+                    break;
+                case "CollectionText":
+                    collectText = o;
+                    break;
+                case "TargetTimeText":
+                    targetTimeText = o;
+                    break;
+                case "EnergyBar":
+                    energyBarOne = o;
+                    break;
+                // case "LevelCompleteBadge":
+                //      levelCompleteBadge = o;
+                //      break;
+                // case "AllCandyBadge":
+                //     candyBadge = o;
+                //      break;
+                // case "FastTimeBadge":
+                //      timeBadge = o;
+                //      break;
+            }
+        }
+        robbie      = GameObject.FindWithTag("Player");
+        CandyText   = GameObject.Find("CandyText");
+        CandyCaneUI = GameObject.Find("CandyCaneUI");
+
 
         if (instance == null) {
             instance = this;
@@ -60,14 +118,19 @@ public class GameController : MonoBehaviour {
         if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
         robbieMovement = robbie.GetComponent<RobbieMovement>();
 
-        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
-            GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
+        GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
+        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2 && false) {
+            int ctr = 0;
             for (int idx = 0; idx < fires.Length; idx++) {
                 if (idx % 2 == 0 && fires[idx].name.Contains("fire")) {
                     GameObject fire = fires[idx];
                     fire.SetActive(false);
+                    ctr += 1;
                 }
             }
+            if (CandyText != null) CandyText.GetComponent<Text>().text = "0 / " + ctr.ToString();
+        } else {
+            if (CandyText != null) CandyText.GetComponent<Text>().text = "0 / " + fires.Length.ToString();
         }
 
         /*
@@ -100,7 +163,19 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKeyDown("r") && gameOver) {
+        // if (Input.anyKeyDown) {
+        //     if (upTutorial != null)
+        //     {
+        //         upTutorial.SetActive(false);
+        //         leftRightTutorial.SetActive(false);
+        //     }
+        // }
+        if (Input.GetKeyDown("p"))
+        {
+            PauseOrResume();
+        }
+
+        if (Input.GetKeyDown("r")) {
             Restart();
         }
         CharacterController2D char_component = robbie.GetComponent<CharacterController2D>();
@@ -125,6 +200,13 @@ public class GameController : MonoBehaviour {
                 if (currentLevelBuildIndex < GameStateManager.instance.totalNumLevels + 2)
                 {
                     Debug.Log(currentLevelBuildIndex + 1);
+                    if (levelCompleteBadge != null) {
+                        // levelCompleteBadge.SetActive(false);
+                        // timeBadge.GetComponent<Image>().color = Color.white;
+                        // timeBadge.SetActive(false);
+                        // candyBadge.GetComponent<Image>().color = Color.white;
+                        // candyBadge.SetActive(false);
+                    }
 
                     GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex - 1] = true; //levels are offset by 1 because of load scene and level selector
                     SceneManager.LoadScene(currentLevelBuildIndex + 1);
@@ -180,6 +262,13 @@ public class GameController : MonoBehaviour {
             Vector3 energyScale = energyBarOne.transform.localScale;
             energyScale.x = 1.0f;
             energyBarOne.transform.localScale = energyScale;
+            if (levelCompleteBadge != null) {
+                levelCompleteBadge.SetActive(false);
+                timeBadge.GetComponent<Image>().color = Color.white;
+                timeBadge.SetActive(false);
+                candyBadge.GetComponent<Image>().color = Color.white;
+                candyBadge.SetActive(false);
+            }
             robbie.GetComponent<RobbieMovement>().health = robbie.GetComponent<RobbieMovement>().maxHealth;
         }
     }
@@ -227,6 +316,10 @@ public class GameController : MonoBehaviour {
                 fire.transform.position = fviewpos;
             }
         }
+        // levelCompleteBadge = GameObject.Find("LevelCompleteBadge");
+        // candyBadge = GameObject.Find("AllCandyBadge");
+        // timeBadge = GameObject.Find("FastTimeBadge");
+
         // if (ctr == fires.Length) {
         //     collectText.GetComponent<Text>().text = "All Fire Collected!";
         // }
@@ -243,33 +336,61 @@ public class GameController : MonoBehaviour {
         string finText = finishTime + "!  ";
         int lossTime = targetTime - (int) timer;
         int winTime = (int) timer - targetTime;
-        // if ((int) timer <= targetTime) {
-        //     targetTimeText.GetComponent<Text>().text = finText;// + "-" + lossTime.ToString() + " fast!";
-        // }
-        // else {
-        //     targetTimeText.GetComponent<Text>().text = finText;// + "+" + winTime.ToString() + " slow :(";
-        // }
+        //Debug.Log("Timer: " + timer.ToString());
+        if ((int) timer > targetTime) {
+            timeBadge.GetComponent<Image>().color = Color.grey;
+        }
         //targetTimeText.transform.position = fpos + new Vector2(-20,8);
         //targetTimeText.SetActive(true);
         scoreText.SetActive(false);
+        
+        Debug.Log("Level Complete Badgee BEFORE: " + levelCompleteBadge.activeSelf);
+        levelCompleteBadge.SetActive(true);
+        Debug.Log("Level Complete Badgee AFTER: " + levelCompleteBadge.activeSelf);
+        if (fires.Length > canesCollected) {candyBadge.GetComponent<Image>().color = Color.grey;}
+        timeBadge.SetActive(true);
+        candyBadge.SetActive(true);
     }
 
     public void PickedDonut() {
         if (!gameOver) {
             packageInfo(10, "Robbie Victory");
             finishLevelText.SetActive(true);
-            finishLevelText2.SetActive(true);
+            //finishLevelText2.SetActive(true);
             displayVictoryStats();
             if (tutorialText1!=null) tutorialText1.SetActive(false);
             if (tutorialText2!=null) tutorialText2.SetActive(false);
             SoundManager.instance.RandomizeSfx(robbieVictorySound1, robbieVictorySound2, robbieVictorySound3);
             levelFinish = true;
+            Debug.Log("Level Complete Badgee DEUS: " + levelCompleteBadge.activeSelf);
         }
     }
 
     public void obtainCoin() {
-        robbieScore += 1;
+        robbieScore += 100;
+        canesCollected += 1;
+        GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
+        if (canesCollected == fires.Length) {
+            if (CandyCaneUI != null) CandyCaneUI.GetComponent<Image>().color = Random.ColorHSV();
+        }
+        if (CandyText != null) CandyText.GetComponent<Text>().text = canesCollected.ToString() + " / " + fires.Length.ToString();
         //packageInfo(20, "Collect Fire");
+    }
+
+    public int getNumStarsObtained() {
+        if (robbieScore > threeStarScore) {
+            return 3;
+        }
+
+        else if (robbieScore > twoStarScore) {
+            return 2;
+        }
+
+        else if (robbieScore > oneStarScore) {
+            return 1;
+        }
+
+        return 0;
     }
 
     public void packageInfo(int actionID, string action) {

@@ -9,7 +9,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] public float transformed_JumpForce = 300f;                         // Amount of force added when the player jumps.
 
     [SerializeField] private float startingHidingPower = 300;
-    public float regenpersec = 25f;
+    public float regenpersec = 75f;
     private float regen_counter = 0;
     public float lockout = 1;
 
@@ -23,7 +23,7 @@ public class CharacterController2D : MonoBehaviour
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
     [SerializeField] private bool m_AirControl = true;                          // Whether or not a player can steer while jumping;
-    [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
+    public LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
 
     [SerializeField] private LayerMask m_WhatIsFinishLevel;
 
@@ -42,7 +42,7 @@ public class CharacterController2D : MonoBehaviour
     private bool m_Grounded;            // Whether or not the player is grounded.
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
-    private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+    public bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
 
     [Header("Events")]
@@ -89,6 +89,8 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Debug.Log(m_Grounded);
+
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
         if (GameController.instance.levelFinish) {
@@ -100,7 +102,7 @@ public class CharacterController2D : MonoBehaviour
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(m_GroundCheck.position + new Vector3(0f, -1f, 0f), groundCheckBoxSize, m_WhatIsGround);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(m_GroundCheck.position + new Vector3(0f, -1f, 0f), groundCheckBoxSize, 0f, m_WhatIsGround);
         Collider2D[] collidersItem = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsItem);
         Collider2D[] collidersTrap = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsTrap);
         Collider2D[] collides_with_donut = Physics2D.OverlapCircleAll(m_DonutCheck.position, k_GroundedRadius, m_WhatIsFinishLevel);
@@ -175,6 +177,10 @@ public class CharacterController2D : MonoBehaviour
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy2"), LayerMask.NameToLayer("Enemy2"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("Enemy2"));
+
+        if (!m_Grounded) {
+            transform.parent = null;
+        }
 
         m_Rigidbody2D.velocity = new Vector3(
              m_Rigidbody2D.velocity.x,

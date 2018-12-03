@@ -16,14 +16,19 @@ public class CameraFollow : MonoBehaviour {
     private float topBound;
     private float bottomBound;
 
+    public GameObject bound;
     private Transform target;
-    public SpriteRenderer spriteBounds;
-    public Transform spriteTransform;
+    private SpriteRenderer spriteBounds;
+    private Transform spriteTransform;
     public bool manualOffset = false;
+    public bool largeRightOffset = false;
 
 	// Use this for initialization
 	void Awake () {
         robbie = GameObject.FindWithTag("Player");
+        bound = GameObject.Find("box"); 
+        spriteTransform = bound.transform;
+        spriteBounds = bound.GetComponent < SpriteRenderer >();
 
         if (manualOffset)
         {
@@ -42,6 +47,8 @@ public class CameraFollow : MonoBehaviour {
         rightBound = (float)((spriteBounds.sprite.bounds.size.x * xmult) / 2.0f - horzExtent + xadd);
         bottomBound = (float)(yadd + vertExtent - (spriteBounds.sprite.bounds.size.y * ymult) / 2.0f);
         topBound = (float)((spriteBounds.sprite.bounds.size.y * ymult) / 2.0f - vertExtent + yadd);
+
+        if (largeRightOffset) rightBound = 150.0f;
     }
 	
 	// Update is called once per frame

@@ -12,7 +12,7 @@ public class DamageColliderScript : MonoBehaviour {
     }
 
 
-    private void OnTriggerEnter2D(Collider2D c)
+    private void OnTriggerStay2D(Collider2D c)
     {
         if (c.gameObject.name == "Robbie")
         {
