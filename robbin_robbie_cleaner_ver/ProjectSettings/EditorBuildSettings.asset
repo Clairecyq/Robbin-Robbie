@@ -57,6 +57,9 @@ EditorBuildSettings:
     path: Assets/Scenes/T7 -- Forcefield.unity
     guid: 60436dc59d8e2454098b005a7c546fad
   - enabled: 1
+    path: Assets/Scenes/L7 -- Maze.unity
+    guid: 2b536f0345fd737468e76c261bd63706
+  - enabled: 1
     path: Assets/Scenes/L11 -- Multi Forcefield And All Enemies.unity
     guid: fdb85c841d34fc74e98d99987186a752
   - enabled: 1
@@ -78,11 +81,11 @@ EditorBuildSettings:
     path: Assets/Scenes/ET5 -- Wind.unity
     guid: a5d36d1f717ea36479501c760d1b903d
   - enabled: 1
-    path: Assets/Scenes/L7 -- Maze.unity
-    guid: 2b536f0345fd737468e76c261bd63706
-  - enabled: 1
     path: Assets/Scenes/L8 -- 4Rooms.unity
     guid: 4208d3bd4b431734daa8f177bee3a93d
+  - enabled: 0
+    path: Assets/Scenes/L9 -- Multi Switch.unity
+    guid: b68e5336685c1af4e9212f00b43c3b5d
   - enabled: 1
     path: Assets/Scenes/L10--TheFall.unity
     guid: 679cb40cb8da3f74a99436eab8099f9a
