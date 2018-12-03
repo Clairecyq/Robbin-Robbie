@@ -193,7 +193,7 @@ MonoBehaviour:
   curSpeed: 0
   slowingDown: 0
   lookingLeftAndRight: 0
-  m_facingRight: 1
+  m_facingRight: 0
 --- !u!212 &212060243447939246
 SpriteRenderer:
   m_ObjectHideFlags: 1

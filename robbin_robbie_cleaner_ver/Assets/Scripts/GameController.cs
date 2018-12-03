@@ -119,7 +119,7 @@ public class GameController : MonoBehaviour {
         robbieMovement = robbie.GetComponent<RobbieMovement>();
 
         GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
-        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2) {
+        if (LoggingManager.instance != null && LoggingManager.instance.playerABValue == 2 && false) {
             int ctr = 0;
             for (int idx = 0; idx < fires.Length; idx++) {
                 if (idx % 2 == 0 && fires[idx].name.Contains("fire")) {
@@ -163,13 +163,13 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.anyKeyDown) {
-            if (upTutorial != null)
-            {
-                upTutorial.SetActive(false);
-                leftRightTutorial.SetActive(false);
-            }
-        }
+        // if (Input.anyKeyDown) {
+        //     if (upTutorial != null)
+        //     {
+        //         upTutorial.SetActive(false);
+        //         leftRightTutorial.SetActive(false);
+        //     }
+        // }
         if (Input.GetKeyDown("p"))
         {
             PauseOrResume();
@@ -201,11 +201,11 @@ public class GameController : MonoBehaviour {
                 {
                     Debug.Log(currentLevelBuildIndex + 1);
                     if (levelCompleteBadge != null) {
-                        levelCompleteBadge.SetActive(false);
-                        timeBadge.GetComponent<Image>().color = Color.white;
-                        timeBadge.SetActive(false);
-                        candyBadge.GetComponent<Image>().color = Color.white;
-                        candyBadge.SetActive(false);
+                        // levelCompleteBadge.SetActive(false);
+                        // timeBadge.GetComponent<Image>().color = Color.white;
+                        // timeBadge.SetActive(false);
+                        // candyBadge.GetComponent<Image>().color = Color.white;
+                        // candyBadge.SetActive(false);
                     }
 
                     GameStateManager.instance.levelsUnlocked[currentLevelBuildIndex - 1] = true; //levels are offset by 1 because of load scene and level selector
@@ -356,7 +356,7 @@ public class GameController : MonoBehaviour {
         if (!gameOver) {
             packageInfo(10, "Robbie Victory");
             finishLevelText.SetActive(true);
-            finishLevelText2.SetActive(true);
+            //finishLevelText2.SetActive(true);
             displayVictoryStats();
             if (tutorialText1!=null) tutorialText1.SetActive(false);
             if (tutorialText2!=null) tutorialText2.SetActive(false);
@@ -371,9 +371,9 @@ public class GameController : MonoBehaviour {
         canesCollected += 1;
         GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
         if (canesCollected == fires.Length) {
-            CandyCaneUI.GetComponent<Image>().color = Random.ColorHSV();
+            if (CandyCaneUI != null) CandyCaneUI.GetComponent<Image>().color = Random.ColorHSV();
         }
-        CandyText.GetComponent<Text>().text = canesCollected.ToString() + " / " + fires.Length.ToString();
+        if (CandyText != null) CandyText.GetComponent<Text>().text = canesCollected.ToString() + " / " + fires.Length.ToString();
         //packageInfo(20, "Collect Fire");
     }
 
