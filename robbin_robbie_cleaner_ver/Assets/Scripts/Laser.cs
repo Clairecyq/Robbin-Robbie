@@ -41,14 +41,5 @@ public class Laser : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D c)
     {
-        if (c.gameObject.name == "Robbie")
-        {
-            Debug.Log("Ow");
-        }
-
-        else
-        {
-            Debug.Log("hjtrnkmgpklgrepkm");
-        }
     }
 }
