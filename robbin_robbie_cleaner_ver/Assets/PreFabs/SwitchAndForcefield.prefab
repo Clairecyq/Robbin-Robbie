@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4736596201637960}
   - component: {fileID: 120592075007046200}
   - component: {fileID: 114424897486610874}
-  m_Layer: 20
+  m_Layer: 31
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4704107678304944}
   - component: {fileID: 212440935011308066}
   - component: {fileID: 61149221060789416}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: LaserGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4329063354606354}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: HitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4555685184265006}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: LaserRetrievalPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 61172735101052736}
   - component: {fileID: 212124164860228902}
   - component: {fileID: 114941070643734812}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Forcefield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4211763615619296}
   - component: {fileID: 212588197373673630}
   - component: {fileID: 61970265229526100}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: LaserCatcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612858938715834}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5299268, y: -2.9432416, z: -1}
+  m_LocalPosition: {x: 28.236843, y: 9.345639, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 4621858676802508}
@@ -222,7 +222,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1830276441998794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8, y: -1.5, z: 0}
+  m_LocalPosition: {x: -50.2, y: -35.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4423851318153288}
