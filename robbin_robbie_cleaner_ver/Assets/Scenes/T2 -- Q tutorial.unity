@@ -2642,6 +2642,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1292684257469696, guid: c333d6ab16c653a4ebf805db2c0a12d8,
     type: 2}
   m_PrefabInternal: {fileID: 1682564629}
+--- !u!1 &1682564636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1712405690645978, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1682564629}
+--- !u!1 &1682564637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1389845708675920, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1682564629}
+--- !u!1 &1682564638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1836383266314256, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1682564629}
+--- !u!1 &1682564639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1371668886688272, guid: c333d6ab16c653a4ebf805db2c0a12d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1682564629}
 --- !u!1001 &1813634995
 Prefab:
   m_ObjectHideFlags: 0
@@ -2980,7 +3000,7 @@ Prefab:
         type: 2}
       propertyPath: finishLevelText
       value: 
-      objectReference: {fileID: 2002460567}
+      objectReference: {fileID: 1682564639}
     - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
         type: 2}
       propertyPath: finishLevelText2
@@ -3031,6 +3051,21 @@ Prefab:
       propertyPath: boot
       value: 
       objectReference: {fileID: 1682564634}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: levelCompleteBadge
+      value: 
+      objectReference: {fileID: 1682564638}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: candyBadge
+      value: 
+      objectReference: {fileID: 1682564636}
+    - target: {fileID: 114823624637003706, guid: 85f8134833588504e8171f947dc09415,
+        type: 2}
+      propertyPath: timeBadge
+      value: 
+      objectReference: {fileID: 1682564637}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85f8134833588504e8171f947dc09415, type: 2}
   m_IsPrefabAsset: 0
