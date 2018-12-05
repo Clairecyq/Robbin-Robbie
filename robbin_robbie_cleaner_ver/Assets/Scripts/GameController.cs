@@ -122,7 +122,7 @@ public class GameController : MonoBehaviour {
             Destroy(gameObject);
         }
         anchor = UnityEngine.RectTransform.Axis.Horizontal;
-        if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
+        if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(SceneManager.GetActiveScene().buildIndex, levelDescription);
         robbieMovement = robbie.GetComponent<RobbieMovement>();
 
         GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
