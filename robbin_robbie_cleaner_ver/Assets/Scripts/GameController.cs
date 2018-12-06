@@ -122,7 +122,7 @@ public class GameController : MonoBehaviour {
             Destroy(gameObject);
         }
         anchor = UnityEngine.RectTransform.Axis.Horizontal;
-        if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(levelId, levelDescription);
+        if (LoggingManager.instance != null) LoggingManager.instance.RecordLevelStart(SceneManager.GetActiveScene().buildIndex, levelDescription);
         robbieMovement = robbie.GetComponent<RobbieMovement>();
 
         GameObject[] fires = GameObject.FindGameObjectsWithTag("Collectable");
@@ -426,7 +426,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void packageInfo(int actionID, string action) {
-        int level = levelId;
+        int level = SceneManager.GetActiveScene().buildIndex;
         float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
         float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
         float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
