@@ -426,7 +426,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void packageInfo(int actionID, string action) {
-        int level = levelId;
+        int level = SceneManager.GetActiveScene().buildIndex;
         float stamina = (float)robbie.GetComponent<CharacterController2D>().currentHidingPower / robbie.GetComponent<CharacterController2D>().getMaxHidingEnergy();
         float xpos = robbie.GetComponent<CharacterController2D>().transform.position.x;
         float ypos = robbie.GetComponent<CharacterController2D>().transform.position.y;
